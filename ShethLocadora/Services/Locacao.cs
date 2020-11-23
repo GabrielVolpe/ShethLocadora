@@ -41,7 +41,7 @@ namespace ShethLocadora.Services
             ValorMulta = 0.00; // Ou 150,00
             TaxaJurosAtraso = 0.50; // % Ao dia
             ValorJuros = 0.00;
-            ValorFinal = filme.ValorLocacao; // Efetuar cálculos no momento da devolução
+            ValorFinal = filme.ValorLocacao;
         }
 
         internal static void AtualizaLocacoes()
