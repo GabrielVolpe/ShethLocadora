@@ -41,7 +41,7 @@ namespace ShethLocadora.Controllers
                     {
                         Console.Clear();
 
-                        FuncoesTexto.ApresentaMensagemErro("Opcão inválida! ");
+                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
 
                         TelaMenuLocacao.ApresentaTela();
                     }

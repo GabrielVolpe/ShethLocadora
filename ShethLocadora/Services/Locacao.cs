@@ -46,7 +46,7 @@ namespace ShethLocadora.Services
 
         internal static void AtualizaLocacoes()
         {
-            string cpfCliente = "";
+            string cpfCliente = null;
             bool atrasoDevolucao = false;
 
             foreach (var item in BancoDados.Locacoes.ToArray())
@@ -56,6 +56,7 @@ namespace ShethLocadora.Services
                 if (diasAtraso > 0)
                 {
                     cpfCliente = item.Cliente.Cpf;
+
                     atrasoDevolucao = true;
 
                     item.Situacao = false;
@@ -64,8 +65,7 @@ namespace ShethLocadora.Services
 
                     item.ValorFinal = item.Filme.ValorLocacao + item.ValorMulta + item.ValorJuros;
                 }
-
-                if (diasAtraso <= 0)
+                else
                 {
                     item.ValorFinal = item.Filme.ValorLocacao + item.ValorMulta;
                 }

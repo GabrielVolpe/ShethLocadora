@@ -9,7 +9,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - USUÁRIOS");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - USUÁRIOS");
 
             LocalizaUsuarioAlteracao();
         }
@@ -21,7 +21,7 @@ namespace ShethLocadora.Viewes
             Console.Write("\n Informe o CPF do usuário que deseja alterar: ");
             CpfInformado = Console.ReadLine();
 
-            bool resultadoValidacaoCpf = ValidaCpfInformado.ValidaCpfUsuario(CpfInformado);
+            bool resultadoValidacaoCpf = UtilitariosGlobais.ValidaCpfUsuario(CpfInformado);
 
             Console.WriteLine();
 
@@ -39,7 +39,7 @@ namespace ShethLocadora.Viewes
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Nenhum usuário localizado!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nenhum usuário localizado!");
 
                 TelaMenuUsuario.ApresentaTela();
             }

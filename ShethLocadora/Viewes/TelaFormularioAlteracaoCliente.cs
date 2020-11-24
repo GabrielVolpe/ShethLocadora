@@ -25,13 +25,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraNome(TelaOpcoesAlteracaoCliente.CpfInformado, nomeInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Nome inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nome inválido!");
 
                 RecebeNome();
             }
@@ -55,13 +55,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraDataNascimento(TelaOpcoesAlteracaoCliente.CpfInformado, dataNascimentoInformada);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Data inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Data inválida!");
 
                 RecebeDataNascimento();
             }
@@ -95,13 +95,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraSexo(TelaOpcoesAlteracaoCliente.CpfInformado, opcaoSexoInformada);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeSexo();
             }
@@ -125,13 +125,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraCpf(TelaOpcoesAlteracaoCliente.CpfInformado, cpfInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Cpf inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Cpf inválido!");
 
                 RecebeCpf();
             }
@@ -155,13 +155,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraEmail(TelaOpcoesAlteracaoCliente.CpfInformado, emailInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("E-mail inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("E-mail inválido!");
 
                 RecebeEmail();
             }
@@ -185,13 +185,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraNumeroCelular(TelaOpcoesAlteracaoCliente.CpfInformado, numeroCelularInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Número de celular inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Número de celular inválido!");
 
                 RecebeNumeroCelular();
             }
@@ -225,13 +225,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraUnidadeFederativa(TelaOpcoesAlteracaoCliente.CpfInformado, opcaoUnidadeFederativaInformada);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeUnidadeFederativa();
             }
@@ -255,13 +255,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraCidade(TelaOpcoesAlteracaoCliente.CpfInformado, cidadeInformada);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Cidade inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Cidade inválida!");
 
                 RecebeCidade();
             }
@@ -285,13 +285,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraBairro(TelaOpcoesAlteracaoCliente.CpfInformado, bairroInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Bairro inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Bairro inválida!");
 
                 RecebeBairro();
             }
@@ -315,13 +315,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraLogradouro(TelaOpcoesAlteracaoCliente.CpfInformado, logradouroInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Logradouro inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Logradouro inválida!");
 
                 RecebeLogradouro();
             }
@@ -345,13 +345,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraComplemento(TelaOpcoesAlteracaoCliente.CpfInformado, complementoInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Complemento inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Complemento inválida!");
 
                 RecebeComplemento();
             }
@@ -375,13 +375,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraCep(TelaOpcoesAlteracaoCliente.CpfInformado, cepInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Cep inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Cep inválido!");
 
                 RecebeCep();
             }
@@ -407,13 +407,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraStatus(TelaOpcoesAlteracaoCliente.CpfInformado, opcaoStatusInformada);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeStatus();
             }

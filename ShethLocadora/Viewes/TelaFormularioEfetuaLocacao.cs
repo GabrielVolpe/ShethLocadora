@@ -8,28 +8,33 @@ namespace ShethLocadora.Viewes
 {
     static class TelaFormularioEfetuaLocacao
     {
-        private static int _idInformado;
+        private static int _idInformado = 0;
 
-        private static string _cpfInformado;
+        private static string _cpfInformado = null;
 
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE LOCAÇÃO - LOCAÇÕES");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE LOCAÇÃO - LOCAÇÕES");
 
             Locacao.AtualizaLocacoes();
 
-            LocalizaFilme();
+            RecebeIdFilme();
         }
 
-        private static void LocalizaFilme()
+        private static void RecebeIdFilme()
         {
             Console.Write("\n Informe o ID do filme que deseja locar: ");
             int.TryParse(Console.ReadLine(), out _idInformado);
 
-            bool resultadoValidacaoId = ValidaIdInformado.ValidaIdFilme(_idInformado);
+            bool resultadoValidacaoId = UtilitariosGlobais.ValidaIdFilme(_idInformado);
 
             Console.WriteLine();
 
+            VerificaResultadoIdFilme(resultadoValidacaoId);
+        }
+
+        private static void VerificaResultadoIdFilme(bool resultadoValidacaoId)
+        {
             if (resultadoValidacaoId == true)
             {
                 foreach (var item in BancoDados.Filmes)
@@ -37,6 +42,8 @@ namespace ShethLocadora.Viewes
                     if (item.Id == _idInformado)
                     {
                         Console.Write(item);
+
+                        break;
                     }
                 }
 
@@ -46,7 +53,7 @@ namespace ShethLocadora.Viewes
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemErro("Nenhum filme localizado!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nenhum filme localizado!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
@@ -64,7 +71,7 @@ namespace ShethLocadora.Viewes
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemErro("Filme Indisponível para locação!");
+                UtilitariosGlobais.ApresentaMensagemErro("Filme Indisponível para locação!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
@@ -76,27 +83,32 @@ namespace ShethLocadora.Viewes
 
             if (quantidadeDisponivelFilme > 0)
             {
-                LocalizaCliente();
+                RecebeCpfCliente();
             }
             else
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemErro("Filme Indisponível para locação!");
+                UtilitariosGlobais.ApresentaMensagemErro("Filme Indisponível para locação!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
         }
 
-        private static void LocalizaCliente()
+        private static void RecebeCpfCliente()
         {
             Console.Write("\n Informe o CPF do cliente que deseja vincular a locação: ");
             _cpfInformado = Console.ReadLine();
 
-            bool resultadoValidacaoCpf = ValidaCpfInformado.ValidaCpfCliente(_cpfInformado);
+            bool resultadoValidacaoCpf = UtilitariosGlobais.ValidaCpfCliente(_cpfInformado);
 
             Console.WriteLine();
 
+            VerificaResultadoCpfCliente(resultadoValidacaoCpf);
+        }
+
+        private static void VerificaResultadoCpfCliente(bool resultadoValidacaoCpf)
+        {
             if (resultadoValidacaoCpf == true)
             {
                 foreach (var item in BancoDados.Clientes)
@@ -104,6 +116,8 @@ namespace ShethLocadora.Viewes
                     if (item.Cpf == _cpfInformado)
                     {
                         Console.WriteLine(item);
+
+                        break;
                     }
                 }
 
@@ -113,7 +127,7 @@ namespace ShethLocadora.Viewes
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemErro("Nenhum cliente localizado para o CPF informado!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nenhum cliente localizado para o CPF informado!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
@@ -131,7 +145,7 @@ namespace ShethLocadora.Viewes
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemErro("Cliente inativo!");
+                UtilitariosGlobais.ApresentaMensagemErro("Cliente inativo!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
@@ -139,20 +153,25 @@ namespace ShethLocadora.Viewes
 
         private static void ApresentaConfirmacao()
         {
-            int opcaoConfirmacaoLocacao;
+            int opcaoConfirmacaoLocacao = 0;
 
-            Console.Write($" Deseja confirmar a locação (1 = SIM / 2 = NÃO)? ");
+            Console.Write($" Deseja confirmar a locação (1 = SIM / 2 = NÃO): ");
             int.TryParse(Console.ReadLine(), out opcaoConfirmacaoLocacao);
 
             Console.WriteLine();
 
+            VerificaOpcaoConfirmacao(opcaoConfirmacaoLocacao);
+        }
+
+        private static void VerificaOpcaoConfirmacao(int opcaoConfirmacaoLocacao)
+        {
             if (opcaoConfirmacaoLocacao == 1)
             {
                 Console.Clear();
 
                 ControllerLocacao.ConcluiLocacao(_idInformado, _cpfInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Locação realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Locação realizada com sucesso!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
@@ -160,13 +179,13 @@ namespace ShethLocadora.Viewes
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemSucesso("Locação cancelada!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Locação cancelada!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 ApresentaConfirmacao();
             }

@@ -8,18 +8,18 @@ namespace ShethLocadora.Viewes
 {
     class TelaFormularioDevolveLocacao
     {
-        private static int _idInformado;
+        private static int _idInformado = 0;
 
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE DEVOLUÇÃO - LOCAÇÕES");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE DEVOLUÇÃO - LOCAÇÕES");
 
             Locacao.AtualizaLocacoes();
 
-            LocalizaLocacao();
+            RecebeIdLocacao();
         }
 
-        private static void LocalizaLocacao()
+        private static void RecebeIdLocacao()
         {
             Console.Write("\n Informe o ID da locação que deseja devolver: ");
             int.TryParse(Console.ReadLine(), out _idInformado);
@@ -28,6 +28,11 @@ namespace ShethLocadora.Viewes
 
             Console.WriteLine();
 
+            VerificaResultadoIdLocacao(resultadoValidacaoId);
+        }
+
+        private static void VerificaResultadoIdLocacao(bool resultadoValidacaoId)
+        {
             if (resultadoValidacaoId == true)
             {
                 foreach (var item in BancoDados.Locacoes)
@@ -35,32 +40,39 @@ namespace ShethLocadora.Viewes
                     if (item.Id == _idInformado)
                     {
                         Console.Write(item);
+
+                        break;
                     }
                 }
 
                 Console.WriteLine();
 
-                ConfirmaEstadoDevolucao();
+                ApresentaOpcoesEstadoDevolucao();
             }
             else
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemErro("Nenhuma locação ativa localizada!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nenhuma locação ativa localizada!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
         }
 
-        private static void ConfirmaEstadoDevolucao()
+        private static void ApresentaOpcoesEstadoDevolucao()
         {
-            int opcaoConfirmacaoEstadoDevolucao;
+            int opcaoConfirmacaoEstadoDevolucao = 0;
 
             Console.Write($" O filme está em perfeitas condições de uso? (1 = SIM / 2 = NÃO): ");
             int.TryParse(Console.ReadLine(), out opcaoConfirmacaoEstadoDevolucao);
 
             Console.WriteLine();
 
+            VerificaOpcaoEstadoDevolucao(opcaoConfirmacaoEstadoDevolucao);
+        }
+
+        private static void VerificaOpcaoEstadoDevolucao(int opcaoConfirmacaoEstadoDevolucao)
+        {
             if (opcaoConfirmacaoEstadoDevolucao == 1)
             {
                 ExibeValoresAhPagar();
@@ -72,25 +84,30 @@ namespace ShethLocadora.Viewes
                 Console.WriteLine(" ATENÇÃO! Devido ao estado de devolução do filme, uma multa de R$150,00 será acrescida ao valor da locação.\n");
                 Console.ResetColor();
 
-                ConfirmaAplicacaoMulta();
+                ApresentaOpcoesAplicacaoMulta();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
-                ConfirmaEstadoDevolucao();
+                ApresentaOpcoesEstadoDevolucao();
             }
         }
 
-        private static void ConfirmaAplicacaoMulta()
+        private static void ApresentaOpcoesAplicacaoMulta()
         {
-            int opcaoConfirmacaoAplicarMulta;
+            int opcaoConfirmacaoAplicarMulta = 0;
 
             Console.Write(" Deseja aplicar a multa? (1 = SIM / 2 = NÃO): ");
             int.TryParse(Console.ReadLine(), out opcaoConfirmacaoAplicarMulta);
 
             Console.WriteLine();
 
+            VerificaOpcoesAplicacaoMulta(opcaoConfirmacaoAplicarMulta);
+        }
+
+        private static void VerificaOpcoesAplicacaoMulta(int opcaoConfirmacaoAplicarMulta)
+        {
             if (opcaoConfirmacaoAplicarMulta == 1)
             {
                 ControllerLocacao.AplicaMulta(_idInformado);
@@ -99,56 +116,49 @@ namespace ShethLocadora.Viewes
             {
                 Console.BackgroundColor = ConsoleColor.Gray;
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine(" Aplicação de multa cancelada!");
+                Console.WriteLine(" Aplicação de multa cancelada!\n");
                 Console.ResetColor();
 
                 ExibeValoresAhPagar();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
-                ConfirmaAplicacaoMulta();
+                ApresentaOpcoesAplicacaoMulta();
             }
         }
 
         internal static void ExibeValoresAhPagar()
         {
-            foreach (var item in BancoDados.Locacoes)
-            {
-                if (item.Id == _idInformado)
-                {
-                    item.DataOcorreuDevolucao = DateTime.Now;
+            Console.WriteLine(" ================================================== V A L O R   A   P A G A R");
 
-                    Console.WriteLine(" ================================================== V A L O R   A   P A G A R");
-                    Console.WriteLine($" Valor de locação no prazo: {item.ValorPrazo.ToString("F2")}");
-                    Console.WriteLine($" Dias em atraso...........: {DateTime.Now.Day - item.DataPrevistaDevolucao.Day}");
-                    Console.WriteLine($" Taxa de juros......... ..: {item.TaxaJurosAtraso}%" + " a.d");
-                    Console.WriteLine($" Valor da multa...........: R$ {item.ValorMulta.ToString("F2")}");
-                    Console.WriteLine($" Valor dos juros..........: R$ {item.ValorJuros.ToString("F2")}");
-                    Console.WriteLine($"\n TOTAL..................: R$ {item.ValorFinal.ToString("F2")}");
-                }
-            }
+            UtilitariosGlobais.ApresentaResumoValores(_idInformado);
 
             ApresentaConfirmacao();
         }
 
         private static void ApresentaConfirmacao()
         {
-            int opcaoConfirmacaoDevolucao;
+            int opcaoConfirmacaoDevolucao = 0;
 
-            Console.Write($"\n Deseja confirmar a devolução (1 = SIM / 2 = NÃO)? ");
+            Console.Write($" Deseja confirmar a devolução (1 = SIM / 2 = NÃO)? ");
             int.TryParse(Console.ReadLine(), out opcaoConfirmacaoDevolucao);
 
             Console.WriteLine();
 
+            VerificaOpcaoConfirmacao(opcaoConfirmacaoDevolucao);
+        }
+
+        private static void VerificaOpcaoConfirmacao(int opcaoConfirmacaoDevolucao)
+        {
             if (opcaoConfirmacaoDevolucao == 1)
             {
                 Console.Clear();
 
                 ControllerLocacao.ConcluiDevolucao(_idInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Devolução realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Devolução realizada com sucesso!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
@@ -157,13 +167,13 @@ namespace ShethLocadora.Viewes
                 Console.Clear();
                 ControllerLocacao.RetiraMulta(_idInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Devolução cancelada!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Devolução cancelada!");
 
                 TelaMenuLocacao.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 ApresentaConfirmacao();
             }

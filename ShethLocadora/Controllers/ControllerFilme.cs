@@ -196,51 +196,49 @@ namespace ShethLocadora.Controllers
 
         internal static void ConsultaId(int idInformado)
         {
-            var filmesPorId =
-                from x in BancoDados.Filmes
-                where x.Id == idInformado
-                select x;
-
-            foreach (var item in filmesPorId)
-            {
-                Console.WriteLine(item);
-            }
+            ConsultaGeral(id: idInformado);
         }
 
         internal static void ConsultaTitulo(string tituloInformado)
         {
-            var filmesPorTitulo =
-                from x in BancoDados.Filmes
-                where x.Titulo.Contains(tituloInformado)
-                select x;
-
-            foreach (var item in filmesPorTitulo)
-            {
-                Console.WriteLine(item);
-            }
+            ConsultaGeral(titulo: tituloInformado);
         }
 
         internal static void ConsultaDiretor(string diretorInformado)
         {
-            var filmesPorDiretor =
-                from x in BancoDados.Filmes
-                where x.Diretor.Contains(diretorInformado)
-                select x;
-
-            foreach (var item in filmesPorDiretor)
-            {
-                Console.WriteLine(item);
-            }
+            ConsultaGeral(diretor: diretorInformado);
         }
 
         internal static void ConsultaCategoria(int opcaoCategoriaInformada)
         {
-            var filmesPorCategoria =
-                from x in BancoDados.Filmes
-                where x.Categoria == (EnumCategoriaFilme)opcaoCategoriaInformada
-                select x;
+            ConsultaGeral(categoria: (EnumCategoriaFilme)opcaoCategoriaInformada);
+        }
 
-            foreach (var item in filmesPorCategoria)
+        private static void ConsultaGeral(int id = 0, EnumCategoriaFilme categoria = 0, string titulo = null, string diretor = null)
+        {
+            var filmes = BancoDados.Filmes.AsEnumerable();
+
+            if (id > 0)
+            {
+                BancoDados.Filmes.Where(x => x.Id == id);
+            }
+
+            if (categoria > 0)
+            {
+                filmes = filmes.Where(x => x.Categoria == categoria);
+            }
+
+            if (titulo != null)
+            {
+                filmes = filmes.Where(x => x.Titulo.Contains(titulo));
+            }
+
+            if (diretor != null)
+            {
+                filmes = filmes.Where(x => x.Diretor.Contains(diretor));
+            }
+
+            foreach (var item in filmes)
             {
                 Console.WriteLine(item);
             }

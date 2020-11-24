@@ -9,7 +9,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE EXCLUSÃO - CLIENTES");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE EXCLUSÃO - CLIENTES");
 
             LocalizaClienteExclusao();
         }
@@ -21,7 +21,7 @@ namespace ShethLocadora.Viewes
             Console.Write("\n Informe o CPF do cliente que deseja excluir: ");
             CpfInformado = Console.ReadLine();
 
-            bool resultadoValidacaoCpf = ValidaCpfInformado.ValidaCpfCliente(CpfInformado);
+            bool resultadoValidacaoCpf = UtilitariosGlobais.ValidaCpfCliente(CpfInformado);
 
             Console.WriteLine();
 
@@ -39,7 +39,7 @@ namespace ShethLocadora.Viewes
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Nenhum cliente localizado!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nenhum cliente localizado!");
 
                 TelaMenuCliente.ApresentaTela();
             }
@@ -58,7 +58,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.ExcluiCliente(CpfInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Exclusão realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão realizada com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
@@ -66,13 +66,13 @@ namespace ShethLocadora.Viewes
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemSucesso("Exclusão cancelada!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão cancelada!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("\nOpção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("\nOpção inválida!");
 
                 ApresentaConfirmacao();
             }

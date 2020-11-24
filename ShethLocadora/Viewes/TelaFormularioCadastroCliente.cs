@@ -8,7 +8,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void IniciaFomrulario()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - CLIENTES");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - CLIENTES");
 
             Console.WriteLine("\n Informe os dados abaixo para efetuar o cadastro: ");
 
@@ -44,7 +44,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoStatus == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeStatus();
             }
@@ -58,13 +58,13 @@ namespace ShethLocadora.Viewes
 
             if (resultadoFinalizacaoCadastro == true)
             {
-                FuncoesTexto.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
 
                 TelaMenuCliente.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Cadastro cancelado! Cliente já cadastrado.");
+                UtilitariosGlobais.ApresentaMensagemErro("Cadastro cancelado! Cliente já cadastrado.");
 
                 TelaMenuCliente.ApresentaTela();
             }

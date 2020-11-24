@@ -31,7 +31,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoUnidadeFederativa == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeUnidadeFederativa();
             }
@@ -51,7 +51,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoCidade == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Cidade inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Cidade inválida!");
 
                 RecebeCidade();
             }
@@ -71,7 +71,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoBairro == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Bairro inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Bairro inválido!");
 
                 RecebeBairro();
             }
@@ -91,7 +91,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoLogradouro == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Logradouro inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Logradouro inválido!");
 
                 RecebeLogradouro();
             }
@@ -111,7 +111,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoComplemento == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Complemento inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Complemento inválido!");
 
                 RecebeComplemento();
             }
@@ -131,7 +131,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoCep == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("CEP inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("CEP inválido!");
 
                 RecebeCep();
             }

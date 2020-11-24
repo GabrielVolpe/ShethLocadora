@@ -11,7 +11,7 @@ namespace ShethLocadora.Viewes
         {
             Console.WriteLine("\n ================================================== Status");
 
-            Console.WriteLine(" 1 - Disonível");
+            Console.WriteLine("\n 1 - Disonível");
             Console.WriteLine(" 2 - Indisonível");
 
             int opcaoStatusInformada;
@@ -27,13 +27,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerFilme.AlteraStatus(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeStatus();
             }
@@ -57,13 +57,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerFilme.AlteraTitutlo(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Título inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Título inválido!");
 
                 RecebeTitulo();
             }
@@ -86,13 +86,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerFilme.AlteraDiretor(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Diretor inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Diretor inválido!");
 
                 RecebeDiretor();
             }
@@ -126,13 +126,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerFilme.AlteraCategoria(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeCategoria();
             }
@@ -165,13 +165,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerFilme.AlteraClassificacaoIndicativa(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeClassificacaoIndicativa();
             }
@@ -195,13 +195,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerFilme.AlteraValorLocacao(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Valor inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Valor inválido!");
 
                 RecebeValorLocacao();
             }
@@ -225,13 +225,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerFilme.AlteraPeriodoDiasLocacao(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Período inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Período inválido!");
 
                 RecebePeriodoDiasLocacao();
             }
@@ -255,13 +255,13 @@ namespace ShethLocadora.Viewes
 
                 ControllerFilme.AlteraQuantidadeDisponivel(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Quantidade inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Quantidade inválido!");
 
                 RecebeQuantidadeDisponivel();
             }

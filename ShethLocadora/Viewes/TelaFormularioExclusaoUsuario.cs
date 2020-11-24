@@ -9,7 +9,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE EXCLUSÃO - USUÁRIOS");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE EXCLUSÃO - USUÁRIOS");
 
             LocalizaUsuarioExclusao();
         }
@@ -21,7 +21,7 @@ namespace ShethLocadora.Viewes
             Console.Write("\n Informe o CPF do usuário que deseja excluir: ");
             CpfInformado = Console.ReadLine();
 
-            bool resultadoValidacaoCpf = ValidaCpfInformado.ValidaCpfUsuario(CpfInformado);
+            bool resultadoValidacaoCpf = UtilitariosGlobais.ValidaCpfUsuario(CpfInformado);
 
             Console.WriteLine();
 
@@ -39,7 +39,7 @@ namespace ShethLocadora.Viewes
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Nenhum usuário localizado!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nenhum usuário localizado!");
 
                 TelaMenuUsuario.ApresentaTela();
             }
@@ -58,7 +58,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerUsuario.ExcluiUsuario(CpfInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Exclusão realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão realizada com sucesso!");
 
                 TelaMenuUsuario.ApresentaTela();
             }
@@ -66,13 +66,13 @@ namespace ShethLocadora.Viewes
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemSucesso("Exclusão cancelada!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão cancelada!");
 
                 TelaMenuUsuario.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("\nOpção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("\nOpção inválida!");
 
                 ApresentaConfirmacao();
             }

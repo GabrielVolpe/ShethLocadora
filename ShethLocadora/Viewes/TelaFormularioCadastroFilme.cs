@@ -9,7 +9,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void IniciaFomrulario()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - FILMES");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - FILMES");
 
             Console.WriteLine("\n Informe os dados abaixo para efetuar o cadastro: ");
 
@@ -40,7 +40,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoStatus == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeStatus();
             }
@@ -60,7 +60,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoTitulo == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Título inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Título inválido!");
 
                 RecebeTitulo();
             }
@@ -80,7 +80,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoDiretor == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Diretor inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Diretor inválido!");
 
                 RecebeDiretor();
             }
@@ -110,7 +110,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoCategoria == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeCategoria();
             }
@@ -139,7 +139,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoClassificacaoIndicativa == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeClassificacaoIndicativa();
             }
@@ -160,7 +160,7 @@ namespace ShethLocadora.Viewes
             if (resultadoValidacaoValorLocacao == false)
             {
 
-                FuncoesTexto.ApresentaMensagemErro("Valor inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Valor inválido!");
 
                 RecebeValorLocacao();
             }
@@ -180,7 +180,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoPeriodoDiasLocacao == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Período inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Período inválido!");
 
                 RecebePeriodoDiasLocacao();
             }
@@ -200,7 +200,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoQuantidadeDisponivel == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Quantidade inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Quantidade inválida!");
 
                 RecebeQuantidadeDisponivel();
             }
@@ -214,13 +214,13 @@ namespace ShethLocadora.Viewes
 
             if (resultadoFinalizacaoCadastro == true)
             {
-                FuncoesTexto.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Cadastro cancelado! Filme já cadastrado.");
+                UtilitariosGlobais.ApresentaMensagemErro("Cadastro cancelado! Filme já cadastrado.");
 
                 TelaMenuFilme.ApresentaTela();
             }

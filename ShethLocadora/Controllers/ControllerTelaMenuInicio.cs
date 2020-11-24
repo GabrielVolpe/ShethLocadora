@@ -40,7 +40,7 @@ namespace ShethLocadora.Controllers
                         {
                             Console.Clear();
 
-                            FuncoesTexto.ApresentaMensagemErro("Usuário sem permissão!");
+                            UtilitariosGlobais.ApresentaMensagemErro("Usuário sem permissão!");
 
                             TelaMenuInicio.ApresentaTela();
                         }
@@ -48,14 +48,14 @@ namespace ShethLocadora.Controllers
                     break;
                 case 9:
                     {
-                        FuncoesTexto.ApresentaMensagemSucesso("Usuário desconectado!");
+                        UtilitariosGlobais.ApresentaMensagemSucesso("Usuário desconectado!");
 
                         TelaLogin.ApresentaTela();
                     }
                     break;
                 default:
                     {
-                        FuncoesTexto.ApresentaMensagemErro("Opcão inválida! ");
+                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
 
                         TelaMenuInicio.ApresentaTela();
                     }

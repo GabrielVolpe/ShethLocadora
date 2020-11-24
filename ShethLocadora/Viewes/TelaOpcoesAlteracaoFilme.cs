@@ -9,7 +9,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - FILMES");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - FILMES");
 
             LocalizaFilmeAlteracao();
         }
@@ -21,7 +21,7 @@ namespace ShethLocadora.Viewes
             Console.Write("\n Informe o ID do filme que deseja alterar: ");
             int.TryParse(Console.ReadLine(), out IdInformado);
 
-            bool resultadoValidacaoId = ValidaIdInformado.ValidaIdFilme(IdInformado);
+            bool resultadoValidacaoId = UtilitariosGlobais.ValidaIdFilme(IdInformado);
 
             Console.WriteLine();
 
@@ -39,7 +39,7 @@ namespace ShethLocadora.Viewes
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Nenhum filme localizado!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nenhum filme localizado!");
 
                 TelaMenuFilme.ApresentaTela();
             }

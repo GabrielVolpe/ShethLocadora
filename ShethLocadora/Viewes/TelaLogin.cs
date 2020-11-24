@@ -8,38 +8,44 @@ namespace ShethLocadora.Viewes
     {
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("L O G I N");
+            UtilitariosGlobais.ApresentaCabecalho("L O G I N");
 
             RecebeDadosAutenticacao();
         }
 
         private static void RecebeDadosAutenticacao()
         {
-            Console.Write("\n Usuário: ");
-            string usuarioInformado;
-            usuarioInformado = Console.ReadLine();
-
-            Console.Write(" Senha: ");
-            string senhaInformada;
-            senhaInformada = Console.ReadLine();
+            string usuarioInformado = SolicitaCredenciais("\n Usuário: ");
+            string senhaInformada = SolicitaCredenciais(" Senha: ");
 
             bool resultadoAutenticacao = ControllerLogin.ValidaDadosAutenticacao(usuarioInformado, senhaInformada);
 
+            VerificaDadosAutenticacao(resultadoAutenticacao);
+        }
+
+        private static string SolicitaCredenciais(string nomeDoDado)
+        {
+            Console.Write(nomeDoDado);
+            string dado = Console.ReadLine();
+
+            return dado;
+        }
+
+        private static void VerificaDadosAutenticacao(bool resultadoAutenticacao)
+        {
+            Console.Clear();
+
             if (resultadoAutenticacao == true)
             {
-                Console.Clear();
-
-                FuncoesTexto.ApresentaMensagemSucesso($"Bem-Vindo(a) {ControllerLogin.NomeUsuarioLogado}!");
+                UtilitariosGlobais.ApresentaMensagemSucesso($"Bem-Vindo(a) {ControllerLogin.NomeUsuarioLogado}!");
 
                 TelaMenuInicio.ApresentaTela();
             }
             else
             {
-                Console.Clear();
+                UtilitariosGlobais.ApresentaMensagemErro("Acesso negado!");
 
-                FuncoesTexto.ApresentaMensagemErro("Acesso negado!");
-
-                TelaLogin.ApresentaTela();
+                ApresentaTela();
             }
         }
     }

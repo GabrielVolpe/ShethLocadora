@@ -8,19 +8,19 @@ namespace ShethLocadora.Viewes
     {
         internal static void ConsultaTodos()
         {
-            FuncoesTexto.ApresentaCabecalho("CONSULTAR TODOS OS CLIENTES");
+            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR TODOS OS CLIENTES");
 
             Console.WriteLine();
             ControllerCliente.ConsultaTodos();
 
-            FuncoesTexto.ApresentaMensagemSucesso("Consulta finalizada!");
+            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
             TelaOpcoesConsultaCliente.ApresentaTela();
         }
 
         internal static void ConsultaId()
         {
-            FuncoesTexto.ApresentaCabecalho("CONTULAR CLIENTES POR ID");
+            UtilitariosGlobais.ApresentaCabecalho("CONTULAR CLIENTES POR ID");
 
             int idInformado;
 
@@ -31,14 +31,14 @@ namespace ShethLocadora.Viewes
 
             ControllerCliente.ConsultaId(idInformado);
 
-            FuncoesTexto.ApresentaMensagemSucesso("Consulta finalizada!");
+            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
             TelaOpcoesConsultaCliente.ApresentaTela();
         }
 
         internal static void ConsultaCpf()
         {
-            FuncoesTexto.ApresentaCabecalho("CONSULTAR CLIENTES POR CPF");
+            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR CLIENTES POR CPF");
 
             string cpfInformado;
 
@@ -49,14 +49,14 @@ namespace ShethLocadora.Viewes
 
             ControllerCliente.ConsultaCpf(cpfInformado);
 
-            FuncoesTexto.ApresentaMensagemSucesso("Consulta finalizada!");
+            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
             TelaOpcoesConsultaCliente.ApresentaTela();
         }
 
         internal static void ConsultaNome()
         {
-            FuncoesTexto.ApresentaCabecalho("CONSULTAR CLIENTES POR NOME");
+            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR CLIENTES POR NOME");
 
             string nomeInformado;
 
@@ -67,7 +67,7 @@ namespace ShethLocadora.Viewes
 
             ControllerCliente.ConsultaNome(nomeInformado);
 
-            FuncoesTexto.ApresentaMensagemSucesso("Consulta finalizada!");
+            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
             TelaOpcoesConsultaCliente.ApresentaTela();
         }

@@ -8,7 +8,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void IniciaFomrulario()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - USUÁRIOS");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - USUÁRIOS");
 
             Console.WriteLine("\n Informe os dados abaixo para efetuar o cadastro: ");
 
@@ -47,7 +47,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoStatus == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeStatus();
             }
@@ -69,7 +69,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoPermissao == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebePermissao();
             }
@@ -89,7 +89,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoUsuarioAutenticacao == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Usuário inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Usuário inválido!");
 
                 RecebeUsuarioAutenticacao();
             }
@@ -109,7 +109,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoSenhaAutenticacao == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Senha inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Senha inválida!");
 
                 RecebeUsuarioAutenticacao();
             }
@@ -123,13 +123,13 @@ namespace ShethLocadora.Viewes
 
             if (resultadoFinalizacaoCadastro == true)
             {
-                FuncoesTexto.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
 
                 TelaMenuUsuario.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Cadastro cancelado! Usuário já cadastrado.");
+                UtilitariosGlobais.ApresentaMensagemErro("Cadastro cancelado! Usuário já cadastrado.");
 
                 TelaMenuUsuario.ApresentaTela();
             }

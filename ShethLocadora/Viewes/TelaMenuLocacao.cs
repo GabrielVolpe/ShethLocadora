@@ -8,26 +8,27 @@ namespace ShethLocadora.Viewes
     {
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("L O C A Ç Õ E S");
+            UtilitariosGlobais.ApresentaCabecalho("L O C A Ç Õ E S");
 
             ApresentaMenu();
         }
 
         private static void ApresentaMenu()
         {
-            Console.WriteLine("\n 1 - Locar");
-            Console.WriteLine(" 2 - Devolver");
-            Console.WriteLine(" 3 - Consultar");
-            Console.WriteLine(" 9 - Início");
+            OpcoesMenu();
 
-            int opcaoInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoInformada);
-
-            Console.Clear();
+            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenu();
 
             ControllerTelaMenuLocacao.RecebeOpcaoMenu(opcaoInformada);
+        }
+
+        private static void OpcoesMenu()
+        {
+            Console.WriteLine("\n 1 - Locar");
+            Console.WriteLine(" 2 - Devolver");
+            //Console.WriteLine(" 3 - Listar");
+            Console.WriteLine(" 3 - Consultar");
+            Console.WriteLine(" 9 - Início");
         }
     }
 }

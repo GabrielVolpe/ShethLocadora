@@ -254,7 +254,7 @@ namespace ShethLocadora.Controllers
 
         internal static void AlteraStatus(string cpfInformado, int opcaoStatusInformada)
         {
-            foreach (var item in BancoDados.Clientes.ToArray())
+            foreach (var item in BancoDados.Clientes)
             {
                 if (item.Cpf == cpfInformado)
                 {

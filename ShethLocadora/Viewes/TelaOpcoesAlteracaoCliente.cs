@@ -9,7 +9,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - CLIENTES");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - CLIENTES");
 
             LocalizaClienteAlteracao();
         }
@@ -21,7 +21,7 @@ namespace ShethLocadora.Viewes
             Console.Write("\n Informe o CPF do cliente que deseja alterar: ");
             CpfInformado = Console.ReadLine();
 
-            bool resultadoValidacaoCpf = ValidaCpfInformado.ValidaCpfCliente(CpfInformado);
+            bool resultadoValidacaoCpf = UtilitariosGlobais.ValidaCpfCliente(CpfInformado);
 
             Console.WriteLine();
 
@@ -39,7 +39,7 @@ namespace ShethLocadora.Viewes
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Nenhum cliente localizado!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nenhum cliente localizado!");
 
                 TelaMenuCliente.ApresentaTela();
             }

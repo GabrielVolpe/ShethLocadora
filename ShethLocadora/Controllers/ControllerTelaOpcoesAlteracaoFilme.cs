@@ -66,7 +66,7 @@ namespace ShethLocadora.Controllers
                     {
                         Console.WriteLine();
 
-                        FuncoesTexto.ApresentaMensagemErro("Opcão inválida! ");
+                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
 
                         TelaOpcoesAlteracaoFilme.ApresentaMenu();
                     }

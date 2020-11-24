@@ -8,7 +8,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("C O N S U L T A R   C L I E N T E S");
+            UtilitariosGlobais.ApresentaCabecalho("C O N S U L T A R   C L I E N T E S");
 
             ApresentaMenu();
         }

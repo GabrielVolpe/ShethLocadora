@@ -21,7 +21,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoNome == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Nome inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nome inválido!");
 
                 RecebeNome();
             }
@@ -41,7 +41,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoDataNascimento == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Data inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Data inválida!");
 
                 RecebeDataNascimento();
             }
@@ -71,7 +71,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoSexo == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Opção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
                 RecebeSexo();
             }
@@ -91,7 +91,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoCpf == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Cpf inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Cpf inválido!");
 
                 RecebeCpf();
             }
@@ -111,7 +111,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoEmail == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("E-mail inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("E-mail inválido!");
 
                 RecebeEmail();
             }
@@ -131,7 +131,7 @@ namespace ShethLocadora.Viewes
 
             if (resultadoValidacaoNumeroCelular == false)
             {
-                FuncoesTexto.ApresentaMensagemErro("Número de celular inválido!");
+                UtilitariosGlobais.ApresentaMensagemErro("Número de celular inválido!");
 
                 RecebeNumeroCelular();
             }

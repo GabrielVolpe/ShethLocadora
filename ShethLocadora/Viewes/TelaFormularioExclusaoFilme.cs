@@ -9,7 +9,7 @@ namespace ShethLocadora.Viewes
     {
         internal static void ApresentaTela()
         {
-            FuncoesTexto.ApresentaCabecalho("FORMULÁRIO DE EXCLUSÃO - FILMES");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE EXCLUSÃO - FILMES");
 
             LocalizaFilmeExclusao();
         }
@@ -21,7 +21,7 @@ namespace ShethLocadora.Viewes
             Console.Write("\n Informe o ID do filme que deseja excluir: ");
             int.TryParse(Console.ReadLine(), out IdInformado);
 
-            bool resultadoValidacaoId = ValidaIdInformado.ValidaIdFilme(IdInformado);
+            bool resultadoValidacaoId = UtilitariosGlobais.ValidaIdFilme(IdInformado);
 
             Console.WriteLine();
 
@@ -39,7 +39,7 @@ namespace ShethLocadora.Viewes
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("Nenhum filme localizado!");
+                UtilitariosGlobais.ApresentaMensagemErro("Nenhum filme localizado!");
 
                 TelaMenuFilme.ApresentaTela();
             }
@@ -58,7 +58,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerFilme.ExcluiFilme(IdInformado);
 
-                FuncoesTexto.ApresentaMensagemSucesso("Exclusão realizada com sucesso!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão realizada com sucesso!");
 
                 TelaMenuFilme.ApresentaTela();
             }
@@ -66,13 +66,13 @@ namespace ShethLocadora.Viewes
             {
                 Console.Clear();
 
-                FuncoesTexto.ApresentaMensagemSucesso("Exclusão cancelada!");
+                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão cancelada!");
 
                 TelaMenuFilme.ApresentaTela();
             }
             else
             {
-                FuncoesTexto.ApresentaMensagemErro("\nOpção inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("\nOpção inválida!");
 
                 ApresentaConfirmacao();
             }

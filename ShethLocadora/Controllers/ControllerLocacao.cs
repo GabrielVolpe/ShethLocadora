@@ -37,27 +37,15 @@ namespace ShethLocadora.Controllers
 
         internal static bool VerificaStatusFilme(int idInformado)
         {
-            bool filmeDisponivel = false;
-
             foreach (var item in BancoDados.Filmes)
             {
-                if (item.Id == idInformado)
+                if (item.Id == idInformado && item.Status == true)
                 {
-                    if (item.Status == true)
-                    {
-                        filmeDisponivel = true;
-                    }
+                    return true;
                 }
             }
 
-            if (filmeDisponivel == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         internal static int VerificaQuantidadeDisponivelFilme(int idInformado)
@@ -182,24 +170,15 @@ namespace ShethLocadora.Controllers
 
         internal static bool ValidaIdLocacao(int idInformado)
         {
-            bool locacaoLocalizada = false;
-
             foreach (var item in BancoDados.Locacoes)
             {
                 if (idInformado == item.Id && item.Status == true)
                 {
-                    locacaoLocalizada = true;
+                    return true;
                 }
             }
 
-            if (locacaoLocalizada == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         internal static void AplicaMulta(int idInformado)
@@ -234,12 +213,12 @@ namespace ShethLocadora.Controllers
         {
             int idFilme = 0;
 
-            for (int i = 0; i < BancoDados.Locacoes.Count; i++)
+            foreach (var item in BancoDados.Locacoes.ToArray())
             {
-                var item = BancoDados.Locacoes[i];
-
                 if (item.Id == idInformado)
                 {
+                    item.DataOcorreuDevolucao = DateTime.Now;
+
                     item.Status = false;
 
                     item.Situacao = true;
@@ -248,10 +227,8 @@ namespace ShethLocadora.Controllers
                 }
             }
 
-            for (int i = 0; i < BancoDados.Filmes.Count; i++)
+            foreach (var item in BancoDados.Filmes.ToArray())
             {
-                var item = BancoDados.Filmes[i];
-
                 if (item.Id == idFilme)
                 {
                     item.QuantidadeDisponivel += 1;
@@ -267,7 +244,7 @@ namespace ShethLocadora.Controllers
             {
                 Console.WriteLine(item);
 
-                ExibeValoresLocacao.ApresentaResumoValores(item.Id);
+                UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
@@ -279,7 +256,7 @@ namespace ShethLocadora.Controllers
             {
                 Console.WriteLine(item);
 
-                ExibeValoresLocacao.ApresentaResumoValores(idInformado);
+                UtilitariosGlobais.ApresentaResumoValores(idInformado);
             }
         }
 
@@ -291,7 +268,7 @@ namespace ShethLocadora.Controllers
             {
                 Console.WriteLine(item);
 
-                ExibeValoresLocacao.ApresentaResumoValores(item.Id);
+                UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
@@ -303,7 +280,7 @@ namespace ShethLocadora.Controllers
                 {
                     Console.WriteLine(item);
 
-                    ExibeValoresLocacao.ApresentaResumoValores(item.Id);
+                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
                 }
             }
         }
@@ -316,7 +293,7 @@ namespace ShethLocadora.Controllers
                 {
                     Console.WriteLine(item);
 
-                    ExibeValoresLocacao.ApresentaResumoValores(item.Id);
+                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
                 }
             }
         }
@@ -329,7 +306,7 @@ namespace ShethLocadora.Controllers
                 {
                     Console.WriteLine(item);
 
-                    ExibeValoresLocacao.ApresentaResumoValores(item.Id);
+                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
                 }
             }
         }
@@ -342,7 +319,7 @@ namespace ShethLocadora.Controllers
                 {
                     Console.WriteLine(item);
 
-                    ExibeValoresLocacao.ApresentaResumoValores(item.Id);
+                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
                 }
             }
         }
