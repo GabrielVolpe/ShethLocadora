@@ -29,7 +29,7 @@ namespace ShethLocadora.Utilities
             Console.ResetColor();
         }
 
-        internal static int RecebeOpcaoMenu()
+        internal static int RecebeOpcaoMenuClear()
         {
             int opcaoInformada;
 
@@ -39,6 +39,63 @@ namespace ShethLocadora.Utilities
             Console.Clear();
 
             return opcaoInformada;
+        }
+
+        internal static int RecebeOpcaoMenu()
+        {
+            int opcaoInformada;
+
+            Console.Write("\n Opção: ");
+            int.TryParse(Console.ReadLine(), out opcaoInformada);
+
+            Console.WriteLine();
+
+            return opcaoInformada;
+        }
+
+        internal static string RecebeDadoCadastroString(string mensagem)
+        {
+            Console.WriteLine(mensagem);
+            Console.Write(" ");
+
+            string dadoString;
+            dadoString = Console.ReadLine();
+
+            return dadoString;
+        }
+
+        internal static int RecebeDadoCadastroIntEnum(string mensagem)
+        {
+            Console.Write(mensagem);
+
+            int dadoEnum;
+            int.TryParse(Console.ReadLine(), out dadoEnum);
+
+            return dadoEnum;
+        }
+
+        internal static string ConsultasString(string mensagem)
+        {
+            Console.Write(mensagem);
+
+            string dadoString;
+            dadoString = Console.ReadLine();
+
+            Console.WriteLine();
+
+            return dadoString;
+        }
+
+        internal static int ConsultasInt(string mensagem)
+        {
+            Console.Write(mensagem);
+
+            int dadoInt;
+            int.TryParse(Console.ReadLine(), out dadoInt);
+
+            Console.WriteLine();
+
+            return dadoInt;
         }
 
         internal static bool ValidaCpfUsuario(string cpfInformado)

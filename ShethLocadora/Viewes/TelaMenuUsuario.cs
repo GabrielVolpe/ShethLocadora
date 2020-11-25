@@ -17,7 +17,7 @@ namespace ShethLocadora.Viewes
         {
             OpcoesMenu();
 
-            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenu();
+            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenuClear();
 
             ControllerTelaMenuUsuario.RecebeOpcaoMenu(opcaoInformada);
         }

@@ -17,7 +17,7 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaFormularioConsultaCliente.ConsultaTodos();
+                        TelaFormularioConsultaCliente.ListaTodos();
                     }
                     break;
                 case 2:

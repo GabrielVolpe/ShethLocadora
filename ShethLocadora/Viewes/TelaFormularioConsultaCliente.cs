@@ -6,67 +6,54 @@ namespace ShethLocadora.Viewes
 {
     static class TelaFormularioConsultaCliente
     {
-        internal static void ConsultaTodos()
+        internal static void ListaTodos()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR TODOS OS CLIENTES");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR TODOS OS CLIENTES");
 
             Console.WriteLine();
-            ControllerCliente.ConsultaTodos();
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
+            ControllerCliente.ListaTodos();
 
-            TelaOpcoesConsultaCliente.ApresentaTela();
+            FinalConsulta();
         }
 
         internal static void ConsultaId()
         {
             UtilitariosGlobais.ApresentaCabecalho("CONTULAR CLIENTES POR ID");
 
-            int idInformado;
-
-            Console.Write("\n Informe o ID: ");
-            int.TryParse(Console.ReadLine(), out idInformado);
-
-            Console.WriteLine();
+            int idInformado = UtilitariosGlobais.ConsultasInt("\n ID: ");
 
             ControllerCliente.ConsultaId(idInformado);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaCliente.ApresentaTela();
+            FinalConsulta();
         }
 
         internal static void ConsultaCpf()
         {
             UtilitariosGlobais.ApresentaCabecalho("CONSULTAR CLIENTES POR CPF");
 
-            string cpfInformado;
-
-            Console.Write("\n Informe o CPF: ");
-            cpfInformado = Console.ReadLine().ToUpper();
-
-            Console.WriteLine();
+            string cpfInformado = UtilitariosGlobais.ConsultasString("\n CPF: ");
 
             ControllerCliente.ConsultaCpf(cpfInformado);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaCliente.ApresentaTela();
+            FinalConsulta();
         }
 
         internal static void ConsultaNome()
         {
             UtilitariosGlobais.ApresentaCabecalho("CONSULTAR CLIENTES POR NOME");
 
-            string nomeInformado;
-
-            Console.Write("\n Informe o nome: ");
-            nomeInformado = Console.ReadLine().ToUpper();
-
-            Console.WriteLine();
+            string nomeInformado = UtilitariosGlobais.ConsultasString("\n Nome: ");
 
             ControllerCliente.ConsultaNome(nomeInformado);
 
+            FinalConsulta();
+        }
+
+
+
+        private static void FinalConsulta()
+        {
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
             TelaOpcoesConsultaCliente.ApresentaTela();

@@ -20,7 +20,7 @@ namespace ShethLocadora.Viewes
         {
             OpcoesMenu();
 
-            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenu();
+            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenuClear();
 
             ControllerTelaOpcoesConsultaLocacao.RecebeOpcaoMenu(opcaoInformada);
         }

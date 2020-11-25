@@ -1,5 +1,4 @@
 ﻿using ShethLocadora.Controllers;
-using ShethLocadora.Models.Enums;
 using ShethLocadora.Utilities;
 using System;
 
@@ -9,25 +8,15 @@ namespace ShethLocadora.Viewes
     {
         internal static void RecebeNome()
         {
-            Console.WriteLine("\n ================================================== Nome Completo (Sem acentos)");
+            Tuple<bool, string> retornoNome = TelaFormularioDadosPessoa.RecebeNome();
 
-            string nomeInformado;
-
-            Console.Write("\n ");
-
-            nomeInformado = Console.ReadLine();
-
-            bool resultadoValidacaoNome = ControllerPessoa.ValidaNome(nomeInformado);
-
-            if (resultadoValidacaoNome == true)
+            if (retornoNome.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraNome(TelaOpcoesAlteracaoCliente.CpfInformado, nomeInformado);
+                ControllerCliente.AlteraNome(TelaOpcoesAlteracaoCliente.CpfInformado, retornoNome.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -39,25 +28,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeDataNascimento()
         {
-            Console.WriteLine("\n ================================================== Data de Nascimento (Dia/Mes/Ano)");
+            Tuple<bool, string> retornoDataNascimento = TelaFormularioDadosPessoa.RecebeDataNascimento();
 
-            string dataNascimentoInformada;
-
-            Console.Write("\n ");
-
-            dataNascimentoInformada = Console.ReadLine();
-
-            bool resultadoValidacaoDataNascimento = ControllerPessoa.ValidaDataNascimento(dataNascimentoInformada);
-
-            if (resultadoValidacaoDataNascimento == true)
+            if (retornoDataNascimento.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraDataNascimento(TelaOpcoesAlteracaoCliente.CpfInformado, dataNascimentoInformada);
+                ControllerCliente.AlteraDataNascimento(TelaOpcoesAlteracaoCliente.CpfInformado, retornoDataNascimento.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -69,35 +48,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeSexo()
         {
-            Console.WriteLine("\n ================================================== Sexo");
+            Tuple<bool, int> retornoSexo = TelaFormularioDadosPessoa.RecebeSexo();
 
-            int contadorSexoPessoa = 1;
-
-            Console.WriteLine();
-
-            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumSexoPessoa)))
-            {
-                Console.WriteLine($" {contadorSexoPessoa} - {opcaoEnum}");
-
-                contadorSexoPessoa++;
-            }
-
-            int opcaoSexoInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoSexoInformada);
-
-            bool resultadoValidacaoSexo = ControllerPessoa.ValidaSexo(opcaoSexoInformada);
-
-            if (resultadoValidacaoSexo == true)
+            if (retornoSexo.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraSexo(TelaOpcoesAlteracaoCliente.CpfInformado, opcaoSexoInformada);
+                ControllerCliente.AlteraSexo(TelaOpcoesAlteracaoCliente.CpfInformado, retornoSexo.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -109,25 +68,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeCpf()
         {
-            Console.WriteLine("\n ================================================== CPF (Somente números)");
+            Tuple<bool, string> retornoCpf = TelaFormularioDadosPessoa.RecebeCpf();
 
-            string cpfInformado;
-
-            Console.Write("\n ");
-
-            cpfInformado = Console.ReadLine();
-
-            bool resultadoValidacaoCpf = ControllerPessoa.ValidaCpf(cpfInformado);
-
-            if (resultadoValidacaoCpf == true)
+            if (retornoCpf.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraCpf(TelaOpcoesAlteracaoCliente.CpfInformado, cpfInformado);
+                ControllerCliente.AlteraCpf(TelaOpcoesAlteracaoCliente.CpfInformado, retornoCpf.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -139,25 +88,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeEmail()
         {
-            Console.WriteLine("\n ================================================== E-mail");
+            Tuple<bool, string> retornoEmail = TelaFormularioDadosPessoa.RecebeEmail();
 
-            string emailInformado;
-
-            Console.Write("\n ");
-
-            emailInformado = Console.ReadLine();
-
-            bool resultadoValidacaoEmail = ControllerPessoa.ValidaEmail(emailInformado);
-
-            if (resultadoValidacaoEmail == true)
+            if (retornoEmail.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraEmail(TelaOpcoesAlteracaoCliente.CpfInformado, emailInformado);
+                ControllerCliente.AlteraEmail(TelaOpcoesAlteracaoCliente.CpfInformado, retornoEmail.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -169,25 +108,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeNumeroCelular()
         {
-            Console.WriteLine("\n ================================================== Número de celular (Somente números)");
+            Tuple<bool, string> retornoNumeroCelular = TelaFormularioDadosPessoa.RecebeEmail();
 
-            string numeroCelularInformado;
-
-            Console.Write("\n ");
-
-            numeroCelularInformado = Console.ReadLine();
-
-            bool resultadoValidacaoNumeroCelular = ControllerPessoa.ValidaNumeroCelular(numeroCelularInformado);
-
-            if (resultadoValidacaoNumeroCelular == true)
+            if (retornoNumeroCelular.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraNumeroCelular(TelaOpcoesAlteracaoCliente.CpfInformado, numeroCelularInformado);
+                ControllerCliente.AlteraNumeroCelular(TelaOpcoesAlteracaoCliente.CpfInformado, retornoNumeroCelular.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -199,35 +128,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeUnidadeFederativa()
         {
-            Console.WriteLine("\n ================================================== Unidade federativa");
+            Tuple<bool, int> retornoUnidadeFederativa = TelaFormularioDadosEndereco.RecebeUnidadeFederativa();
 
-            int contadorUnidadeFederativa = 1;
-
-            Console.WriteLine();
-
-            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumUnidadeFederativaEndereco)))
-            {
-                Console.WriteLine($" {contadorUnidadeFederativa} - {opcaoEnum}");
-
-                contadorUnidadeFederativa++;
-            }
-
-            int opcaoUnidadeFederativaInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoUnidadeFederativaInformada);
-
-            bool resultadoValidacaoUnidadeFederativa = ControllerEndereco.ValidaUnidadeFederativa(opcaoUnidadeFederativaInformada);
-
-            if (resultadoValidacaoUnidadeFederativa == true)
+            if (retornoUnidadeFederativa.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraUnidadeFederativa(TelaOpcoesAlteracaoCliente.CpfInformado, opcaoUnidadeFederativaInformada);
+                ControllerCliente.AlteraUnidadeFederativa(TelaOpcoesAlteracaoCliente.CpfInformado, retornoUnidadeFederativa.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -239,25 +148,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeCidade()
         {
-            Console.WriteLine("\n ================================================== Cidade");
+            Tuple<bool, string> retornoCidade = TelaFormularioDadosEndereco.RecebeCidade();
 
-            string cidadeInformada;
-
-            Console.Write("\n ");
-
-            cidadeInformada = Console.ReadLine();
-
-            bool resultadoValidacaoCidade = ControllerEndereco.ValidaCidadeInformada(cidadeInformada);
-
-            if (resultadoValidacaoCidade == true)
+            if (retornoCidade.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraCidade(TelaOpcoesAlteracaoCliente.CpfInformado, cidadeInformada);
+                ControllerCliente.AlteraCidade(TelaOpcoesAlteracaoCliente.CpfInformado, retornoCidade.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -269,25 +168,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeBairro()
         {
-            Console.WriteLine("\n ================================================== Bairro");
+            Tuple<bool, string> retornoBairro = TelaFormularioDadosEndereco.RecebeBairro();
 
-            string bairroInformado;
-
-            Console.Write("\n ");
-
-            bairroInformado = Console.ReadLine();
-
-            bool resultadoValidacaoBairro = ControllerEndereco.ValidaBairroInformado(bairroInformado);
-
-            if (resultadoValidacaoBairro == true)
+            if (retornoBairro.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraBairro(TelaOpcoesAlteracaoCliente.CpfInformado, bairroInformado);
+                ControllerCliente.AlteraBairro(TelaOpcoesAlteracaoCliente.CpfInformado, retornoBairro.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -299,25 +188,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeLogradouro()
         {
-            Console.WriteLine("\n ================================================== Logradouro (Sem acentos)");
+            Tuple<bool, string> retornoLogradouro = TelaFormularioDadosEndereco.RecebeLogradouro();
 
-            string logradouroInformado;
-
-            Console.Write("\n ");
-
-            logradouroInformado = Console.ReadLine();
-
-            bool resultadoValidacaoLogradouro = ControllerEndereco.ValidaLogradouroInformado(logradouroInformado);
-
-            if (resultadoValidacaoLogradouro == true)
+            if (retornoLogradouro.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraLogradouro(TelaOpcoesAlteracaoCliente.CpfInformado, logradouroInformado);
+                ControllerCliente.AlteraLogradouro(TelaOpcoesAlteracaoCliente.CpfInformado, retornoLogradouro.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -329,25 +208,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeComplemento()
         {
-            Console.WriteLine("\n ================================================== Complemento (Sem acentos)");
+            Tuple<bool, string> retornoComplemento = TelaFormularioDadosEndereco.RecebeComplemento();
 
-            string complementoInformado;
-
-            Console.Write("\n ");
-
-            complementoInformado = Console.ReadLine();
-
-            bool resultadoValidacaoComplemento = ControllerEndereco.ValidaComplementoInformado(complementoInformado);
-
-            if (resultadoValidacaoComplemento == true)
+            if (retornoComplemento.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraComplemento(TelaOpcoesAlteracaoCliente.CpfInformado, complementoInformado);
+                ControllerCliente.AlteraComplemento(TelaOpcoesAlteracaoCliente.CpfInformado, retornoComplemento.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -359,25 +228,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeCep()
         {
-            Console.WriteLine("\n ================================================== CEP (Somente números)");
+            Tuple<bool, string> retornoCep = TelaFormularioDadosEndereco.RecebeCep();
 
-            string cepInformado;
-
-            Console.Write("\n ");
-
-            cepInformado = Console.ReadLine();
-
-            bool resultadoValidacaoCep = ControllerEndereco.ValidaCepInformado(cepInformado);
-
-            if (resultadoValidacaoCep == true)
+            if (retornoCep.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraCep(TelaOpcoesAlteracaoCliente.CpfInformado, cepInformado);
+                ControllerCliente.AlteraCep(TelaOpcoesAlteracaoCliente.CpfInformado, retornoCep.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -389,27 +248,15 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeStatus()
         {
-            Console.WriteLine("\n ================================================== Status");
+            Tuple<bool, int> retornoStatus = TelaFormularioCadastroCliente.RecebeStatus();
 
-            Console.WriteLine("\n 1 - Ativo");
-            Console.WriteLine(" 2 - Inativo");
-
-            int opcaoStatusInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoStatusInformada);
-
-            bool resultadoValidacaoStatus = ControllerUsuario.ValidaStatusInformado(opcaoStatusInformada);
-
-            if (resultadoValidacaoStatus == true)
+            if (retornoStatus.Item1 == true)
             {
                 Console.Clear();
 
-                ControllerCliente.AlteraStatus(TelaOpcoesAlteracaoCliente.CpfInformado, opcaoStatusInformada);
+                ControllerCliente.AlteraStatus(TelaOpcoesAlteracaoCliente.CpfInformado, retornoStatus.Item2);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuCliente.ApresentaTela();
+                FinalAlteracao();
             }
             else
             {
@@ -417,6 +264,13 @@ namespace ShethLocadora.Viewes
 
                 RecebeStatus();
             }
+        }
+
+        private static void FinalAlteracao()
+        {
+            UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+
+            TelaMenuCliente.ApresentaTela();
         }
     }
 }

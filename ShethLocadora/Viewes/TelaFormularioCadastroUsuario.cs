@@ -12,18 +12,18 @@ namespace ShethLocadora.Viewes
 
             Console.WriteLine("\n Informe os dados abaixo para efetuar o cadastro: ");
 
-            TelaFormularioCadastroPessoa.RecebeNome();
-            TelaFormularioCadastroPessoa.RecebeDataNascimento();
-            TelaFormularioCadastroPessoa.RecebeSexo();
-            TelaFormularioCadastroPessoa.RecebeCpf();
-            TelaFormularioCadastroPessoa.RecebeEmail();
-            TelaFormularioCadastroPessoa.RecebeNumeroCelular();
-            TelaFormularioCadastroEndereco.RecebeUnidadeFederativa();
-            TelaFormularioCadastroEndereco.RecebeCidade();
-            TelaFormularioCadastroEndereco.RecebeBairro();
-            TelaFormularioCadastroEndereco.RecebeLogradouro();
-            TelaFormularioCadastroEndereco.RecebeComplemento();
-            TelaFormularioCadastroEndereco.RecebeCep();
+            TelaFormularioDadosPessoa.RecebeNome();
+            TelaFormularioDadosPessoa.RecebeDataNascimento();
+            TelaFormularioDadosPessoa.RecebeSexo();
+            TelaFormularioDadosPessoa.RecebeCpf();
+            TelaFormularioDadosPessoa.RecebeEmail();
+            TelaFormularioDadosPessoa.RecebeNumeroCelular();
+            TelaFormularioDadosEndereco.RecebeUnidadeFederativa();
+            TelaFormularioDadosEndereco.RecebeCidade();
+            TelaFormularioDadosEndereco.RecebeBairro();
+            TelaFormularioDadosEndereco.RecebeLogradouro();
+            TelaFormularioDadosEndereco.RecebeComplemento();
+            TelaFormularioDadosEndereco.RecebeCep();
             RecebeStatus();
             RecebePermissao();
             RecebeUsuarioAutenticacao();

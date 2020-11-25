@@ -7,16 +7,16 @@ namespace ShethLocadora.Viewes
 {
     static class TelaFormularioExclusaoCliente
     {
+        internal static string CpfInformado;
+
         internal static void ApresentaTela()
         {
             UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE EXCLUSÃO - CLIENTES");
 
-            LocalizaClienteExclusao();
+            RecebeCpf();
         }
 
-        internal static string CpfInformado;
-
-        private static void LocalizaClienteExclusao()
+        private static void RecebeCpf()
         {
             Console.Write("\n Informe o CPF do cliente que deseja excluir: ");
             CpfInformado = Console.ReadLine();
@@ -25,6 +25,11 @@ namespace ShethLocadora.Viewes
 
             Console.WriteLine();
 
+            VerificaResultadoLocalizacaoCpf(resultadoValidacaoCpf);
+        }
+
+        private static void VerificaResultadoLocalizacaoCpf(bool resultadoValidacaoCpf)
+        {
             if (resultadoValidacaoCpf == true)
             {
                 foreach (var item in BancoDados.Clientes)
@@ -35,7 +40,7 @@ namespace ShethLocadora.Viewes
                     }
                 }
 
-                ApresentaConfirmacao();
+                RecebeConfirmacao();
             }
             else
             {
@@ -45,13 +50,18 @@ namespace ShethLocadora.Viewes
             }
         }
 
-        private static void ApresentaConfirmacao()
+        private static void RecebeConfirmacao()
         {
             int opcaoConfirmacaoExclusao = 0;
 
             Console.Write(" Deseja realmente prosseguir com a exclusão? (1 = SIM / 2 = NÃO): ");
             int.TryParse(Console.ReadLine(), out opcaoConfirmacaoExclusao);
 
+            VerificaConfirmacao(opcaoConfirmacaoExclusao);
+        }
+
+        private static void VerificaConfirmacao(int opcaoConfirmacaoExclusao)
+        {
             if (opcaoConfirmacaoExclusao == 1)
             {
                 Console.Clear();
@@ -74,7 +84,7 @@ namespace ShethLocadora.Viewes
             {
                 UtilitariosGlobais.ApresentaMensagemErro("\nOpção inválida!");
 
-                ApresentaConfirmacao();
+                RecebeConfirmacao();
             }
         }
     }

@@ -80,12 +80,14 @@ namespace ShethLocadora.Controllers
 
         // ================================================== CONSULTAR
 
-        internal static void ConsultaTodos()
+        internal static void ListaTodos()
         {
             foreach (var item in BancoDados.Clientes)
             {
                 Console.WriteLine(item);
             }
+
+            Console.WriteLine();
         }
 
         internal static void ConsultaId(int IdInformado)

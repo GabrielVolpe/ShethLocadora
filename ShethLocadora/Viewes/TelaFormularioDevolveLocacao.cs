@@ -6,7 +6,7 @@ using System;
 
 namespace ShethLocadora.Viewes
 {
-    class TelaFormularioDevolveLocacao
+    static class TelaFormularioDevolveLocacao
     {
         private static int _idInformado = 0;
 
@@ -103,10 +103,10 @@ namespace ShethLocadora.Viewes
 
             Console.WriteLine();
 
-            VerificaOpcoesAplicacaoMulta(opcaoConfirmacaoAplicarMulta);
+            VerificaOpcaoAplicacaoMulta(opcaoConfirmacaoAplicarMulta);
         }
 
-        private static void VerificaOpcoesAplicacaoMulta(int opcaoConfirmacaoAplicarMulta)
+        private static void VerificaOpcaoAplicacaoMulta(int opcaoConfirmacaoAplicarMulta)
         {
             if (opcaoConfirmacaoAplicarMulta == 1)
             {

@@ -14,9 +14,9 @@ namespace ShethLocadora.Viewes
 
         internal static void ApresentaTela()
         {
-            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE LOCAÇÃO - LOCAÇÕES");
-
             Locacao.AtualizaLocacoes();
+
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE LOCAÇÃO - LOCAÇÕES");
 
             RecebeIdFilme();
         }

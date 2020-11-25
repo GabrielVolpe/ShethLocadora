@@ -15,23 +15,15 @@ namespace ShethLocadora.Viewes
 
         private static void RecebeDadosAutenticacao()
         {
-            string usuarioInformado = SolicitaCredenciais("\n Usuário: ");
-            string senhaInformada = SolicitaCredenciais(" Senha: ");
+            string usuarioInformado = SolicitaDadosAutenticacao("\n Usuário: ");
+            string senhaInformada = SolicitaDadosAutenticacao(" Senha: ");
 
             bool resultadoAutenticacao = ControllerLogin.ValidaDadosAutenticacao(usuarioInformado, senhaInformada);
 
-            VerificaDadosAutenticacao(resultadoAutenticacao);
+            VerificaResultadoDadosAutenticao(resultadoAutenticacao);
         }
 
-        private static string SolicitaCredenciais(string nomeDoDado)
-        {
-            Console.Write(nomeDoDado);
-            string dado = Console.ReadLine();
-
-            return dado;
-        }
-
-        private static void VerificaDadosAutenticacao(bool resultadoAutenticacao)
+        private static void VerificaResultadoDadosAutenticao(bool resultadoAutenticacao)
         {
             Console.Clear();
 
@@ -47,6 +39,14 @@ namespace ShethLocadora.Viewes
 
                 ApresentaTela();
             }
+        }
+
+        private static string SolicitaDadosAutenticacao(string nomeDoDado)
+        {
+            Console.Write(nomeDoDado);
+            string dado = Console.ReadLine();
+
+            return dado;
         }
     }
 }
