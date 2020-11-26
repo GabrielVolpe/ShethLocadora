@@ -37,6 +37,8 @@ namespace ShethLocadora.Viewes
                     if (item.Cpf == CpfInformado)
                     {
                         Console.WriteLine(item);
+
+                        break;
                     }
                 }
 

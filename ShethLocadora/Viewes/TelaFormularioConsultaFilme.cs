@@ -9,14 +9,13 @@ namespace ShethLocadora.Viewes
     {
         internal static void ConsultaTodos()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR TODOS OS FILMES");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR TODOS OS FILMES");
 
             Console.WriteLine();
+
             ControllerFilme.ConsultaTodos();
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaFilme.ApresentaTela();
+            FinalizaConsulta();
         }
 
         internal static void ConsultaId()
@@ -96,6 +95,13 @@ namespace ShethLocadora.Viewes
 
             ControllerFilme.ConsultaCategoria(opcaoCategoriaInformada);
 
+            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
+
+            TelaOpcoesConsultaFilme.ApresentaTela();
+        }
+
+        private static void FinalizaConsulta()
+        {
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
             TelaOpcoesConsultaFilme.ApresentaTela();

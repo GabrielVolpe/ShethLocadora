@@ -9,92 +9,43 @@ namespace ShethLocadora.Viewes
     {
         internal static void RecebeStatus()
         {
-            Console.WriteLine("\n ================================================== Status");
+            Tuple<bool, int> retornoStatus = TelaFormularioCadastroFilme.RecebeStatus();
 
-            Console.WriteLine("\n 1 - Disonível");
-            Console.WriteLine(" 2 - Indisonível");
-
-            int opcaoStatusInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoStatusInformada);
-
-            bool resultadoValidacaoStatus = ControllerFilme.ValidaStatus(opcaoStatusInformada);
-
-            if (resultadoValidacaoStatus == true)
+            if (retornoStatus.Item1 == true)
             {
                 Console.Clear();
 
                 ControllerFilme.AlteraStatus(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuFilme.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
-
-                RecebeStatus();
+                FinalizaAlteracao();
             }
         }
 
         internal static void RecebeTitulo()
         {
-            Console.WriteLine("\n ================================================== Título");
+            Tuple<bool, string> retornoTitulo = TelaFormularioCadastroFilme.RecebeTitulo();
 
-            string tituloInformado;
-
-            Console.Write("\n ");
-
-            tituloInformado = Console.ReadLine();
-
-            bool resultadoValidacaoTitulo = ControllerFilme.ValidaTitulo(tituloInformado);
-
-            if (resultadoValidacaoTitulo == true)
+            if (retornoTitulo.Item1 == true)
             {
                 Console.Clear();
 
                 ControllerFilme.AlteraTitutlo(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuFilme.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Título inválido!");
-
-                RecebeTitulo();
+                FinalizaAlteracao();
             }
         }
+
         internal static void RecebeDiretor()
         {
-            Console.WriteLine("\n ================================================== Diretor: ");
+            Tuple<bool, string> retornoDiretor = TelaFormularioCadastroFilme.RecebeDiretor();
 
-            string diretorInformado;
-
-            Console.Write("\n ");
-
-            diretorInformado = Console.ReadLine();
-
-            bool resultadoValidacaoDiretor = ControllerFilme.ValidaDiretor(diretorInformado);
-
-            if (resultadoValidacaoDiretor == true)
+            if (retornoDiretor.Item1 == true)
             {
                 Console.Clear();
 
                 ControllerFilme.AlteraDiretor(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuFilme.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Diretor inválido!");
-
-                RecebeDiretor();
+                FinalizaAlteracao();
             }
         }
 
@@ -265,6 +216,13 @@ namespace ShethLocadora.Viewes
 
                 RecebeQuantidadeDisponivel();
             }
+        }
+
+        private static void FinalizaAlteracao()
+        {
+            UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+
+            TelaMenuFilme.ApresentaTela();
         }
     }
 }

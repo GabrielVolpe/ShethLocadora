@@ -24,17 +24,14 @@ namespace ShethLocadora.Viewes
             FinalizaCadastro();
         }
 
-        private static void RecebeStatus()
+        internal static Tuple<bool, int> RecebeStatus()
         {
             Console.WriteLine("\n ================================================== Status");
 
-            Console.WriteLine("\n 1 - Disonível");
-            Console.WriteLine(" 2 - Indisonível");
+            Console.WriteLine(" 1 - Ativo");
+            Console.WriteLine(" 2 - Inativo");
 
-            int opcaoStatusInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoStatusInformada);
+            int opcaoStatusInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção: ");
 
             bool resultadoValidacaoStatus = ControllerFilme.ValidaStatus(opcaoStatusInformada);
 
@@ -44,17 +41,13 @@ namespace ShethLocadora.Viewes
 
                 RecebeStatus();
             }
+
+            return new Tuple<bool, int>(resultadoValidacaoStatus, opcaoStatusInformada);
         }
 
-        private static void RecebeTitulo()
+        internal static Tuple<bool, string> RecebeTitulo()
         {
-            Console.WriteLine("\n ================================================== Título");
-
-            string tituloInformado;
-
-            Console.Write("\n ");
-
-            tituloInformado = Console.ReadLine();
+            string tituloInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Título");
 
             bool resultadoValidacaoTitulo = ControllerFilme.ValidaTitulo(tituloInformado);
 
@@ -64,17 +57,13 @@ namespace ShethLocadora.Viewes
 
                 RecebeTitulo();
             }
+
+            return new Tuple<bool, string>(resultadoValidacaoTitulo, tituloInformado);
         }
 
-        private static void RecebeDiretor()
+        internal static Tuple<bool, string> RecebeDiretor()
         {
-            Console.WriteLine("\n ================================================== Diretor (Nome completo): ");
-
-            string diretorInformado;
-
-            Console.Write("\n ");
-
-            diretorInformado = Console.ReadLine();
+            string diretorInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Diretor");
 
             bool resultadoValidacaoDiretor = ControllerFilme.ValidaDiretor(diretorInformado);
 
@@ -84,15 +73,15 @@ namespace ShethLocadora.Viewes
 
                 RecebeDiretor();
             }
+
+            return new Tuple<bool, string>(resultadoValidacaoDiretor, diretorInformado);
         }
 
-        private static void RecebeCategoria()
+        private static Tuple<bool, int> RecebeCategoria()
         {
-            Console.WriteLine("\n ================================================== Categoria");
+            Console.WriteLine(" ================================================== Categoria");
 
             int contadorCategoriaFilme = 1;
-
-            Console.WriteLine();
 
             foreach (var opcaoEnum in Enum.GetValues(typeof(EnumCategoriaFilme)))
             {
@@ -101,10 +90,7 @@ namespace ShethLocadora.Viewes
                 contadorCategoriaFilme++;
             }
 
-            int opcaoCategoriaInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoCategoriaInformada);
+            int opcaoCategoriaInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção: ");
 
             bool resultadoValidacaoCategoria = ControllerFilme.ValidaCategoria(opcaoCategoriaInformada);
 
@@ -114,15 +100,15 @@ namespace ShethLocadora.Viewes
 
                 RecebeCategoria();
             }
+
+            return new Tuple<bool, int>(resultadoValidacaoCategoria, opcaoCategoriaInformada);
         }
 
-        private static void RecebeClassificacaoIndicativa()
+        private static Tuple<bool, int> RecebeClassificacaoIndicativa()
         {
-            Console.WriteLine("\n ================================================== Classificação Indicativa");
+            Console.WriteLine(" ================================================== Classificação Indicativa");
 
             int contadorClassificacaoIndicativaFilme = 1;
-
-            Console.WriteLine();
 
             foreach (var opcaoEnum in Enum.GetValues(typeof(EnumClassificacaoIndicativaFilme)))
             {
@@ -130,10 +116,7 @@ namespace ShethLocadora.Viewes
                 contadorClassificacaoIndicativaFilme++;
             }
 
-            int opcaoClassificacaoIndicativaInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoClassificacaoIndicativaInformada);
+            int opcaoClassificacaoIndicativaInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção:");
 
             bool resultadoValidacaoClassificacaoIndicativa = ControllerFilme.ValidaClassificacaoIndicativa(opcaoClassificacaoIndicativaInformada);
 
@@ -143,38 +126,36 @@ namespace ShethLocadora.Viewes
 
                 RecebeClassificacaoIndicativa();
             }
+
+            return new Tuple<bool, int>(resultadoValidacaoClassificacaoIndicativa, opcaoClassificacaoIndicativaInformada);
         }
 
-        private static void RecebeValorLocacao()
+        private static Tuple<bool, double> RecebeValorLocacao()
         {
-            Console.WriteLine("\n ================================================== Valor de locação: ");
+            Console.WriteLine(" ================================================== Valor de locação: ");
 
             double valorInformadoLocacao;
 
-            Console.Write("\n ");
-
+            Console.Write(" ");
             double.TryParse(Console.ReadLine(), out valorInformadoLocacao);
 
             bool resultadoValidacaoValorLocacao = ControllerFilme.ValidaValorLocacao(valorInformadoLocacao);
 
             if (resultadoValidacaoValorLocacao == false)
             {
-
                 UtilitariosGlobais.ApresentaMensagemErro("Valor inválido!");
 
                 RecebeValorLocacao();
             }
+
+            return new Tuple<bool, double>(resultadoValidacaoValorLocacao, valorInformadoLocacao);
         }
 
-        private static void RecebePeriodoDiasLocacao()
+        private static Tuple<bool, int> RecebePeriodoDiasLocacao()
         {
-            Console.WriteLine("\n ================================================== Período de dias permitido para locação: ");
+            Console.WriteLine(" ================================================== Período de dias permitido para locação: ");
 
-            int periodoDiasLocacaoInformado;
-
-            Console.Write("\n ");
-
-            int.TryParse(Console.ReadLine(), out periodoDiasLocacaoInformado);
+            int periodoDiasLocacaoInformado = UtilitariosGlobais.RecebeDadoCadastroIntEnum(" ");
 
             bool resultadoValidacaoPeriodoDiasLocacao = ControllerFilme.ValidaPeriodoDiasLocacao(periodoDiasLocacaoInformado);
 
@@ -184,17 +165,15 @@ namespace ShethLocadora.Viewes
 
                 RecebePeriodoDiasLocacao();
             }
+
+            return new Tuple<bool, int>(resultadoValidacaoPeriodoDiasLocacao, periodoDiasLocacaoInformado);
         }
 
-        private static void RecebeQuantidadeDisponivel()
+        private static Tuple<bool, int> RecebeQuantidadeDisponivel()
         {
-            Console.WriteLine("\n ================================================== Quantidade disponível: ");
+            Console.WriteLine(" ================================================== Quantidade disponível: ");
 
-            int quantidadeDisponivelInformada;
-
-            Console.Write("\n ");
-
-            int.TryParse(Console.ReadLine(), out quantidadeDisponivelInformada);
+            int quantidadeDisponivelInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum(" ");
 
             bool resultadoValidacaoQuantidadeDisponivel = ControllerFilme.ValidaQuantidadeDisponivel(quantidadeDisponivelInformada);
 
@@ -204,6 +183,8 @@ namespace ShethLocadora.Viewes
 
                 RecebeQuantidadeDisponivel();
             }
+
+            return new Tuple<bool, int>(resultadoValidacaoQuantidadeDisponivel, quantidadeDisponivelInformada);
         }
 
         private static void FinalizaCadastro()

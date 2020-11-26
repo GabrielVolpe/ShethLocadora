@@ -15,21 +15,24 @@ namespace ShethLocadora.Viewes
 
         private static void ApresentaMenu()
         {
+            OpcoesMenu();
+
+            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenuClear();
+
+            ControllerTelaOpcoesConsultaFilme.RecebeOpcaoMenu(opcaoInformada);
+        }
+
+        private static void OpcoesMenu()
+        {
+            //Listagem
             Console.WriteLine("\n 1 - Todos");
+            //Consultas
             Console.WriteLine(" 2 - Id");
             Console.WriteLine(" 3 - Título");
             Console.WriteLine(" 4 - Diretor");
+            //Listagem
             Console.WriteLine(" 5 - Categoria");
             Console.WriteLine(" 9 - Menu Filmes");
-
-            int opcaoInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoInformada);
-
-            Console.Clear();
-
-            ControllerTelaOpcoesConsultaFilme.RecebeOpcaoMenu(opcaoInformada);
         }
     }
 }
