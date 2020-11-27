@@ -15,20 +15,22 @@ namespace ShethLocadora.Viewes
 
         private static void ApresentaMenu()
         {
-            Console.WriteLine("\n 1 - Todos");
-            Console.WriteLine(" 2 - Id");
-            Console.WriteLine(" 3 - CPF");
-            Console.WriteLine(" 4 - Nome");
-            Console.WriteLine(" 9 - Menu Úsuários");
+            OpcoesMenu();
 
-            int opcaoInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoInformada);
-
-            Console.Clear();
+            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenuClear();
 
             ControllerTelaOpcoesConsultaUsuario.RecebeOpcaoMenu(opcaoInformada);
+        }
+
+        private static void OpcoesMenu()
+        {
+            //Listagem
+            Console.WriteLine("\n 1 - Listar todos");
+            //Consultas
+            Console.WriteLine(" 2 - Consultar ID");
+            Console.WriteLine(" 3 - Consultar CPF");
+            Console.WriteLine(" 4 - Consultar Nome");
+            Console.WriteLine(" 9 - Menu Úsuários");
         }
     }
 }

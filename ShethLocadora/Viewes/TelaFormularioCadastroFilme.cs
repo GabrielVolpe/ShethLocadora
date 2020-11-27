@@ -77,7 +77,7 @@ namespace ShethLocadora.Viewes
             return new Tuple<bool, string>(resultadoValidacaoDiretor, diretorInformado);
         }
 
-        private static Tuple<bool, int> RecebeCategoria()
+        internal static Tuple<bool, int> RecebeCategoria()
         {
             Console.WriteLine(" ================================================== Categoria");
 
@@ -104,7 +104,7 @@ namespace ShethLocadora.Viewes
             return new Tuple<bool, int>(resultadoValidacaoCategoria, opcaoCategoriaInformada);
         }
 
-        private static Tuple<bool, int> RecebeClassificacaoIndicativa()
+        internal static Tuple<bool, int> RecebeClassificacaoIndicativa()
         {
             Console.WriteLine(" ================================================== Classificação Indicativa");
 
@@ -130,7 +130,7 @@ namespace ShethLocadora.Viewes
             return new Tuple<bool, int>(resultadoValidacaoClassificacaoIndicativa, opcaoClassificacaoIndicativaInformada);
         }
 
-        private static Tuple<bool, double> RecebeValorLocacao()
+        internal static Tuple<bool, double> RecebeValorLocacao()
         {
             Console.WriteLine(" ================================================== Valor de locação: ");
 
@@ -151,7 +151,7 @@ namespace ShethLocadora.Viewes
             return new Tuple<bool, double>(resultadoValidacaoValorLocacao, valorInformadoLocacao);
         }
 
-        private static Tuple<bool, int> RecebePeriodoDiasLocacao()
+        internal static Tuple<bool, int> RecebePeriodoDiasLocacao()
         {
             Console.WriteLine(" ================================================== Período de dias permitido para locação: ");
 
@@ -169,7 +169,7 @@ namespace ShethLocadora.Viewes
             return new Tuple<bool, int>(resultadoValidacaoPeriodoDiasLocacao, periodoDiasLocacaoInformado);
         }
 
-        private static Tuple<bool, int> RecebeQuantidadeDisponivel()
+        internal static Tuple<bool, int> RecebeQuantidadeDisponivel()
         {
             Console.WriteLine(" ================================================== Quantidade disponível: ");
 

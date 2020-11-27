@@ -7,34 +7,48 @@ namespace ShethLocadora.Viewes
 {
     static class TelaOpcoesAlteracaoUsuario
     {
+        internal static string CpfInformado = null;
+
         internal static void ApresentaTela()
         {
             UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - USUÁRIOS");
 
-            LocalizaUsuarioAlteracao();
+            RecebeCpf();
         }
 
-        internal static string CpfInformado;
-
-        private static void LocalizaUsuarioAlteracao()
+        private static void RecebeCpf()
         {
             Console.Write("\n Informe o CPF do usuário que deseja alterar: ");
             CpfInformado = Console.ReadLine();
 
-            bool resultadoValidacaoCpf = UtilitariosGlobais.ValidaCpfUsuario(CpfInformado);
-
             Console.WriteLine();
 
-            if (resultadoValidacaoCpf == true)
-            {
-                foreach (var item in BancoDados.Usuarios)
-                {
-                    if (item.Cpf == CpfInformado)
-                    {
-                        Console.WriteLine(item);
-                    }
-                }
+            LocalizaCpf(CpfInformado);
+        }
 
+        private static void LocalizaCpf(string CpfInformado)
+        {
+            bool cpfLocalizado = false;
+
+            foreach (var item in BancoDados.Usuarios)
+            {
+                if (item.Cpf == CpfInformado)
+                {
+                    cpfLocalizado = true;
+
+                    Console.WriteLine(item);
+
+                    break;
+                }
+            }
+
+            VerificaResultadoLocalizacaoCpf(cpfLocalizado);
+        }
+
+        private static void VerificaResultadoLocalizacaoCpf(bool cpfLocalizado)
+        {
+            if (cpfLocalizado == true)
+            {
                 ApresentaMenu();
             }
             else
@@ -49,6 +63,15 @@ namespace ShethLocadora.Viewes
         {
             Console.WriteLine(" Opções de alteração:");
 
+            OpcoesMenu();
+
+            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenuClear();
+
+            ControllerTelaOpcoesAlteracaoUsuario.RecebeOpcaoMenu(opcaoInformada);
+        }
+
+        private static void OpcoesMenu()
+        {
             Console.WriteLine("\n 1 - Nome");
             Console.WriteLine(" 2 - Data de nascimento");
             Console.WriteLine(" 3 - Sexo");
@@ -66,13 +89,6 @@ namespace ShethLocadora.Viewes
             Console.WriteLine(" 15 - Usuário de autenticação");
             Console.WriteLine(" 16 - Senha de autenticação");
             Console.WriteLine(" 19 - Menu Filmes");
-
-            int opcaoInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoInformada);
-
-            ControllerTelaOpcoesAlteracaoUsuario.RecebeOpcaoMenu(opcaoInformada);
         }
     }
 }

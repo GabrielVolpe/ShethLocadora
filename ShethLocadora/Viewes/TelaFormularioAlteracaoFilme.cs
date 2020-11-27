@@ -51,11 +51,9 @@ namespace ShethLocadora.Viewes
 
         internal static void RecebeCategoria()
         {
-            Console.WriteLine("\n ================================================== Categoria");
+            Tuple<bool, int> retornoCategoria = TelaFormularioCadastroFilme.RecebeCategoria();
 
             int contadorCategoriaFilme = 1;
-
-            Console.WriteLine();
 
             foreach (var opcaoEnum in Enum.GetValues(typeof(EnumCategoriaFilme)))
             {
@@ -64,38 +62,21 @@ namespace ShethLocadora.Viewes
                 contadorCategoriaFilme++;
             }
 
-            int opcaoCategoriaInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoCategoriaInformada);
-
-            bool resultadoValidacaoCategoria = ControllerFilme.ValidaCategoria(opcaoCategoriaInformada);
-
-            if (resultadoValidacaoCategoria == true)
+            if (retornoCategoria.Item1 == true)
             {
                 Console.Clear();
 
                 ControllerFilme.AlteraCategoria(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuFilme.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
-
-                RecebeCategoria();
+                FinalizaAlteracao();
             }
         }
 
         internal static void RecebeClassificacaoIndicativa()
         {
-            Console.WriteLine("\n ================================================== Classificação Indicativa");
+            Tuple<bool, int> retornoClassificacaoIndicativa = TelaFormularioCadastroFilme.RecebeClassificacaoIndicativa();
 
             int contadorClassificacaoIndicativaFilme = 1;
-
-            Console.WriteLine();
 
             foreach (var opcaoEnum in Enum.GetValues(typeof(EnumClassificacaoIndicativaFilme)))
             {
@@ -103,118 +84,55 @@ namespace ShethLocadora.Viewes
                 contadorClassificacaoIndicativaFilme++;
             }
 
-            int opcaoClassificacaoIndicativaInformada;
-
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoClassificacaoIndicativaInformada);
-
-            bool resultadoValidacaoClassificacaoIndicativa = ControllerFilme.ValidaClassificacaoIndicativa(opcaoClassificacaoIndicativaInformada);
-
-            if (resultadoValidacaoClassificacaoIndicativa == true)
+            if (retornoClassificacaoIndicativa.Item1 == true)
             {
                 Console.Clear();
 
                 ControllerFilme.AlteraClassificacaoIndicativa(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuFilme.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
-
-                RecebeClassificacaoIndicativa();
+                FinalizaAlteracao();
             }
         }
 
         internal static void RecebeValorLocacao()
         {
-            Console.WriteLine("\n ================================================== Valor de locação: ");
+            Tuple<bool, double> retornoValorLocacao = TelaFormularioCadastroFilme.RecebeValorLocacao();
 
-            double valorInformadoLocacao;
-
-            Console.Write("\n ");
-
-            double.TryParse(Console.ReadLine(), out valorInformadoLocacao);
-
-            bool resultadoValidacaoValorLocacao = ControllerFilme.ValidaValorLocacao(valorInformadoLocacao);
-
-            if (resultadoValidacaoValorLocacao == true)
+            if (retornoValorLocacao.Item1 == true)
             {
                 Console.Clear();
 
                 ControllerFilme.AlteraValorLocacao(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuFilme.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Valor inválido!");
-
-                RecebeValorLocacao();
+                FinalizaAlteracao();
             }
         }
 
         internal static void RecebePeriodoDiasLocacao()
         {
-            Console.WriteLine("\n ================================================== Período de dias permitido para locação: ");
+            Tuple<bool, int> retornoPeriodoDiasLocacao = TelaFormularioCadastroFilme.RecebePeriodoDiasLocacao();
 
-            int periodoDiasLocacaoInformado;
-
-            Console.Write("\n ");
-
-            int.TryParse(Console.ReadLine(), out periodoDiasLocacaoInformado);
-
-            bool resultadoValidacaoPeriodoDiasLocacao = ControllerFilme.ValidaPeriodoDiasLocacao(periodoDiasLocacaoInformado);
-
-            if (resultadoValidacaoPeriodoDiasLocacao == true)
+            if (retornoPeriodoDiasLocacao.Item1 == true)
             {
                 Console.Clear();
 
                 ControllerFilme.AlteraPeriodoDiasLocacao(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuFilme.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Período inválido!");
-
-                RecebePeriodoDiasLocacao();
+                FinalizaAlteracao();
             }
         }
 
         internal static void RecebeQuantidadeDisponivel()
         {
-            Console.WriteLine("\n ================================================== Quantidade disponível: ");
+            Tuple<bool, int> retornoQuantidadeDisponivel = TelaFormularioCadastroFilme.RecebeQuantidadeDisponivel();
 
-            int quantidadeDisponivelInformada;
-
-            Console.Write("\n ");
-
-            int.TryParse(Console.ReadLine(), out quantidadeDisponivelInformada);
-
-            bool resultadoValidacaoQuantidadeDisponivel = ControllerFilme.ValidaQuantidadeDisponivel(quantidadeDisponivelInformada);
-
-            if (resultadoValidacaoQuantidadeDisponivel == true)
+            if (retornoQuantidadeDisponivel.Item1 == true)
             {
                 Console.Clear();
 
                 ControllerFilme.AlteraQuantidadeDisponivel(TelaOpcoesAlteracaoFilme.IdInformado);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
-
-                TelaMenuFilme.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Quantidade inválido!");
-
-                RecebeQuantidadeDisponivel();
+                FinalizaAlteracao();
             }
         }
 

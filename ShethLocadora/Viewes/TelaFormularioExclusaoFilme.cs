@@ -7,34 +7,48 @@ namespace ShethLocadora.Viewes
 {
     static class TelaFormularioExclusaoFilme
     {
+        internal static int IdInformado = 0;
+
         internal static void ApresentaTela()
         {
             UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE EXCLUSÃO - FILMES");
 
-            LocalizaFilmeExclusao();
+            RecebeId();
         }
 
-        public static int IdInformado;
-
-        private static void LocalizaFilmeExclusao()
+        private static void RecebeId()
         {
             Console.Write("\n Informe o ID do filme que deseja excluir: ");
             int.TryParse(Console.ReadLine(), out IdInformado);
 
-            bool resultadoValidacaoId = UtilitariosGlobais.ValidaIdFilme(IdInformado);
-
             Console.WriteLine();
 
-            if (resultadoValidacaoId == true)
-            {
-                foreach (var item in BancoDados.Filmes)
-                {
-                    if (item.Id == IdInformado)
-                    {
-                        Console.WriteLine(item);
-                    }
-                }
+            LocalizaId(IdInformado);
+        }
 
+        private static void LocalizaId(int idInformado)
+        {
+            bool IdLocalizado = false;
+
+            foreach (var item in BancoDados.Filmes)
+            {
+                if (item.Id == idInformado)
+                {
+                    IdLocalizado = true;
+
+                    Console.WriteLine(item);
+
+                    break;
+                }
+            }
+
+            VerificaResultadoLocalizacaoId(IdLocalizado);
+        }
+
+        private static void VerificaResultadoLocalizacaoId(bool IdLocalizado)
+        {
+            if (IdLocalizado == true)
+            {
                 ApresentaConfirmacao();
             }
             else
@@ -52,6 +66,11 @@ namespace ShethLocadora.Viewes
             Console.Write(" Deseja realmente prosseguir com a exclusão? (1 = SIM / 2 = NÃO): ");
             int.TryParse(Console.ReadLine(), out opcaoConfirmacaoExclusao);
 
+            VerificaOpcaoConfirmacao(opcaoConfirmacaoExclusao);
+        }
+
+        private static void VerificaOpcaoConfirmacao(int opcaoConfirmacaoExclusao)
+        {
             if (opcaoConfirmacaoExclusao == 1)
             {
                 Console.Clear();

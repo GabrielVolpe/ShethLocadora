@@ -220,7 +220,7 @@ namespace ShethLocadora.Controllers
 
             if (id > 0)
             {
-                BancoDados.Filmes.Where(x => x.Id == id);
+                filmes = filmes.Where(x => x.Id == id);
             }
 
             if (categoria > 0)

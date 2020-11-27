@@ -188,7 +188,7 @@ namespace ShethLocadora.Viewes
         {
             Console.WriteLine("\n ================================================== Status");
 
-            Console.WriteLine("\n 1 - Ativo");
+            Console.WriteLine(" 1 - Ativo");
             Console.WriteLine(" 2 - Inativo");
 
             int opcaoStatusInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção:");

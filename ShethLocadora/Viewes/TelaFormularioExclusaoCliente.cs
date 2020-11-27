@@ -7,7 +7,7 @@ namespace ShethLocadora.Viewes
 {
     static class TelaFormularioExclusaoCliente
     {
-        internal static string CpfInformado;
+        internal static string CpfInformado = null;
 
         internal static void ApresentaTela()
         {
@@ -21,27 +21,34 @@ namespace ShethLocadora.Viewes
             Console.Write("\n Informe o CPF do cliente que deseja excluir: ");
             CpfInformado = Console.ReadLine();
 
-            bool resultadoValidacaoCpf = UtilitariosGlobais.ValidaCpfCliente(CpfInformado);
-
             Console.WriteLine();
 
-            VerificaResultadoLocalizacaoCpf(resultadoValidacaoCpf);
+            LocalizaCpf(CpfInformado);
         }
 
-        private static void VerificaResultadoLocalizacaoCpf(bool resultadoValidacaoCpf)
+        private static void LocalizaCpf(string cpfInformado)
         {
-            if (resultadoValidacaoCpf == true)
+            bool cpfLocalizado = false;
+
+            foreach (var item in BancoDados.Clientes)
             {
-                foreach (var item in BancoDados.Clientes)
+                if (item.Cpf == CpfInformado)
                 {
-                    if (item.Cpf == CpfInformado)
-                    {
-                        Console.WriteLine(item);
+                    cpfLocalizado = true;
 
-                        break;
-                    }
+                    Console.WriteLine(item);
+
+                    break;
                 }
+            }
 
+            VerificaResultadoLocalizacaoCpf(cpfLocalizado);
+        }
+
+        private static void VerificaResultadoLocalizacaoCpf(bool cpfLocalizado)
+        {
+            if (cpfLocalizado == true)
+            {
                 RecebeConfirmacao();
             }
             else

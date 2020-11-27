@@ -7,7 +7,7 @@ namespace ShethLocadora.Viewes
 {
     static class TelaOpcoesAlteracaoCliente
     {
-        internal static string CpfInformado;
+        internal static string CpfInformado = null;
 
         internal static void ApresentaTela()
         {

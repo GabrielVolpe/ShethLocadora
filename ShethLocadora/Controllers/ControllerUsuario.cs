@@ -131,14 +131,9 @@ namespace ShethLocadora.Controllers
 
         // ================================================== CONSULTAR
 
-        internal static void ConsultaTodos()
+        internal static void ListaTodos()
         {
-            var todosUsuario =
-                from x in BancoDados.Usuarios
-                where x.Id > 0
-                select x;
-
-            foreach (var item in todosUsuario)
+            foreach (var item in BancoDados.Usuarios)
             {
                 Console.WriteLine(item);
             }

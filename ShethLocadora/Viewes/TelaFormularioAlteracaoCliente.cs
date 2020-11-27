@@ -16,7 +16,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraNome(TelaOpcoesAlteracaoCliente.CpfInformado, retornoNome.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -36,7 +36,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraDataNascimento(TelaOpcoesAlteracaoCliente.CpfInformado, retornoDataNascimento.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -56,7 +56,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraSexo(TelaOpcoesAlteracaoCliente.CpfInformado, retornoSexo.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -76,7 +76,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraCpf(TelaOpcoesAlteracaoCliente.CpfInformado, retornoCpf.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -96,7 +96,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraEmail(TelaOpcoesAlteracaoCliente.CpfInformado, retornoEmail.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -116,7 +116,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraNumeroCelular(TelaOpcoesAlteracaoCliente.CpfInformado, retornoNumeroCelular.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -136,7 +136,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraUnidadeFederativa(TelaOpcoesAlteracaoCliente.CpfInformado, retornoUnidadeFederativa.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -156,7 +156,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraCidade(TelaOpcoesAlteracaoCliente.CpfInformado, retornoCidade.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -176,11 +176,11 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraBairro(TelaOpcoesAlteracaoCliente.CpfInformado, retornoBairro.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
-                UtilitariosGlobais.ApresentaMensagemErro("Bairro inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Bairro inválido!");
 
                 RecebeBairro();
             }
@@ -196,11 +196,11 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraLogradouro(TelaOpcoesAlteracaoCliente.CpfInformado, retornoLogradouro.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
-                UtilitariosGlobais.ApresentaMensagemErro("Logradouro inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Logradouro inválido!");
 
                 RecebeLogradouro();
             }
@@ -216,11 +216,11 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraComplemento(TelaOpcoesAlteracaoCliente.CpfInformado, retornoComplemento.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
-                UtilitariosGlobais.ApresentaMensagemErro("Complemento inválida!");
+                UtilitariosGlobais.ApresentaMensagemErro("Complemento inválido!");
 
                 RecebeComplemento();
             }
@@ -236,7 +236,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraCep(TelaOpcoesAlteracaoCliente.CpfInformado, retornoCep.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -256,7 +256,7 @@ namespace ShethLocadora.Viewes
 
                 ControllerCliente.AlteraStatus(TelaOpcoesAlteracaoCliente.CpfInformado, retornoStatus.Item2);
 
-                FinalAlteracao();
+                FinalizaAlteracao();
             }
             else
             {
@@ -266,7 +266,7 @@ namespace ShethLocadora.Viewes
             }
         }
 
-        private static void FinalAlteracao()
+        private static void FinalizaAlteracao()
         {
             UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
 

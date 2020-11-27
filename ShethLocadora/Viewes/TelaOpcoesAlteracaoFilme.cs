@@ -7,14 +7,14 @@ namespace ShethLocadora.Viewes
 {
     static class TelaOpcoesAlteracaoFilme
     {
+        internal static int IdInformado = 0;
+
         internal static void ApresentaTela()
         {
             UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - FILMES");
 
             RecebeId();
         }
-
-        internal static int IdInformado;
 
         private static void RecebeId()
         {
@@ -34,6 +34,8 @@ namespace ShethLocadora.Viewes
             {
                 if (item.Id == IdInformado)
                 {
+                    idLocalizado = true;
+
                     Console.WriteLine(item);
 
                     break;

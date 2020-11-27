@@ -6,67 +6,52 @@ namespace ShethLocadora.Viewes
 {
     static class TelaFormularioConsultaUsuario
     {
-        internal static void ConsultaTodos()
+        internal static void ListaTodos()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR TODOS OS USUÁRIOS");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR TODOS OS USUÁRIOS");
 
             Console.WriteLine();
-            ControllerUsuario.ConsultaTodos();
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
+            ControllerUsuario.ListaTodos();
 
-            TelaOpcoesConsultaUsuarios.ApresentaTela();
+            FinalizaConsulta();
         }
 
         internal static void ConsultaId()
         {
             UtilitariosGlobais.ApresentaCabecalho("CONTULAR USUÁRIOS POR ID");
 
-            int idInformado;
-
-            Console.Write("\n Informe o ID: ");
-            int.TryParse(Console.ReadLine(), out idInformado);
-
-            Console.WriteLine();
+            int idInformado = UtilitariosGlobais.ConsultasInt(" ID: ");
 
             ControllerUsuario.ConsultaId(idInformado);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaUsuarios.ApresentaTela();
+            FinalizaConsulta();
         }
 
         internal static void ConsultaCpf()
         {
             UtilitariosGlobais.ApresentaCabecalho("CONSULTAR USUÁRIOS POR CPF");
 
-            string cpfInformado;
-
-            Console.Write("\n Informe o CPF: ");
-            cpfInformado = Console.ReadLine().ToUpper();
-
-            Console.WriteLine();
+            string cpfInformado = UtilitariosGlobais.ConsultasString(" CPF: ");
 
             ControllerUsuario.ConsultaCpf(cpfInformado);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaUsuarios.ApresentaTela();
+            FinalizaConsulta();
         }
 
         internal static void ConsultaNome()
         {
             UtilitariosGlobais.ApresentaCabecalho("CONSULTAR USUÁRIOS POR NOME");
 
-            string nomeInformado;
-
-            Console.Write("\n Informe o nome: ");
-            nomeInformado = Console.ReadLine().ToUpper();
-
-            Console.WriteLine();
+            string nomeInformado = UtilitariosGlobais.ConsultasString(" Nome: ");
 
             ControllerUsuario.ConsultaNome(nomeInformado);
 
+            FinalizaConsulta();
+        }
+
+        private static void FinalizaConsulta()
+        {
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
             TelaOpcoesConsultaUsuarios.ApresentaTela();
