@@ -59,15 +59,12 @@ namespace ShethLocadora.Models
         public override bool Equals(object obj)
         {
             return obj is Cliente cliente &&
-                   Nome == cliente.Nome &&
-                   DataNascimento == cliente.DataNascimento &&
-                   Sexo == cliente.Sexo &&
                    Cpf == cliente.Cpf;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Nome, DataNascimento, Sexo, Cpf);
+            return HashCode.Combine(Cpf);
         }
     }
 }

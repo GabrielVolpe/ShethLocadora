@@ -25,10 +25,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaDataNascimento(string dataNascimentoInformada)
@@ -40,10 +38,8 @@ namespace ShethLocadora.Controllers
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaSexo(int opcaoSexoInformada)
@@ -54,10 +50,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaCpf(string cpfInformado)
@@ -70,10 +64,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaEmail(string emailInformado)
@@ -86,10 +78,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaNumeroCelular(string numeroCelularInformado)
@@ -102,10 +92,9 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
+
         }
     }
 }

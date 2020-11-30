@@ -29,16 +29,15 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else if (opcaoStatusInformada == 2)
+
+            if (opcaoStatusInformada == 2)
             {
                 _status = false;
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaTitulo(string tituloInformado)
@@ -51,10 +50,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaDiretor(string diretorInformado)
@@ -67,10 +64,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaCategoria(int opcaoCategoriaInformada)
@@ -81,10 +76,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaClassificacaoIndicativa(int opcaoClassificacaoIndicativaInformada)
@@ -95,10 +88,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaValorLocacao(double valorInformadoLocacao)
@@ -109,10 +100,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaPeriodoDiasLocacao(int periodoDiasLocacaoInformado)
@@ -123,10 +112,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaQuantidadeDisponivel(int quantidadeDisponivelInformada)
@@ -137,10 +124,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool FinalizaCadastro()
@@ -178,19 +163,17 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         // ================================================== CONSULTAR
 
-        internal static void ConsultaTodos()
+        internal static void ListaTodos()
         {
             foreach (var item in BancoDados.Filmes)
             {
-                Console.WriteLine(item);
+                ExibeModeloListagem(item);
             }
         }
 
@@ -209,12 +192,15 @@ namespace ShethLocadora.Controllers
             ConsultaGeral(diretor: diretorInformado);
         }
 
-        internal static void ConsultaCategoria(int opcaoCategoriaInformada)
+        internal static void ListaCategoria(int opcaoCategoriaInformada)
         {
-            ConsultaGeral(categoria: (EnumCategoriaFilme)opcaoCategoriaInformada);
+            foreach (var item in BancoDados.Filmes.Where(x => x.Categoria == (EnumCategoriaFilme)opcaoCategoriaInformada))
+            {
+                ExibeModeloListagem(item);
+            };
         }
 
-        private static void ConsultaGeral(int id = 0, EnumCategoriaFilme categoria = 0, string titulo = null, string diretor = null)
+        private static void ConsultaGeral(int id = 0, string titulo = null, string diretor = null, EnumCategoriaFilme categoria = 0)
         {
             var filmes = BancoDados.Filmes.AsEnumerable();
 
@@ -223,19 +209,14 @@ namespace ShethLocadora.Controllers
                 filmes = filmes.Where(x => x.Id == id);
             }
 
-            if (categoria > 0)
-            {
-                filmes = filmes.Where(x => x.Categoria == categoria);
-            }
-
             if (titulo != null)
             {
-                filmes = filmes.Where(x => x.Titulo.Contains(titulo));
+                filmes = filmes.Where(x => x.Titulo.Contains(titulo.ToUpper())); ;
             }
 
             if (diretor != null)
             {
-                filmes = filmes.Where(x => x.Diretor.Contains(diretor));
+                filmes = filmes.Where(x => x.Diretor.Contains(diretor.ToUpper()));
             }
 
             foreach (var item in filmes)
@@ -244,93 +225,76 @@ namespace ShethLocadora.Controllers
             }
         }
 
+        private static void ExibeModeloListagem(Filme item)
+        {
+            Console.WriteLine(" ID.......: " + item.Id);
+            Console.WriteLine(" Título...: " + item.Titulo);
+            Console.WriteLine(" Diretor..: " + item.Diretor + "\n");
+        }
+
         // ================================================== ALTERAR
 
         internal static void AlteraStatus(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.Status = _status;
-                }
+                item.Status = _status;
             }
         }
 
         internal static void AlteraTitutlo(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.Titulo = _titulo;
-                }
+                item.Titulo = _titulo.ToUpper();
             }
         }
 
         internal static void AlteraDiretor(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.Diretor = _diretor;
-                }
+                item.Diretor = _diretor.ToUpper();
             }
         }
 
         internal static void AlteraCategoria(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.Categoria = _categoria;
-                }
+                item.Categoria = _categoria;
             }
         }
 
         internal static void AlteraClassificacaoIndicativa(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.ClassificacaoIndicativa = _classificacaoIndicativa;
-                }
+                item.ClassificacaoIndicativa = _classificacaoIndicativa;
             }
         }
 
         internal static void AlteraValorLocacao(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.ValorLocacao = _valorLocacao;
-                }
+                item.ValorLocacao = _valorLocacao;
             }
         }
 
         internal static void AlteraPeriodoDiasLocacao(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.PeriodoDiasLocacao = _periodoDiasLocacao;
-                }
+                item.PeriodoDiasLocacao = _periodoDiasLocacao;
             }
         }
 
         internal static void AlteraQuantidadeDisponivel(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.QuantidadeDisponivel = _quantidadeDisponivel;
-                }
+                item.QuantidadeDisponivel = _quantidadeDisponivel;
             }
         }
 
@@ -338,12 +302,9 @@ namespace ShethLocadora.Controllers
 
         internal static void ExcluiFilme(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    BancoDados.Filmes.Remove(item);
-                }
+                BancoDados.Filmes.Remove(item);
             }
         }
     }

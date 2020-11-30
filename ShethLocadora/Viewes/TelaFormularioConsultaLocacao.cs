@@ -8,11 +8,11 @@ namespace ShethLocadora.Viewes
     {
         internal static void ConsultaTodas()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR TODAS AS LOCAÇÕES");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR TODAS AS LOCAÇÕES");
 
             Console.WriteLine();
 
-            ControllerLocacao.ConsultaTodas();
+            ControllerLocacao.ListaTodos();
 
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
@@ -21,7 +21,7 @@ namespace ShethLocadora.Viewes
 
         internal static void ConsultaId()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONTULAR LOCAÇÕES POR ID");
+            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR LOCAÇÕES POR ID");
 
             int idInformado;
 
@@ -39,7 +39,7 @@ namespace ShethLocadora.Viewes
 
         internal static void ConsultaCpf()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONTULAR LOCAÇÕES POR CPF");
+            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR LOCAÇÕES POR CPF");
 
             string cpfInformado;
 
@@ -57,11 +57,11 @@ namespace ShethLocadora.Viewes
 
         internal static void ConsultaAtivas()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONTULAR LOCAÇÕES ATIVAS");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES ATIVAS");
 
             Console.WriteLine();
 
-            ControllerLocacao.ConsultaAtivas();
+            ControllerLocacao.ListaAtivas();
 
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
@@ -70,11 +70,11 @@ namespace ShethLocadora.Viewes
 
         internal static void ConsultaInativas()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONTULAR LOCAÇÕES INATIVAS");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES INATIVAS");
 
             Console.WriteLine();
 
-            ControllerLocacao.ConsultaInativas();
+            ControllerLocacao.ListaInativas();
 
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
@@ -83,11 +83,11 @@ namespace ShethLocadora.Viewes
 
         internal static void ConsultaRegulares()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONTULAR LOCAÇÕES REGULARES");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES REGULARES");
 
             Console.WriteLine();
 
-            ControllerLocacao.ConsultaRegulares();
+            ControllerLocacao.ListaRegulares();
 
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
@@ -96,11 +96,11 @@ namespace ShethLocadora.Viewes
 
         internal static void ConsultaIrregulares()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONTULAR LOCAÇÕES IRREGULARES");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES IRREGULARES");
 
             Console.WriteLine();
 
-            ControllerLocacao.ConsultaIrregulares();
+            ControllerLocacao.ListaIrregulares();
 
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 

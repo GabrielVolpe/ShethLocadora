@@ -37,9 +37,9 @@ namespace ShethLocadora.Controllers
 
         internal static bool VerificaStatusFilme(int idInformado)
         {
-            foreach (var item in BancoDados.Filmes)
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado))
             {
-                if (item.Id == idInformado && item.Status == true)
+                if (item.Status == true)
                 {
                     return true;
                 }
@@ -52,12 +52,9 @@ namespace ShethLocadora.Controllers
         {
             int quantidadeDisponivel = 0;
 
-            foreach (var item in BancoDados.Filmes)
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado))
             {
-                if (item.Id == idInformado)
-                {
-                    quantidadeDisponivel = item.QuantidadeDisponivel;
-                }
+                quantidadeDisponivel = item.QuantidadeDisponivel;
             }
 
             return quantidadeDisponivel;
@@ -65,27 +62,15 @@ namespace ShethLocadora.Controllers
 
         internal static bool VerificaStatusCliente(string cpfInformado)
         {
-            bool clienteAtivo = false;
-
-            foreach (var item in BancoDados.Clientes)
+            foreach (var item in BancoDados.Clientes.Where(x => x.Cpf == cpfInformado))
             {
-                if (item.Cpf == cpfInformado)
+                if (item.Status == true)
                 {
-                    if (item.Status == true)
-                    {
-                        clienteAtivo = true;
-                    }
+                    return true;
                 }
             }
 
-            if (clienteAtivo == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         internal static void ConcluiLocacao(int idInformado, string cpfInformado)
@@ -157,12 +142,9 @@ namespace ShethLocadora.Controllers
 
             BancoDados.Locacoes.Add(locacao);
 
-            foreach (var item in BancoDados.Clientes)
+            foreach (var item in BancoDados.Clientes.Where(x => x.Cpf == cpfInformado))
             {
-                if (item.Cpf == cpfInformado)
-                {
-                    item.Locacoes.Add(locacao);
-                }
+                item.Locacoes.Add(locacao);
             }
         }
 
@@ -170,9 +152,9 @@ namespace ShethLocadora.Controllers
 
         internal static bool ValidaIdLocacao(int idInformado)
         {
-            foreach (var item in BancoDados.Locacoes)
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Id == idInformado))
             {
-                if (idInformado == item.Id && item.Status == true)
+                if (item.Status == true)
                 {
                     return true;
                 }
@@ -183,12 +165,9 @@ namespace ShethLocadora.Controllers
 
         internal static void AplicaMulta(int idInformado)
         {
-            foreach (var item in BancoDados.Locacoes.ToArray())
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.ValorMulta += 150.00;
-                }
+                item.ValorMulta += 150.00;
             }
 
             Locacao.AtualizaLocacoes();
@@ -198,12 +177,9 @@ namespace ShethLocadora.Controllers
 
         internal static void RetiraMulta(int idInformado)
         {
-            foreach (var item in BancoDados.Locacoes.ToArray())
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.ValorMulta = 0.00;
-                }
+                item.ValorMulta = 0.00;
             }
 
             Locacao.AtualizaLocacoes();
@@ -213,115 +189,139 @@ namespace ShethLocadora.Controllers
         {
             int idFilme = 0;
 
-            foreach (var item in BancoDados.Locacoes.ToArray())
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idInformado)
-                {
-                    item.DataOcorreuDevolucao = DateTime.Now;
+                item.DataOcorreuDevolucao = DateTime.Now;
 
-                    item.Status = false;
+                item.Status = false;
 
-                    item.Situacao = true;
+                item.Situacao = true;
 
-                    idFilme = item.Filme.Id;
-                }
+                idFilme = item.Filme.Id;
             }
 
-            foreach (var item in BancoDados.Filmes.ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
             {
-                if (item.Id == idFilme)
-                {
-                    item.QuantidadeDisponivel += 1;
-                }
+                item.QuantidadeDisponivel += 1;
             }
         }
 
         // ================================================== CONSULTAR
 
-        internal static void ConsultaTodas()
+        internal static void ListaTodos()
         {
             foreach (var item in BancoDados.Locacoes)
             {
-                Console.WriteLine(item);
-
-                UtilitariosGlobais.ApresentaResumoValores(item.Id);
+                ExibeModeloListagem(item);
             }
         }
 
         internal static void ConsultaId(int idInformado)
         {
-            var locacoesId = BancoDados.Locacoes.Where(x => x.Id == idInformado);
+            ConsultaGeral(id: idInformado);
 
-            foreach (var item in locacoesId)
-            {
-                Console.WriteLine(item);
-
-                UtilitariosGlobais.ApresentaResumoValores(idInformado);
-            }
+            UtilitariosGlobais.ApresentaResumoValores(idInformado);
         }
 
         internal static void ConsultaCpf(string cpfInformado)
         {
-            var locacoesId = BancoDados.Locacoes.Where(x => x.Cliente.Cpf == cpfInformado);
+            ConsultaGeral(cpf: cpfInformado);
 
-            foreach (var item in locacoesId)
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Cliente.Cpf == cpfInformado))
+            {
+                UtilitariosGlobais.ApresentaResumoValores(item.Id);
+            }
+        }
+
+        private static void ConsultaGeral(int id = 0, string cpf = null)
+        {
+            var locacoes = BancoDados.Locacoes.AsEnumerable();
+
+            if (id > 0)
+            {
+                locacoes = locacoes.Where(x => x.Id == id);
+            }
+
+            if (cpf != null)
+            {
+                locacoes = locacoes.Where(x => x.Cliente.Cpf == cpf);
+            }
+
+            foreach (var item in locacoes)
             {
                 Console.WriteLine(item);
+            }
+        }
+
+        internal static void ListaAtivas()
+        {
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Status == true))
+            {
+                ExibeModeloListagem(item);
 
                 UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
-        internal static void ConsultaAtivas()
+        internal static void ListaInativas()
         {
-            foreach (var item in BancoDados.Locacoes)
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Status == false))
             {
-                if (item.Status == true)
-                {
-                    Console.WriteLine(item);
+                ExibeModeloListagem(item);
 
-                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
-                }
+                UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
-        internal static void ConsultaInativas()
+        internal static void ListaRegulares()
         {
-            foreach (var item in BancoDados.Locacoes)
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Situacao == true))
             {
-                if (item.Status == false)
-                {
-                    Console.WriteLine(item);
+                ExibeModeloListagem(item);
 
-                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
-                }
+                UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
-        internal static void ConsultaRegulares()
+        internal static void ListaIrregulares()
         {
-            foreach (var item in BancoDados.Locacoes)
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Situacao == false))
             {
-                if (item.Situacao == true)
-                {
-                    Console.WriteLine(item);
+                ExibeModeloListagem(item);
 
-                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
-                }
+                UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
-        internal static void ConsultaIrregulares()
+        private static void ExibeModeloListagem(Locacao item)
         {
-            foreach (var item in BancoDados.Locacoes)
-            {
-                if (item.Situacao == false)
-                {
-                    Console.WriteLine(item);
+            string statusNominal;
 
-                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
-                }
+            if (item.Status == true)
+            {
+                statusNominal = "ATIVA";
             }
+            else
+            {
+                statusNominal = "INATIVA";
+            }
+
+            string situacaoNominal;
+
+            if (item.Situacao == true)
+            {
+                situacaoNominal = "REGULAR";
+            }
+            else
+            {
+                situacaoNominal = "IRREGULAR";
+            }
+
+            Console.WriteLine(" ID.........:" + item.Id);
+            Console.WriteLine(" Status.....:" + statusNominal);
+            Console.WriteLine(" Situacao...:" + situacaoNominal);
+            Console.WriteLine(" ID Filme...:" + item.Filme.Id);
+            Console.WriteLine(" CPF cliente:" + item.Cliente.Cpf + "\n");
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using ShethLocadora.Controllers;
-using ShethLocadora.Models.Enums;
 using ShethLocadora.Utilities;
 using System;
 
@@ -53,15 +52,6 @@ namespace ShethLocadora.Viewes
         {
             Tuple<bool, int> retornoCategoria = TelaFormularioCadastroFilme.RecebeCategoria();
 
-            int contadorCategoriaFilme = 1;
-
-            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumCategoriaFilme)))
-            {
-                Console.WriteLine($" {contadorCategoriaFilme} - {opcaoEnum}");
-
-                contadorCategoriaFilme++;
-            }
-
             if (retornoCategoria.Item1 == true)
             {
                 Console.Clear();
@@ -75,14 +65,6 @@ namespace ShethLocadora.Viewes
         internal static void RecebeClassificacaoIndicativa()
         {
             Tuple<bool, int> retornoClassificacaoIndicativa = TelaFormularioCadastroFilme.RecebeClassificacaoIndicativa();
-
-            int contadorClassificacaoIndicativaFilme = 1;
-
-            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumClassificacaoIndicativaFilme)))
-            {
-                Console.WriteLine($" {contadorClassificacaoIndicativaFilme} - {opcaoEnum}");
-                contadorClassificacaoIndicativaFilme++;
-            }
 
             if (retornoClassificacaoIndicativa.Item1 == true)
             {

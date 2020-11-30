@@ -29,7 +29,7 @@ namespace ShethLocadora.Viewes
             //Consultas
             Console.WriteLine(" 2 - Consultar ID");
             Console.WriteLine(" 3 - Consultar CPF");
-            Console.WriteLine(" 4 - Consultar Nome");
+            Console.WriteLine(" 4 - Consultar nome");
             Console.WriteLine(" 9 - Menu Úsuários");
         }
     }

@@ -31,7 +31,7 @@ namespace ShethLocadora.Utilities
 
         internal static int RecebeOpcaoMenuClear()
         {
-            int opcaoInformada;
+            int opcaoInformada = 0;
 
             Console.Write("\n Opção: ");
             int.TryParse(Console.ReadLine(), out opcaoInformada);
@@ -43,7 +43,7 @@ namespace ShethLocadora.Utilities
 
         internal static int RecebeOpcaoMenu()
         {
-            int opcaoInformada;
+            int opcaoInformada = 0;
 
             Console.Write("\n Opção: ");
             int.TryParse(Console.ReadLine(), out opcaoInformada);
@@ -58,7 +58,7 @@ namespace ShethLocadora.Utilities
             Console.WriteLine(mensagem);
             Console.Write(" ");
 
-            string dadoString;
+            string dadoString = null;
             dadoString = Console.ReadLine();
 
             return dadoString;
@@ -68,7 +68,7 @@ namespace ShethLocadora.Utilities
         {
             Console.Write(mensagem);
 
-            int dadoEnum;
+            int dadoEnum = 0;
             int.TryParse(Console.ReadLine(), out dadoEnum);
 
             return dadoEnum;
@@ -78,7 +78,7 @@ namespace ShethLocadora.Utilities
         {
             Console.Write(mensagem);
 
-            string dadoString;
+            string dadoString = null;
             dadoString = Console.ReadLine();
 
             Console.WriteLine();
@@ -90,7 +90,7 @@ namespace ShethLocadora.Utilities
         {
             Console.Write(mensagem);
 
-            int dadoInt;
+            int dadoInt = 0;
             int.TryParse(Console.ReadLine(), out dadoInt);
 
             Console.WriteLine();

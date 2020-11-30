@@ -13,7 +13,7 @@ namespace ShethLocadora.Viewes
 
             Console.WriteLine();
 
-            ControllerFilme.ConsultaTodos();
+            ControllerFilme.ListaTodos();
 
             FinalizaConsulta();
         }
@@ -93,7 +93,7 @@ namespace ShethLocadora.Viewes
 
             Console.WriteLine();
 
-            ControllerFilme.ConsultaCategoria(opcaoCategoriaInformada);
+            ControllerFilme.ListaCategoria(opcaoCategoriaInformada);
 
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 

@@ -22,10 +22,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaCidadeInformada(string cidadeInformada)
@@ -38,10 +36,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaBairroInformado(string bairroInformado)
@@ -54,10 +50,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaLogradouroInformado(string logradouroInformado)
@@ -70,10 +64,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaComplementoInformado(string complementoInformado)
@@ -86,10 +78,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         internal static bool ValidaCepInformado(string cepInformado)
@@ -102,10 +92,8 @@ namespace ShethLocadora.Controllers
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
     }
 }
