@@ -124,9 +124,9 @@ namespace ShethLocadora.Controllers
 
         private static void ExibeModeloListagem(Cliente item)
         {
-            Console.WriteLine(" ID: " + item.Id);
+            Console.WriteLine(" ID..: " + item.Id);
             Console.WriteLine(" Nome: " + item.Nome);
-            Console.WriteLine(" CPF: " + item.Cpf + "\n");
+            Console.WriteLine(" CPF.: " + item.Cpf + "\n");
         }
 
         // ================================================== ALTERAR
