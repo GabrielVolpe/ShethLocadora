@@ -21,7 +21,7 @@ namespace ShethLocadora.Viewes
         {
             UtilitariosGlobais.ApresentaCabecalho("CONTULAR USUÁRIOS POR ID");
 
-            int idInformado = UtilitariosGlobais.ConsultasInt(" ID: ");
+            int idInformado = UtilitariosGlobais.ConsultasInt("\n ID: ");
 
             ControllerUsuario.ConsultaId(idInformado);
 
@@ -32,7 +32,7 @@ namespace ShethLocadora.Viewes
         {
             UtilitariosGlobais.ApresentaCabecalho("CONSULTAR USUÁRIOS POR CPF");
 
-            string cpfInformado = UtilitariosGlobais.ConsultasString(" CPF: ");
+            string cpfInformado = UtilitariosGlobais.ConsultasString("\n CPF: ");
 
             ControllerUsuario.ConsultaCpf(cpfInformado);
 
@@ -43,7 +43,7 @@ namespace ShethLocadora.Viewes
         {
             UtilitariosGlobais.ApresentaCabecalho("CONSULTAR USUÁRIOS POR NOME");
 
-            string nomeInformado = UtilitariosGlobais.ConsultasString(" Nome: ");
+            string nomeInformado = UtilitariosGlobais.ConsultasString("\n Nome: ");
 
             ControllerUsuario.ConsultaNome(nomeInformado);
 

@@ -20,7 +20,7 @@ namespace ShethLocadora.Viewes
 
             Console.Clear();
 
-            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - CLIENTES");
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - USUÁRIOS");
             Console.WriteLine("\n Endereço: ");
 
             RecebeUnidadeFederativa();
@@ -30,7 +30,9 @@ namespace ShethLocadora.Viewes
             RecebeComplemento();
             RecebeCep();
 
-            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - CLIENTES");
+            Console.Clear();
+
+            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - USUÁRIOS");
             Console.WriteLine("\n Informações adicionais: ");
 
             RecebeStatus();
@@ -208,7 +210,7 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, int> RecebePermissao()
         {
-            Console.WriteLine("\n ================================================== Permissão");
+            Console.WriteLine(" ================================================== Permissão");
 
             Console.WriteLine(" 1 - Administrador");
             Console.WriteLine(" 2 - Operador");

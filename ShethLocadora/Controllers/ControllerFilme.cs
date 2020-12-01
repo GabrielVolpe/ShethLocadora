@@ -202,26 +202,28 @@ namespace ShethLocadora.Controllers
 
         private static void ConsultaGeral(int id = 0, string titulo = null, string diretor = null, EnumCategoriaFilme categoria = 0)
         {
-            var filmes = BancoDados.Filmes.AsEnumerable();
-
             if (id > 0)
             {
-                filmes = filmes.Where(x => x.Id == id);
+                foreach (var item in BancoDados.Filmes.Where(x => x.Id == id))
+                {
+                    Console.WriteLine(item);
+                }
             }
 
             if (titulo != null)
             {
-                filmes = filmes.Where(x => x.Titulo.Contains(titulo.ToUpper())); ;
+                foreach (var item in BancoDados.Filmes.Where(x => x.Titulo == titulo.ToUpper() && !string.IsNullOrWhiteSpace(titulo)))
+                {
+                    Console.WriteLine(item);
+                }
             }
 
             if (diretor != null)
             {
-                filmes = filmes.Where(x => x.Diretor.Contains(diretor.ToUpper()));
-            }
-
-            foreach (var item in filmes)
-            {
-                Console.WriteLine(item);
+                foreach (var item in BancoDados.Filmes.Where(x => x.Diretor == diretor.ToUpper() && !string.IsNullOrWhiteSpace(titulo)))
+                {
+                    Console.WriteLine(item);
+                }
             }
         }
 

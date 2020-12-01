@@ -150,26 +150,28 @@ namespace ShethLocadora.Controllers
 
         private static void ConsultaGeral(int id = 0, string cpf = null, string nome = null)
         {
-            var clientes = BancoDados.Clientes.AsEnumerable();
-
             if (id > 0)
             {
-                clientes = clientes.Where(x => x.Id == id);
+                foreach (var item in BancoDados.Usuarios.Where(x => x.Id == id))
+                {
+                    Console.WriteLine(item);
+                }
             }
 
             if (cpf != null)
             {
-                clientes = clientes.Where(x => x.Cpf == cpf.ToUpper());
+                foreach (var item in BancoDados.Usuarios.Where(x => x.Cpf == cpf.ToUpper()))
+                {
+                    Console.WriteLine(item);
+                }
             }
 
-            if (cpf != null)
+            if (nome != null)
             {
-                clientes = clientes.Where(x => x.Nome.Contains(nome.ToUpper()));
-            }
-
-            foreach (var item in clientes)
-            {
-                Console.WriteLine(item);
+                foreach (var item in BancoDados.Usuarios.Where(x => x.Nome.Contains(nome.ToUpper()) && !string.IsNullOrWhiteSpace(nome)))
+                {
+                    Console.WriteLine(item);
+                }
             }
         }
 

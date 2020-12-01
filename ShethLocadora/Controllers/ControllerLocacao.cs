@@ -235,21 +235,20 @@ namespace ShethLocadora.Controllers
 
         private static void ConsultaGeral(int id = 0, string cpf = null)
         {
-            var locacoes = BancoDados.Locacoes.AsEnumerable();
-
             if (id > 0)
             {
-                locacoes = locacoes.Where(x => x.Id == id);
+                foreach (var item in BancoDados.Locacoes.Where(x => x.Id == id))
+                {
+                    Console.WriteLine(item);
+                }
             }
 
             if (cpf != null)
             {
-                locacoes = locacoes.Where(x => x.Cliente.Cpf == cpf);
-            }
-
-            foreach (var item in locacoes)
-            {
-                Console.WriteLine(item);
+                foreach (var item in BancoDados.Locacoes.Where(x => x.Cliente.Cpf == cpf.ToUpper()))
+                {
+                    Console.WriteLine(item);
+                }
             }
         }
 
