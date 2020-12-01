@@ -17,27 +17,27 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaFormularioConsultaFilme.ConsultaTodos();
+                        TelaFormularioConsultaFilme.ListaTodos();
                     }
                     break;
                 case 2:
                     {
-                        TelaFormularioConsultaFilme.ConsultaId();
+                        TelaFormularioConsultaFilme.ListaTitulo();
                     }
                     break;
                 case 3:
                     {
-                        TelaFormularioConsultaFilme.ConsultaTitulo();
+                        TelaFormularioConsultaFilme.ListaDiretor();
                     }
                     break;
                 case 4:
                     {
-                        TelaFormularioConsultaFilme.ConsultaDiretor();
+                        TelaFormularioConsultaFilme.ListaCategoria();
                     }
                     break;
                 case 5:
                     {
-                        TelaFormularioConsultaFilme.ConsultaCategoria();
+                        TelaFormularioConsultaFilme.ConsultaId();
                     }
                     break;
                 case 9:

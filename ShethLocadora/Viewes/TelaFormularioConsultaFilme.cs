@@ -7,7 +7,7 @@ namespace ShethLocadora.Viewes
 {
     static class TelaFormularioConsultaFilme
     {
-        internal static void ConsultaTodos()
+        internal static void ListaTodos()
         {
             UtilitariosGlobais.ApresentaCabecalho("LISTAR TODOS OS FILMES");
 
@@ -20,7 +20,7 @@ namespace ShethLocadora.Viewes
 
         internal static void ConsultaId()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONTULAR FILMES POR ID");
+            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR FILMES POR ID");
 
             int idInformado;
 
@@ -31,14 +31,12 @@ namespace ShethLocadora.Viewes
 
             ControllerFilme.ConsultaId(idInformado);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaFilme.ApresentaTela();
+            FinalizaConsulta();
         }
 
-        internal static void ConsultaTitulo()
+        internal static void ListaTitulo()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR FILMES POR TÍTULO");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR FILMES POR TÍTULO");
 
             string tituloInformado;
 
@@ -47,16 +45,14 @@ namespace ShethLocadora.Viewes
 
             Console.WriteLine();
 
-            ControllerFilme.ConsultaTitulo(tituloInformado);
+            ControllerFilme.ListaTitulo(tituloInformado);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaFilme.ApresentaTela();
+            FinalizaConsulta();
         }
 
-        internal static void ConsultaDiretor()
+        internal static void ListaDiretor()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR FILMES POR DIRETOR");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR FILMES POR DIRETOR");
 
             string diretorInformado;
 
@@ -65,16 +61,14 @@ namespace ShethLocadora.Viewes
 
             Console.WriteLine();
 
-            ControllerFilme.ConsultaDiretor(diretorInformado);
+            ControllerFilme.ListaDiretor(diretorInformado);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaFilme.ApresentaTela();
+            FinalizaConsulta();
         }
 
-        internal static void ConsultaCategoria()
+        internal static void ListaCategoria()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR FILMES POR CATEGORIA");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR FILMES POR CATEGORIA");
 
             int contadorCategoriaFilme = 1;
 
@@ -95,9 +89,7 @@ namespace ShethLocadora.Viewes
 
             ControllerFilme.ListaCategoria(opcaoCategoriaInformada);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaFilme.ApresentaTela();
+            FinalizaConsulta();
         }
 
         private static void FinalizaConsulta()

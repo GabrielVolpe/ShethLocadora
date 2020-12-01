@@ -26,10 +26,12 @@ namespace ShethLocadora.Viewes
         {
             //Listagem
             Console.WriteLine("\n 1 - Listar todos");
+            Console.WriteLine(" 2 - Listar por nome");
+
             //Consultas
-            Console.WriteLine(" 2 - Consultar ID");
-            Console.WriteLine(" 3 - Consultar CPF");
-            Console.WriteLine(" 4 - Consultar nome");
+            Console.WriteLine(" 3 - Consultar ID");
+            Console.WriteLine(" 4 - Consultar CPF");
+
             Console.WriteLine(" 9 - Menu Úsuários");
         }
     }

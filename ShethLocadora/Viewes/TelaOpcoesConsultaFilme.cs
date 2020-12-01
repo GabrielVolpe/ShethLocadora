@@ -26,12 +26,13 @@ namespace ShethLocadora.Viewes
         {
             //Listagem
             Console.WriteLine("\n 1 - Listar todos");
+            Console.WriteLine(" 2 - Listar por título");
+            Console.WriteLine(" 3 - Listar por diretor");
+            Console.WriteLine(" 4 - Listar categoria");
+
             //Consultas
-            Console.WriteLine(" 2 - Consultar ID");
-            Console.WriteLine(" 3 - Consultar Título");
-            Console.WriteLine(" 4 - Consultar Diretor");
-            //Listagem
-            Console.WriteLine(" 5 - Listar categoria");
+            Console.WriteLine(" 5 - Consultar ID");
+
             Console.WriteLine(" 9 - Menu Filmes");
         }
     }

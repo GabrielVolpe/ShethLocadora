@@ -127,9 +127,7 @@ namespace ShethLocadora.Controllers
         {
             foreach (var item in BancoDados.Usuarios)
             {
-                Console.WriteLine(" ID: " + item.Id);
-                Console.WriteLine(" Nome: " + item.Nome);
-                Console.WriteLine(" CPF: " + item.Cpf + "\n");
+                ExibeModeloListagem(item);
             }
         }
 
@@ -143,12 +141,15 @@ namespace ShethLocadora.Controllers
             ConsultaGeral(cpf: cpfInformado);
         }
 
-        internal static void ConsultaNome(string nomeInformado)
+        internal static void ListaNome(string nomeInformado)
         {
-            ConsultaGeral(nome: nomeInformado);
+            foreach (var item in BancoDados.Usuarios.Where(x => x.Nome.Contains(nomeInformado.ToUpper()) && !string.IsNullOrWhiteSpace(nomeInformado)))
+            {
+                ExibeModeloListagem(item);
+            }
         }
 
-        private static void ConsultaGeral(int id = 0, string cpf = null, string nome = null)
+        private static void ConsultaGeral(int id = 0, string cpf = null)
         {
             if (id > 0)
             {
@@ -165,14 +166,13 @@ namespace ShethLocadora.Controllers
                     Console.WriteLine(item);
                 }
             }
+        }
 
-            if (nome != null)
-            {
-                foreach (var item in BancoDados.Usuarios.Where(x => x.Nome.Contains(nome.ToUpper()) && !string.IsNullOrWhiteSpace(nome)))
-                {
-                    Console.WriteLine(item);
-                }
-            }
+        private static void ExibeModeloListagem(Usuario item)
+        {
+            Console.WriteLine(" ID: " + item.Id);
+            Console.WriteLine(" Nome: " + item.Nome);
+            Console.WriteLine(" CPF: " + item.Cpf + "\n");
         }
 
         // ================================================== ALTERAR

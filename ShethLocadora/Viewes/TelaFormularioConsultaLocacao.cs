@@ -6,7 +6,7 @@ namespace ShethLocadora.Viewes
 {
     static class TelaFormularioConsultaLocacao
     {
-        internal static void ConsultaTodas()
+        internal static void ListaTodas()
         {
             UtilitariosGlobais.ApresentaCabecalho("LISTAR TODAS AS LOCAÇÕES");
 
@@ -14,9 +14,7 @@ namespace ShethLocadora.Viewes
 
             ControllerLocacao.ListaTodos();
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaLocacao.ApresentaTela();
+            FinalizaConsulta();
         }
 
         internal static void ConsultaId()
@@ -32,9 +30,7 @@ namespace ShethLocadora.Viewes
 
             ControllerLocacao.ConsultaId(idInformado);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaLocacao.ApresentaTela();
+            FinalizaConsulta();
         }
 
         internal static void ConsultaCpf()
@@ -50,12 +46,10 @@ namespace ShethLocadora.Viewes
 
             ControllerLocacao.ConsultaCpf(cpfInformado);
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaLocacao.ApresentaTela();
+            FinalizaConsulta();
         }
 
-        internal static void ConsultaAtivas()
+        internal static void ListaAtivas()
         {
             UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES ATIVAS");
 
@@ -63,12 +57,10 @@ namespace ShethLocadora.Viewes
 
             ControllerLocacao.ListaAtivas();
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaLocacao.ApresentaTela();
+            FinalizaConsulta();
         }
 
-        internal static void ConsultaInativas()
+        internal static void ListaInativas()
         {
             UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES INATIVAS");
 
@@ -76,12 +68,10 @@ namespace ShethLocadora.Viewes
 
             ControllerLocacao.ListaInativas();
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaLocacao.ApresentaTela();
+            FinalizaConsulta();
         }
 
-        internal static void ConsultaRegulares()
+        internal static void ListaRegulares()
         {
             UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES REGULARES");
 
@@ -89,12 +79,10 @@ namespace ShethLocadora.Viewes
 
             ControllerLocacao.ListaRegulares();
 
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
-
-            TelaOpcoesConsultaLocacao.ApresentaTela();
+            FinalizaConsulta();
         }
 
-        internal static void ConsultaIrregulares()
+        internal static void ListaIrregulares()
         {
             UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES IRREGULARES");
 
@@ -102,6 +90,11 @@ namespace ShethLocadora.Viewes
 
             ControllerLocacao.ListaIrregulares();
 
+            FinalizaConsulta();
+        }
+
+        private static void FinalizaConsulta()
+        {
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
             TelaOpcoesConsultaLocacao.ApresentaTela();

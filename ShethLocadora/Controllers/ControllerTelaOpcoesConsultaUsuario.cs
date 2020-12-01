@@ -22,17 +22,17 @@ namespace ShethLocadora.Controllers
                     break;
                 case 2:
                     {
-                        TelaFormularioConsultaUsuario.ConsultaId();
+                        TelaFormularioConsultaUsuario.ListaNome();
                     }
                     break;
                 case 3:
                     {
-                        TelaFormularioConsultaUsuario.ConsultaCpf();
+                        TelaFormularioConsultaUsuario.ConsultaId();
                     }
                     break;
                 case 4:
                     {
-                        TelaFormularioConsultaUsuario.ConsultaNome();
+                        TelaFormularioConsultaUsuario.ConsultaCpf();
                     }
                     break;
                 case 9:

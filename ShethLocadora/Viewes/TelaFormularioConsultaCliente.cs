@@ -14,7 +14,7 @@ namespace ShethLocadora.Viewes
 
             ControllerCliente.ListaTodos();
 
-            FinalConsulta();
+            FinalizaConsulta();
         }
 
         internal static void ConsultaId()
@@ -25,7 +25,7 @@ namespace ShethLocadora.Viewes
 
             ControllerCliente.ConsultaId(idInformado);
 
-            FinalConsulta();
+            FinalizaConsulta();
         }
 
         internal static void ConsultaCpf()
@@ -36,23 +36,21 @@ namespace ShethLocadora.Viewes
 
             ControllerCliente.ConsultaCpf(cpfInformado);
 
-            FinalConsulta();
+            FinalizaConsulta();
         }
 
-        internal static void ConsultaNome()
+        internal static void ListaNome()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR CLIENTES POR NOME");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR CLIENTES POR NOME");
 
             string nomeInformado = UtilitariosGlobais.ConsultasString("\n Nome: ");
 
-            ControllerCliente.ConsultaNome(nomeInformado);
+            ControllerCliente.ListaNome(nomeInformado);
 
-            FinalConsulta();
+            FinalizaConsulta();
         }
 
-
-
-        private static void FinalConsulta()
+        private static void FinalizaConsulta()
         {
             UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 

@@ -17,37 +17,37 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaFormularioConsultaLocacao.ConsultaTodas();
+                        TelaFormularioConsultaLocacao.ListaTodas();
                     }
                     break;
                 case 2:
                     {
-                        TelaFormularioConsultaLocacao.ConsultaId();
+                        TelaFormularioConsultaLocacao.ListaAtivas();
                     }
                     break;
                 case 3:
                     {
-                        TelaFormularioConsultaLocacao.ConsultaCpf();
+                        TelaFormularioConsultaLocacao.ListaInativas();
                     }
                     break;
                 case 4:
                     {
-                        TelaFormularioConsultaLocacao.ConsultaAtivas();
+                        TelaFormularioConsultaLocacao.ListaRegulares();
                     }
                     break;
                 case 5:
                     {
-                        TelaFormularioConsultaLocacao.ConsultaInativas();
+                        TelaFormularioConsultaLocacao.ListaIrregulares();
                     }
                     break;
                 case 6:
                     {
-                        TelaFormularioConsultaLocacao.ConsultaRegulares();
+                        TelaFormularioConsultaLocacao.ConsultaId();
                     }
                     break;
                 case 7:
                     {
-                        TelaFormularioConsultaLocacao.ConsultaIrregulares();
+                        TelaFormularioConsultaLocacao.ConsultaCpf();
                     }
                     break;
                 case 9:

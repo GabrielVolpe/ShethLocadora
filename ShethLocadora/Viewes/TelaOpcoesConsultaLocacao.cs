@@ -29,14 +29,15 @@ namespace ShethLocadora.Viewes
         {
             //Listagem
             Console.WriteLine("\n 1 - Listar todas");
+            Console.WriteLine(" 2 - Listar ativas");
+            Console.WriteLine(" 3 - Listar inativas");
+            Console.WriteLine(" 4 - Listar regulares");
+            Console.WriteLine(" 5 - Listar irregulares");
+
             //Consultas
-            Console.WriteLine(" 2 - Consultar ID");
-            Console.WriteLine(" 3 - Consultar CPF");
-            //Listagens
-            Console.WriteLine(" 4 - Listar ativas");
-            Console.WriteLine(" 5 - Listar inativas");
-            Console.WriteLine(" 6 - Listar regulares");
-            Console.WriteLine(" 7 - Listar irregulares");
+            Console.WriteLine(" 6 - Consultar ID");
+            Console.WriteLine(" 7 - Consultar CPF");
+
             Console.WriteLine(" 9 - Menu Locações");
         }
     }

@@ -39,13 +39,13 @@ namespace ShethLocadora.Viewes
             FinalizaConsulta();
         }
 
-        internal static void ConsultaNome()
+        internal static void ListaNome()
         {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR USUÁRIOS POR NOME");
+            UtilitariosGlobais.ApresentaCabecalho("LISTAR USUÁRIOS POR NOME");
 
             string nomeInformado = UtilitariosGlobais.ConsultasString("\n Nome: ");
 
-            ControllerUsuario.ConsultaNome(nomeInformado);
+            ControllerUsuario.ListaNome(nomeInformado);
 
             FinalizaConsulta();
         }

@@ -179,17 +179,26 @@ namespace ShethLocadora.Controllers
 
         internal static void ConsultaId(int idInformado)
         {
-            ConsultaGeral(id: idInformado);
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado))
+            {
+                Console.WriteLine(item);
+            }
         }
 
-        internal static void ConsultaTitulo(string tituloInformado)
+        internal static void ListaTitulo(string tituloInformado)
         {
-            ConsultaGeral(titulo: tituloInformado);
+            foreach (var item in BancoDados.Filmes.Where(x => x.Titulo.Contains(tituloInformado.ToUpper()) && !string.IsNullOrWhiteSpace(tituloInformado)))
+            {
+                ExibeModeloListagem(item);
+            }
         }
 
-        internal static void ConsultaDiretor(string diretorInformado)
+        internal static void ListaDiretor(string diretorInformado)
         {
-            ConsultaGeral(diretor: diretorInformado);
+            foreach (var item in BancoDados.Filmes.Where(x => x.Diretor.Contains(diretorInformado.ToUpper()) && !string.IsNullOrWhiteSpace(diretorInformado)))
+            {
+                ExibeModeloListagem(item);
+            }
         }
 
         internal static void ListaCategoria(int opcaoCategoriaInformada)
@@ -198,33 +207,6 @@ namespace ShethLocadora.Controllers
             {
                 ExibeModeloListagem(item);
             };
-        }
-
-        private static void ConsultaGeral(int id = 0, string titulo = null, string diretor = null, EnumCategoriaFilme categoria = 0)
-        {
-            if (id > 0)
-            {
-                foreach (var item in BancoDados.Filmes.Where(x => x.Id == id))
-                {
-                    Console.WriteLine(item);
-                }
-            }
-
-            if (titulo != null)
-            {
-                foreach (var item in BancoDados.Filmes.Where(x => x.Titulo == titulo.ToUpper() && !string.IsNullOrWhiteSpace(titulo)))
-                {
-                    Console.WriteLine(item);
-                }
-            }
-
-            if (diretor != null)
-            {
-                foreach (var item in BancoDados.Filmes.Where(x => x.Diretor == diretor.ToUpper() && !string.IsNullOrWhiteSpace(titulo)))
-                {
-                    Console.WriteLine(item);
-                }
-            }
         }
 
         private static void ExibeModeloListagem(Filme item)
