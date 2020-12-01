@@ -51,13 +51,12 @@ namespace ShethLocadora.Services
 
             foreach (var item in BancoDados.Locacoes.ToArray())
             {
-                int diasAtraso = item.DataPrevistaDevolucao.Day - DateTime.Now.Day;
+                DateTime diaAtual = new DateTime();
 
-                if (diasAtraso <= 0)
-                {
-                    item.ValorFinal = item.Filme.ValorLocacao + item.ValorMulta;
-                }
-                else
+                diaAtual = DateTime.Now;
+                double diasAtraso = diaAtual.Subtract(item.DataPrevistaDevolucao).TotalDays;
+
+                if (diasAtraso > 0)
                 {
                     cpfCliente = item.Cliente.Cpf;
 
@@ -68,6 +67,10 @@ namespace ShethLocadora.Services
                     item.ValorJuros = ((item.Filme.ValorLocacao * item.TaxaJurosAtraso) * diasAtraso);
 
                     item.ValorFinal = item.Filme.ValorLocacao + item.ValorMulta + item.ValorJuros;
+                }
+                else
+                {
+                    item.ValorFinal = item.Filme.ValorLocacao + item.ValorMulta;
                 }
             }
 

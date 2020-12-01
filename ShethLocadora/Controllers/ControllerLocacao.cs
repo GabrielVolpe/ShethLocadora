@@ -258,8 +258,6 @@ namespace ShethLocadora.Controllers
             foreach (var item in BancoDados.Locacoes.Where(x => x.Status == true))
             {
                 ExibeModeloListagem(item);
-
-                UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
@@ -268,8 +266,6 @@ namespace ShethLocadora.Controllers
             foreach (var item in BancoDados.Locacoes.Where(x => x.Status == false))
             {
                 ExibeModeloListagem(item);
-
-                UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
@@ -278,8 +274,6 @@ namespace ShethLocadora.Controllers
             foreach (var item in BancoDados.Locacoes.Where(x => x.Situacao == true))
             {
                 ExibeModeloListagem(item);
-
-                UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
@@ -288,8 +282,6 @@ namespace ShethLocadora.Controllers
             foreach (var item in BancoDados.Locacoes.Where(x => x.Situacao == false))
             {
                 ExibeModeloListagem(item);
-
-                UtilitariosGlobais.ApresentaResumoValores(item.Id);
             }
         }
 
@@ -317,11 +309,11 @@ namespace ShethLocadora.Controllers
                 situacaoNominal = "IRREGULAR";
             }
 
-            Console.WriteLine(" ID.........:" + item.Id);
-            Console.WriteLine(" Status.....:" + statusNominal);
-            Console.WriteLine(" Situacao...:" + situacaoNominal);
-            Console.WriteLine(" ID Filme...:" + item.Filme.Id);
-            Console.WriteLine(" CPF cliente:" + item.Cliente.Cpf + "\n");
+            Console.WriteLine(" ID.........: " + item.Id);
+            Console.WriteLine(" Status.....: " + statusNominal);
+            Console.WriteLine(" Situacao...: " + situacaoNominal);
+            Console.WriteLine(" ID Filme...: " + item.Filme.Id);
+            Console.WriteLine(" CPF cliente: " + item.Cliente.Cpf + "\n");
         }
     }
 }
