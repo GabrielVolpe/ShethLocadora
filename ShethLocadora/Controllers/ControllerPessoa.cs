@@ -74,7 +74,7 @@ namespace ShethLocadora.Controllers
 
             if (regexEmail.IsMatch(emailInformado))
             {
-                email = emailInformado;
+                email = emailInformado.ToUpper();
 
                 return true;
             }

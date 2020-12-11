@@ -5,11 +5,24 @@ namespace ShethLocadora.Utilities
 {
     static class UtilitariosGlobais
     {
-        internal static void ApresentaCabecalho(string textoCabecalho)
+        internal static void ApresentaCabecalhoAzulEscuro(string textoCabecalho)
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($" >>> >> > { textoCabecalho} < << <<< ");
+            Console.WriteLine($"{textoCabecalho}");
+            Console.ResetColor();
+        }
+
+        internal static void ApresentaCabecalho(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void ApresentaCabecalhoCinzaEscuro(string textoCabecalho)
+        {
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"{textoCabecalho}");
             Console.ResetColor();
         }
 
@@ -17,7 +30,7 @@ namespace ShethLocadora.Utilities
         {
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($" { textoSucesso} ");
+            Console.WriteLine($"{textoSucesso}");
             Console.ResetColor();
         }
 
@@ -25,7 +38,7 @@ namespace ShethLocadora.Utilities
         {
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($" { textoErro} ");
+            Console.WriteLine($"{textoErro}");
             Console.ResetColor();
         }
 
@@ -33,8 +46,10 @@ namespace ShethLocadora.Utilities
         {
             int opcaoInformada = 0;
 
-            Console.Write("\n Opção: ");
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.Write("\n [Opção]: ");
             int.TryParse(Console.ReadLine(), out opcaoInformada);
+            Console.ResetColor();
 
             Console.Clear();
 
@@ -45,8 +60,10 @@ namespace ShethLocadora.Utilities
         {
             int opcaoInformada = 0;
 
-            Console.Write("\n Opção: ");
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.Write("\n [Opção]: ");
             int.TryParse(Console.ReadLine(), out opcaoInformada);
+            Console.ResetColor();
 
             Console.WriteLine();
 
@@ -55,7 +72,7 @@ namespace ShethLocadora.Utilities
 
         internal static string RecebeDadoCadastroString(string mensagem)
         {
-            Console.WriteLine(mensagem);
+            ApresentaCabecalhoCinzaEscuro(mensagem);
             Console.Write(" ");
 
             string dadoString = null;
@@ -68,8 +85,7 @@ namespace ShethLocadora.Utilities
         {
             Console.Write(mensagem);
 
-            int dadoEnum = 0;
-            int.TryParse(Console.ReadLine(), out dadoEnum);
+            int.TryParse(Console.ReadLine(), out int dadoEnum);
 
             return dadoEnum;
         }
@@ -143,12 +159,12 @@ namespace ShethLocadora.Utilities
             {
                 if (item.Id == idInformado)
                 {
-                    Console.WriteLine($" Valor de locação no prazo: {item.ValorPrazo.ToString("F2")}");
+                    Console.WriteLine($" Valor de locação no prazo: R$ {item.ValorPrazo.ToString("F2")}");
                     Console.WriteLine($" Dias em atraso...........: {DateTime.Now.Day - item.DataPrevistaDevolucao.Day}");
                     Console.WriteLine($" Taxa de juros......... ..: {item.TaxaJurosAtraso}%" + " a.d");
                     Console.WriteLine($" Valor da multa...........: R$ {item.ValorMulta.ToString("F2")}");
                     Console.WriteLine($" Valor dos juros..........: R$ {item.ValorJuros.ToString("F2")}");
-                    Console.WriteLine($"\n TOTAL..................: R$ {item.ValorFinal.ToString("F2")}\n");
+                    Console.WriteLine($"\n TOTAL..................: R$ {item.ValorFinal.ToString("F2")}");
                 }
             }
         }

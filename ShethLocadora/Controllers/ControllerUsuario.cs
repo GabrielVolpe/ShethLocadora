@@ -1,6 +1,7 @@
 ﻿using ShethLocadora.Models;
 using ShethLocadora.Models.Enums;
 using ShethLocadora.Repositories;
+using ShethLocadora.Utilities;
 using System;
 using System.Linq;
 
@@ -123,11 +124,29 @@ namespace ShethLocadora.Controllers
 
         // ================================================== CONSULTAR
 
+        private static int _contador;
+
         internal static void ListaTodos()
         {
+            _contador = 4;
+
             foreach (var item in BancoDados.Usuarios)
             {
-                ExibeModeloListagem(item);
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
+            }
+        }
+
+        internal static void ListaNome(string nomeInformado)
+        {
+            _contador = 4;
+
+            foreach (var item in BancoDados.Usuarios.Where(x => x.Nome.Contains(nomeInformado.ToUpper()) && !string.IsNullOrWhiteSpace(nomeInformado)))
+            {
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
             }
         }
 
@@ -141,21 +160,18 @@ namespace ShethLocadora.Controllers
             ConsultaGeral(cpf: cpfInformado);
         }
 
-        internal static void ListaNome(string nomeInformado)
-        {
-            foreach (var item in BancoDados.Usuarios.Where(x => x.Nome.Contains(nomeInformado.ToUpper()) && !string.IsNullOrWhiteSpace(nomeInformado)))
-            {
-                ExibeModeloListagem(item);
-            }
-        }
-
         private static void ConsultaGeral(int id = 0, string cpf = null)
         {
             if (id > 0)
             {
                 foreach (var item in BancoDados.Usuarios.Where(x => x.Id == id))
                 {
+                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                    UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DO USUÁRIO]: \n");
+
                     Console.WriteLine(item);
+
+                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
                 }
             }
 
@@ -163,16 +179,79 @@ namespace ShethLocadora.Controllers
             {
                 foreach (var item in BancoDados.Usuarios.Where(x => x.Cpf == cpf.ToUpper()))
                 {
+                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                    UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DO USUÁRIO]: \n");
+
                     Console.WriteLine(item);
+
+                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
                 }
             }
         }
 
-        private static void ExibeModeloListagem(Usuario item)
+        private static void ExibeModeloListagem(Usuario item, int linha)
         {
-            Console.WriteLine(" ID: " + item.Id);
-            Console.WriteLine(" Nome: " + item.Nome);
-            Console.WriteLine(" CPF: " + item.Cpf + "\n");
+            for (int i = 0; i <= 79; i++)
+            {
+                for (int j = 0; j <= linha; j++)
+                {
+                    Console.SetCursorPosition(0 + i, 1 + j);
+
+                    // Linha superior
+                    if (Console.CursorTop == 1)
+                    {
+                        Console.Write("=");
+                    }
+
+                    // Coluna esquerda
+                    if (Console.CursorLeft == 0)
+                    {
+                        Console.Write("|");
+                    }
+
+                    if (Console.CursorLeft == 8)
+                    {
+                        Console.Write("|");
+                    }
+
+                    if (Console.CursorLeft == 64)
+                    {
+                        Console.Write("|");
+                    }
+
+                    // Coluna direita
+                    if (Console.CursorLeft == 79)
+                    {
+                        Console.Write("|");
+                    }
+                }
+            }
+
+            Console.SetCursorPosition(1, 2);
+            UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro("[ID]   ");
+            Console.SetCursorPosition(1, linha);
+            if (item.Status == true)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine(item.Id);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(item.Id);
+                Console.ResetColor();
+            }
+
+            Console.SetCursorPosition(9, 2);
+            UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro("[NOME]                                                 ");
+            Console.SetCursorPosition(9, linha);
+            Console.WriteLine(item.Nome);
+
+            Console.SetCursorPosition(65, 2);
+            UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro("[CPF]         ");
+            Console.SetCursorPosition(65, linha);
+            Console.WriteLine(item.Cpf);
         }
 
         // ================================================== ALTERAR

@@ -1,103 +1,105 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Utilities;
+//using ShethLocadora.ViewsNew;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaFormularioConsultaLocacao
-    {
-        internal static void ListaTodas()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR TODAS AS LOCAÇÕES");
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaFormularioConsultaLocacao
+//    {
+//        internal static void ListaTodas()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR TODAS AS LOCAÇÕES");
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerLocacao.ListaTodos();
+//            ControllerLocacao.ListaTodos();
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ConsultaId()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR LOCAÇÕES POR ID");
+//        internal static void ConsultaId()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("CONSULTAR LOCAÇÕES POR ID");
 
-            int idInformado;
+//            int idInformado;
 
-            Console.Write("\n Informe o ID: ");
-            int.TryParse(Console.ReadLine(), out idInformado);
+//            Console.Write("\n Informe o ID: ");
+//            int.TryParse(Console.ReadLine(), out idInformado);
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerLocacao.ConsultaId(idInformado);
+//            ControllerLocacao.ConsultaId(idInformado);
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ConsultaCpf()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR LOCAÇÕES POR CPF");
+//        internal static void ConsultaCpf()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("CONSULTAR LOCAÇÕES POR CPF");
 
-            string cpfInformado;
+//            string cpfInformado;
 
-            Console.Write("\n Informe o CPF: ");
-            cpfInformado = Console.ReadLine();
+//            Console.Write("\n Informe o CPF: ");
+//            cpfInformado = Console.ReadLine();
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerLocacao.ConsultaCpf(cpfInformado);
+//            ControllerLocacao.ConsultaCpf(cpfInformado);
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ListaAtivas()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES ATIVAS");
+//        internal static void ListaAtivas()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR LOCAÇÕES ATIVAS");
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerLocacao.ListaAtivas();
+//            ControllerLocacao.ListaAtivas();
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ListaInativas()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES INATIVAS");
+//        internal static void ListaInativas()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR LOCAÇÕES INATIVAS");
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerLocacao.ListaInativas();
+//            ControllerLocacao.ListaInativas();
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ListaRegulares()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES REGULARES");
+//        internal static void ListaRegulares()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR LOCAÇÕES REGULARES");
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerLocacao.ListaRegulares();
+//            ControllerLocacao.ListaRegulares();
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ListaIrregulares()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR LOCAÇÕES IRREGULARES");
+//        internal static void ListaIrregulares()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR LOCAÇÕES IRREGULARES");
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerLocacao.ListaIrregulares();
+//            ControllerLocacao.ListaIrregulares();
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        private static void FinalizaConsulta()
-        {
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
+//        private static void FinalizaConsulta()
+//        {
 
-            TelaOpcoesConsultaLocacao.ApresentaTela();
-        }
-    }
-}
+//            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
+
+//            TelaOpcoesConsultaLocacaoNew.ApresentaTela();
+//        }
+//    }
+//}

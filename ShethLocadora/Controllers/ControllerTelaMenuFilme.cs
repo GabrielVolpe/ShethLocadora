@@ -1,5 +1,5 @@
 ﻿using ShethLocadora.Utilities;
-using ShethLocadora.Viewes;
+using ShethLocadora.ViewsNew;
 using System;
 
 namespace ShethLocadora.Controllers
@@ -17,38 +17,38 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaFormularioCadastroFilme.IniciaFomrulario();
+                        TelaFormularioCadastroFilmeNew.IniciaFomrulario();
                     }
                     break;
                 case 2:
                     {
-                        TelaOpcoesConsultaFilme.ApresentaTela();
+                        TelaOpcoesConsultaFilmeNew.ApresentaTela();
                     }
                     break;
                 case 3:
                     {
-                        TelaOpcoesAlteracaoFilme.ApresentaTela();
+                        TelaOpcoesAlteracaoFilmeNew.ApresentaTela();
                     }
                     break;
                 case 4:
                     {
-                        TelaFormularioExclusaoFilme.ApresentaTela();
+                        TelaFormularioExclusaoFilmeNew.ApresentaTela();
                     }
                     break;
                 case 9:
                     {
                         Console.Clear();
 
-                        TelaMenuInicio.ApresentaTela();
+                        TelaMenuInicioNew.ApresentaTela();
                     }
                     break;
                 default:
                     {
                         Console.Clear();
 
-                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
+                        UtilitariosGlobais.ApresentaMensagemErro(" Opcão inválida!");
 
-                        TelaMenuInicio.ApresentaTela();
+                        TelaMenuInicioNew.ApresentaTela();
                     }
                     break;
             }

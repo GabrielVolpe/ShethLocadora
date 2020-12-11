@@ -1,6 +1,7 @@
 ﻿using ShethLocadora.Models;
 using ShethLocadora.Models.Enums;
 using ShethLocadora.Repositories;
+using ShethLocadora.Utilities;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -169,51 +170,132 @@ namespace ShethLocadora.Controllers
 
         // ================================================== CONSULTAR
 
+        private static int _contador;
+
         internal static void ListaTodos()
         {
+            _contador = 4;
+
             foreach (var item in BancoDados.Filmes)
             {
-                ExibeModeloListagem(item);
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
             }
+        }
+
+        internal static void ListaTitulo(string tituloInformado)
+        {
+            _contador = 4;
+
+            foreach (var item in BancoDados.Filmes.Where(x => x.Titulo.Contains(tituloInformado.ToUpper()) && !string.IsNullOrWhiteSpace(tituloInformado)))
+            {
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
+            }
+        }
+
+        internal static void ListaDiretor(string diretorInformado)
+        {
+            _contador = 4;
+
+            foreach (var item in BancoDados.Filmes.Where(x => x.Diretor.Contains(diretorInformado.ToUpper()) && !string.IsNullOrWhiteSpace(diretorInformado)))
+            {
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
+            }
+        }
+
+        internal static void ListaCategoria(int opcaoCategoriaInformada)
+        {
+            _contador = 4;
+
+            foreach (var item in BancoDados.Filmes.Where(x => x.Categoria == (EnumCategoriaFilme)opcaoCategoriaInformada))
+            {
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
+            };
         }
 
         internal static void ConsultaId(int idInformado)
         {
             foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado))
             {
+                Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DO FILME]: \n");
+
                 Console.WriteLine(item);
+
+                Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
             }
         }
 
-        internal static void ListaTitulo(string tituloInformado)
+        private static void ExibeModeloListagem(Filme item, int linha)
         {
-            foreach (var item in BancoDados.Filmes.Where(x => x.Titulo.Contains(tituloInformado.ToUpper()) && !string.IsNullOrWhiteSpace(tituloInformado)))
+            for (int i = 0; i <= 79; i++)
             {
-                ExibeModeloListagem(item);
+                for (int j = 0; j <= linha; j++)
+                {
+                    Console.SetCursorPosition(0 + i, 1 + j);
+
+                    // Linha superior
+                    if (Console.CursorTop == 1)
+                    {
+                        Console.Write("=");
+                    }
+
+                    // Coluna esquerda
+                    if (Console.CursorLeft == 0)
+                    {
+                        Console.Write("|");
+                    }
+
+                    if (Console.CursorLeft == 8)
+                    {
+                        Console.Write("|");
+                    }
+
+                    if (Console.CursorLeft == 64)
+                    {
+                        Console.Write("|");
+                    }
+
+                    // Coluna direita
+                    if (Console.CursorLeft == 79)
+                    {
+                        Console.Write("|");
+                    }
+                }
             }
-        }
 
-        internal static void ListaDiretor(string diretorInformado)
-        {
-            foreach (var item in BancoDados.Filmes.Where(x => x.Diretor.Contains(diretorInformado.ToUpper()) && !string.IsNullOrWhiteSpace(diretorInformado)))
+            Console.SetCursorPosition(1, 2);
+            UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro("[ID]   ");
+            Console.SetCursorPosition(1, linha);
+            if (item.Status == true)
             {
-                ExibeModeloListagem(item);
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine(item.Id);
+                Console.ResetColor();
             }
-        }
-
-        internal static void ListaCategoria(int opcaoCategoriaInformada)
-        {
-            foreach (var item in BancoDados.Filmes.Where(x => x.Categoria == (EnumCategoriaFilme)opcaoCategoriaInformada))
+            else
             {
-                ExibeModeloListagem(item);
-            };
-        }
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(item.Id);
+                Console.ResetColor();
+            }
 
-        private static void ExibeModeloListagem(Filme item)
-        {
-            Console.WriteLine(" ID.......: " + item.Id);
-            Console.WriteLine(" Título...: " + item.Titulo);
-            Console.WriteLine(" Diretor..: " + item.Diretor + "\n");
+            Console.SetCursorPosition(9, 2);
+            UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro("[TÍTULO]                                               ");
+            Console.SetCursorPosition(9, linha);
+            Console.WriteLine(item.Titulo);
+
+            Console.SetCursorPosition(65, 2);
+            UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro("[CATEGORIA]   ");
+            Console.SetCursorPosition(65, linha);
+            Console.WriteLine(item.Categoria);
         }
 
         // ================================================== ALTERAR

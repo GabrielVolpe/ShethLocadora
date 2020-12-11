@@ -49,9 +49,6 @@ namespace ShethLocadora.Models
                 statusNominal = "INDISPONÍVEL";
             }
 
-            Console.BackgroundColor = ConsoleColor.Blue;
-
-            stringFilme.AppendLine(" ================================================== D A D O S   D O   F I L M E");
             stringFilme.AppendLine(" ID: ........................... " + Id);
             stringFilme.AppendLine(" Status: ....................... " + statusNominal);
             stringFilme.AppendLine(" Título: ....................... " + Titulo);
@@ -61,8 +58,6 @@ namespace ShethLocadora.Models
             stringFilme.AppendLine(" Valor de locação: ............. R$" + ValorLocacao.ToString("F2"));
             stringFilme.AppendLine(" Período permitido para locação: " + PeriodoDiasLocacao + " DIAS");
             stringFilme.AppendLine(" Quantidade disponível: ........ " + QuantidadeDisponivel);
-
-            Console.ResetColor();
 
             return stringFilme.ToString();
         }

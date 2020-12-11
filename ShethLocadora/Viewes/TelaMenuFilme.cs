@@ -1,35 +1,34 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Utilities;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaMenuFilme
-    {
-        internal static void ApresentaTela()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("F I L M E S");
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaMenuFilme
+//    {
+//        internal static void ApresentaTela()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("F I L M E S");
 
-            ApresentaMenu();
-        }
+//            ApresentaMenu();
+//        }
 
-        private static void ApresentaMenu()
-        {
-            OpcoesMenu();
+//        private static void ApresentaMenu()
+//        {
+//            OpcoesMenu();
 
-            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenuClear();
+//            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenuClear();
 
-            ControllerTelaMenuFilme.RecebeOpcaoMenu(opcaoInformada);
-        }
+//            ControllerTelaMenuFilme.RecebeOpcaoMenu(opcaoInformada);
+//        }
 
-        private static void OpcoesMenu()
-        {
-            Console.WriteLine("\n 1 - Cadastrar");
-            //Console.WriteLine(" 2 - Listar");
-            Console.WriteLine(" 2 - Consultar");
-            Console.WriteLine(" 3 - Alterar");
-            Console.WriteLine(" 4 - Excluir");
-            Console.WriteLine(" 9 - Início");
-        }
-    }
-}
+//        private static void OpcoesMenu()
+//        {
+//            Console.WriteLine("\n 1 - Cadastrar");
+//            Console.WriteLine(" 2 - Consultar");
+//            Console.WriteLine(" 3 - Alterar");
+//            Console.WriteLine(" 4 - Excluir");
+//            Console.WriteLine(" 9 - Início");
+//        }
+//    }
+//}

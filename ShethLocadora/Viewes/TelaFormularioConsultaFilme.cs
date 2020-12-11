@@ -1,102 +1,103 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Models.Enums;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Models.Enums;
+//using ShethLocadora.Utilities;
+//using ShethLocadora.ViewsNew;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaFormularioConsultaFilme
-    {
-        internal static void ListaTodos()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR TODOS OS FILMES");
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaFormularioConsultaFilme
+//    {
+//        internal static void ListaTodos()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR TODOS OS FILMES");
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerFilme.ListaTodos();
+//            ControllerFilme.ListaTodos();
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ConsultaId()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR FILMES POR ID");
+//        internal static void ConsultaId()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("CONSULTAR FILMES POR ID");
 
-            int idInformado;
+//            int idInformado;
 
-            Console.Write("\n Informe o ID: ");
-            int.TryParse(Console.ReadLine(), out idInformado);
+//            Console.Write("\n Informe o ID: ");
+//            int.TryParse(Console.ReadLine(), out idInformado);
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerFilme.ConsultaId(idInformado);
+//            ControllerFilme.ConsultaId(idInformado);
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ListaTitulo()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR FILMES POR TÍTULO");
+//        internal static void ListaTitulo()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR FILMES POR TÍTULO");
 
-            string tituloInformado;
+//            string tituloInformado;
 
-            Console.Write("\n Informe o título: ");
-            tituloInformado = Console.ReadLine().ToUpper();
+//            Console.Write("\n Informe o título: ");
+//            tituloInformado = Console.ReadLine().ToUpper();
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerFilme.ListaTitulo(tituloInformado);
+//            ControllerFilme.ListaTitulo(tituloInformado);
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ListaDiretor()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR FILMES POR DIRETOR");
+//        internal static void ListaDiretor()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR FILMES POR DIRETOR");
 
-            string diretorInformado;
+//            string diretorInformado;
 
-            Console.Write("\n Informe o diretor: ");
-            diretorInformado = Console.ReadLine().ToUpper();
+//            Console.Write("\n Informe o diretor: ");
+//            diretorInformado = Console.ReadLine().ToUpper();
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerFilme.ListaDiretor(diretorInformado);
+//            ControllerFilme.ListaDiretor(diretorInformado);
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ListaCategoria()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR FILMES POR CATEGORIA");
+//        internal static void ListaCategoria()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR FILMES POR CATEGORIA");
 
-            int contadorCategoriaFilme = 1;
+//            int contadorCategoriaFilme = 1;
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumCategoriaFilme)))
-            {
-                Console.WriteLine($" {contadorCategoriaFilme} - {opcaoEnum}");
-                contadorCategoriaFilme++;
-            }
+//            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumCategoriaFilme)))
+//            {
+//                Console.WriteLine($" {contadorCategoriaFilme} - {opcaoEnum}");
+//                contadorCategoriaFilme++;
+//            }
 
-            int opcaoCategoriaInformada;
+//            int opcaoCategoriaInformada;
 
-            Console.Write("\n Opção: ");
-            int.TryParse(Console.ReadLine(), out opcaoCategoriaInformada);
+//            Console.Write("\n Opção: ");
+//            int.TryParse(Console.ReadLine(), out opcaoCategoriaInformada);
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerFilme.ListaCategoria(opcaoCategoriaInformada);
+//            ControllerFilme.ListaCategoria(opcaoCategoriaInformada);
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        private static void FinalizaConsulta()
-        {
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
+//        private static void FinalizaConsulta()
+//        {
+//            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
-            TelaOpcoesConsultaFilme.ApresentaTela();
-        }
-    }
-}
+//            TelaOpcoesConsultaFilmeNew.ApresentaTela();
+//        }
+//    }
+//}

@@ -1,5 +1,5 @@
 ﻿using ShethLocadora.Utilities;
-using ShethLocadora.Viewes;
+using ShethLocadora.ViewsNew;
 using System;
 
 namespace ShethLocadora.Controllers
@@ -17,43 +17,43 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaFormularioConsultaFilme.ListaTodos();
+                        TelaFormularioConsultaFilmeNew.ListaTodos();
                     }
                     break;
                 case 2:
                     {
-                        TelaFormularioConsultaFilme.ListaTitulo();
+                        TelaFormularioConsultaFilmeNew.ListaTitulo();
                     }
                     break;
                 case 3:
                     {
-                        TelaFormularioConsultaFilme.ListaDiretor();
+                        TelaFormularioConsultaFilmeNew.ListaDiretor();
                     }
                     break;
                 case 4:
                     {
-                        TelaFormularioConsultaFilme.ListaCategoria();
+                        TelaFormularioConsultaFilmeNew.ListaCategoria();
                     }
                     break;
                 case 5:
                     {
-                        TelaFormularioConsultaFilme.ConsultaId();
+                        TelaFormularioConsultaFilmeNew.ConsultaId();
                     }
                     break;
                 case 9:
                     {
                         Console.Clear();
 
-                        TelaMenuFilme.ApresentaTela();
+                        TelaMenuFilmeNew.ApresentaTela();
                     }
                     break;
                 default:
                     {
                         Console.Clear();
 
-                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
+                        UtilitariosGlobais.ApresentaMensagemErro(" Opcão inválida!");
 
-                        TelaOpcoesConsultaFilme.ApresentaTela();
+                        TelaOpcoesConsultaFilmeNew.ApresentaTela();
                     }
                     break;
             }

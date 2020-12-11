@@ -1,228 +1,229 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Utilities;
+//using ShethLocadora.ViewsNew;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaFormularioCadastroCliente
-    {
-        internal static void IniciaFomrulario()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - CLIENTES");
-            Console.WriteLine("\n Dados Pessoais: \n");
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaFormularioCadastroCliente
+//    {
+//        internal static void IniciaFomrulario()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("FORMULÁRIO DE CADASTRO - CLIENTES");
+//            Console.WriteLine("\n Dados Pessoais: \n");
 
-            RecebeNome();
-            RecebeDataNascimento();
-            RecebeSexo();
-            RecebeCpf();
-            RecebeEmail();
-            RecebeNumeroCelular();
+//            RecebeNome();
+//            RecebeDataNascimento();
+//            RecebeSexo();
+//            RecebeCpf();
+//            RecebeEmail();
+//            RecebeNumeroCelular();
 
-            Console.Clear();
+//            Console.Clear();
 
-            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - CLIENTES");
-            Console.WriteLine("\n Endereço: ");
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("FORMULÁRIO DE CADASTRO - CLIENTES");
+//            Console.WriteLine("\n Endereço: ");
 
-            RecebeUnidadeFederativa();
-            RecebeCidade();
-            RecebeBairro();
-            RecebeLogradouro();
-            RecebeComplemento();
-            RecebeCep();
+//            RecebeUnidadeFederativa();
+//            RecebeCidade();
+//            RecebeBairro();
+//            RecebeLogradouro();
+//            RecebeComplemento();
+//            RecebeCep();
 
-            Console.Clear();
+//            Console.Clear();
 
-            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - CLIENTES");
-            Console.WriteLine("\n Informações adicionais: ");
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("FORMULÁRIO DE CADASTRO - CLIENTES");
+//            Console.WriteLine("\n Informações adicionais: ");
 
-            RecebeStatus();
+//            RecebeStatus();
 
-            FinalizaCadastro();
-        }
+//            FinalizaCadastro();
+//        }
 
-        private static void RecebeNome()
-        {
-            Tuple<bool, string> retornoNome = TelaFormularioDadosPessoa.RecebeNome();
+//        private static void RecebeNome()
+//        {
+//            Tuple<bool, string> retornoNome = TelaFormularioDadosPessoa.RecebeNome();
 
-            if (retornoNome.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Nome inválido!");
+//            if (retornoNome.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Nome inválido!");
 
-                RecebeNome();
-            }
-        }
+//                RecebeNome();
+//            }
+//        }
 
-        private static void RecebeDataNascimento()
-        {
-            Tuple<bool, string> retornoDataNascimento = TelaFormularioDadosPessoa.RecebeDataNascimento();
+//        private static void RecebeDataNascimento()
+//        {
+//            Tuple<bool, string> retornoDataNascimento = TelaFormularioDadosPessoa.RecebeDataNascimento();
 
-            if (retornoDataNascimento.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Data de nascimento inválida!");
+//            if (retornoDataNascimento.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Data de nascimento inválida!");
 
-                RecebeDataNascimento();
-            }
-        }
+//                RecebeDataNascimento();
+//            }
+//        }
 
-        private static void RecebeSexo()
-        {
-            Tuple<bool, int> retornoSexo = TelaFormularioDadosPessoa.RecebeSexo();
+//        private static void RecebeSexo()
+//        {
+//            Tuple<bool, int> retornoSexo = TelaFormularioDadosPessoa.RecebeSexo();
 
-            if (retornoSexo.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
+//            if (retornoSexo.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
-                RecebeSexo();
-            }
-        }
+//                RecebeSexo();
+//            }
+//        }
 
-        private static void RecebeCpf()
-        {
-            Tuple<bool, string> retornoCpf = TelaFormularioDadosPessoa.RecebeCpf();
+//        private static void RecebeCpf()
+//        {
+//            Tuple<bool, string> retornoCpf = TelaFormularioDadosPessoa.RecebeCpf();
 
-            if (retornoCpf.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("CPF inválido!");
+//            if (retornoCpf.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("CPF inválido!");
 
-                RecebeCpf();
-            }
-        }
+//                RecebeCpf();
+//            }
+//        }
 
-        private static void RecebeEmail()
-        {
-            Tuple<bool, string> retornoEmail = TelaFormularioDadosPessoa.RecebeEmail();
+//        private static void RecebeEmail()
+//        {
+//            Tuple<bool, string> retornoEmail = TelaFormularioDadosPessoa.RecebeEmail();
 
-            if (retornoEmail.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("E-mail inválido!");
+//            if (retornoEmail.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("E-mail inválido!");
 
-                RecebeEmail();
-            }
-        }
+//                RecebeEmail();
+//            }
+//        }
 
-        private static void RecebeNumeroCelular()
-        {
-            Tuple<bool, string> retornoNumeroCelular = TelaFormularioDadosPessoa.RecebeNumeroCelular();
+//        private static void RecebeNumeroCelular()
+//        {
+//            Tuple<bool, string> retornoNumeroCelular = TelaFormularioDadosPessoa.RecebeNumeroCelular();
 
-            if (retornoNumeroCelular.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Número de celular inválido!");
+//            if (retornoNumeroCelular.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Número de celular inválido!");
 
-                RecebeNumeroCelular();
-            }
-        }
+//                RecebeNumeroCelular();
+//            }
+//        }
 
-        private static void RecebeUnidadeFederativa()
-        {
-            Tuple<bool, int> retornoUnidadeFederativa = TelaFormularioDadosEndereco.RecebeUnidadeFederativa();
+//        private static void RecebeUnidadeFederativa()
+//        {
+//            Tuple<bool, int> retornoUnidadeFederativa = TelaFormularioDadosEndereco.RecebeUnidadeFederativa();
 
-            if (retornoUnidadeFederativa.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
+//            if (retornoUnidadeFederativa.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
-                RecebeUnidadeFederativa();
-            }
-        }
+//                RecebeUnidadeFederativa();
+//            }
+//        }
 
-        private static void RecebeCidade()
-        {
-            Tuple<bool, string> retornoCidade = TelaFormularioDadosEndereco.RecebeCidade();
+//        private static void RecebeCidade()
+//        {
+//            Tuple<bool, string> retornoCidade = TelaFormularioDadosEndereco.RecebeCidade();
 
-            if (retornoCidade.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Cidade inválida!");
+//            if (retornoCidade.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Cidade inválida!");
 
-                RecebeCidade();
-            }
-        }
+//                RecebeCidade();
+//            }
+//        }
 
-        private static void RecebeBairro()
-        {
-            Tuple<bool, string> retornoBairro = TelaFormularioDadosEndereco.RecebeBairro();
+//        private static void RecebeBairro()
+//        {
+//            Tuple<bool, string> retornoBairro = TelaFormularioDadosEndereco.RecebeBairro();
 
-            if (retornoBairro.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Bairro inválido!");
+//            if (retornoBairro.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Bairro inválido!");
 
-                RecebeBairro();
-            }
-        }
+//                RecebeBairro();
+//            }
+//        }
 
-        private static void RecebeLogradouro()
-        {
-            Tuple<bool, string> retornoLograoduro = TelaFormularioDadosEndereco.RecebeLogradouro();
+//        private static void RecebeLogradouro()
+//        {
+//            Tuple<bool, string> retornoLograoduro = TelaFormularioDadosEndereco.RecebeLogradouro();
 
-            if (retornoLograoduro.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Lograoduro inválido!");
+//            if (retornoLograoduro.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Lograoduro inválido!");
 
-                RecebeLogradouro();
-            }
-        }
+//                RecebeLogradouro();
+//            }
+//        }
 
-        private static void RecebeComplemento()
-        {
-            Tuple<bool, string> retornoComplemento = TelaFormularioDadosEndereco.RecebeComplemento();
+//        private static void RecebeComplemento()
+//        {
+//            Tuple<bool, string> retornoComplemento = TelaFormularioDadosEndereco.RecebeComplemento();
 
-            if (retornoComplemento.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Complemento inválido!");
+//            if (retornoComplemento.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Complemento inválido!");
 
-                RecebeComplemento();
-            }
-        }
+//                RecebeComplemento();
+//            }
+//        }
 
-        private static void RecebeCep()
-        {
-            Tuple<bool, string> retornoCep = TelaFormularioDadosEndereco.RecebeCep();
+//        private static void RecebeCep()
+//        {
+//            Tuple<bool, string> retornoCep = TelaFormularioDadosEndereco.RecebeCep();
 
-            if (retornoCep.Item1 == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("CEP inválido!");
+//            if (retornoCep.Item1 == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("CEP inválido!");
 
-                RecebeCep();
-            }
-        }
+//                RecebeCep();
+//            }
+//        }
 
-        internal static Tuple<bool, int> RecebeStatus()
-        {
-            Console.WriteLine("\n ================================================== Status");
+//        internal static Tuple<bool, int> RecebeStatus()
+//        {
+//            Console.WriteLine("\n ================================================== Status");
 
-            Console.WriteLine(" 1 - Ativo");
-            Console.WriteLine(" 2 - Inativo");
+//            Console.WriteLine(" 1 - Ativo");
+//            Console.WriteLine(" 2 - Inativo");
 
-            int opcaoStatusInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção:");
+//            int opcaoStatusInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção:");
 
-            bool resultadoValidacaoStatus = ControllerCliente.ValidaStatusInformado(opcaoStatusInformada);
+//            bool resultadoValidacaoStatus = ControllerCliente.ValidaStatusInformado(opcaoStatusInformada);
 
-            if (resultadoValidacaoStatus == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
+//            if (resultadoValidacaoStatus == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
 
-                RecebeStatus();
-            }
+//                RecebeStatus();
+//            }
 
-            return new Tuple<bool, int>(resultadoValidacaoStatus, opcaoStatusInformada);
-        }
+//            return new Tuple<bool, int>(resultadoValidacaoStatus, opcaoStatusInformada);
+//        }
 
-        private static void FinalizaCadastro()
-        {
-            Console.Clear();
+//        private static void FinalizaCadastro()
+//        {
+//            Console.Clear();
 
-            bool resultadoFinalizacaoCadastro = ControllerCliente.FinalizaCadastro();
+//            bool resultadoFinalizacaoCadastro = ControllerCliente.FinalizaCadastro();
 
-            if (resultadoFinalizacaoCadastro == true)
-            {
-                UtilitariosGlobais.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
+//            if (resultadoFinalizacaoCadastro == true)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
 
-                TelaMenuCliente.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Cadastro cancelado! Cliente já cadastrado.");
+//                TelaMenuClienteNew.ApresentaTela();
+//            }
+//            else
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Cadastro cancelado! Cliente já cadastrado.");
 
-                TelaMenuCliente.ApresentaTela();
-            }
-        }
-    }
-}
+//                TelaMenuClienteNew.ApresentaTela();
+//            }
+//        }
+//    }
+//}

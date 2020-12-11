@@ -1,52 +1,53 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Utilities;
+//using System;
+//using ShethLocadora.ViewsNew;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaLogin
-    {
-        internal static void ApresentaTela()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("L O G I N");
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaLogin
+//    {
+//        internal static void ApresentaTela()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalho("L O G I N");
 
-            RecebeDadosAutenticacao();
-        }
+//            RecebeDadosAutenticacao();
+//        }
 
-        private static void RecebeDadosAutenticacao()
-        {
-            string usuarioInformado = SolicitaDadosAutenticacao("\n Usuário: ");
-            string senhaInformada = SolicitaDadosAutenticacao(" Senha: ");
+//        private static void RecebeDadosAutenticacao()
+//        {
+//            string usuarioInformado = SolicitaDadosAutenticacao("\n Usuário: ");
+//            string senhaInformada = SolicitaDadosAutenticacao(" Senha: ");
 
-            bool resultadoAutenticacao = ControllerLogin.ValidaDadosAutenticacao(usuarioInformado, senhaInformada);
+//            bool resultadoAutenticacao = ControllerLogin.ValidaDadosAutenticacao(usuarioInformado, senhaInformada);
 
-            VerificaResultadoDadosAutenticao(resultadoAutenticacao);
-        }
+//            VerificaResultadoDadosAutenticao(resultadoAutenticacao);
+//        }
 
-        private static void VerificaResultadoDadosAutenticao(bool resultadoAutenticacao)
-        {
-            Console.Clear();
+//        private static void VerificaResultadoDadosAutenticao(bool resultadoAutenticacao)
+//        {
+//            Console.Clear();
 
-            if (resultadoAutenticacao == true)
-            {
-                UtilitariosGlobais.ApresentaMensagemSucesso($"Bem-Vindo(a) {ControllerLogin.NomeUsuarioLogado}!");
+//            if (resultadoAutenticacao == true)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemSucesso($"Bem-Vindo(a) {ControllerLogin.NomeUsuarioLogado}!");
 
-                TelaMenuInicio.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Acesso negado!");
+//                TelaMenuInicioNew.ApresentaTela();
+//            }
+//            else
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Acesso negado!");
 
-                ApresentaTela();
-            }
-        }
+//                ApresentaTela();
+//            }
+//        }
 
-        private static string SolicitaDadosAutenticacao(string nomeDoDado)
-        {
-            Console.Write(nomeDoDado);
-            string dado = Console.ReadLine();
+//        private static string SolicitaDadosAutenticacao(string nomeDoDado)
+//        {
+//            Console.Write(nomeDoDado);
+//            string dado = Console.ReadLine();
 
-            return dado;
-        }
-    }
-}
+//            return dado;
+//        }
+//    }
+//}

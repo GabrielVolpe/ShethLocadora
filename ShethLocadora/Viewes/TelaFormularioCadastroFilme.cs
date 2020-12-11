@@ -1,210 +1,211 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Models.Enums;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Models.Enums;
+//using ShethLocadora.Utilities;
+//using ShethLocadora.ViewsNew;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaFormularioCadastroFilme
-    {
-        internal static void IniciaFomrulario()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE CADASTRO - FILMES");
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaFormularioCadastroFilme
+//    {
+//        internal static void IniciaFomrulario()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("FORMULÁRIO DE CADASTRO - FILMES");
 
-            Console.WriteLine("\n Informe os dados abaixo para efetuar o cadastro: ");
+//            Console.WriteLine("\n Informe os dados abaixo para efetuar o cadastro: ");
 
-            RecebeStatus();
-            RecebeTitulo();
-            RecebeDiretor();
-            RecebeCategoria();
-            RecebeClassificacaoIndicativa();
-            RecebeValorLocacao();
-            RecebePeriodoDiasLocacao();
-            RecebeQuantidadeDisponivel();
-            FinalizaCadastro();
-        }
+//            RecebeStatus();
+//            RecebeTitulo();
+//            RecebeDiretor();
+//            RecebeCategoria();
+//            RecebeClassificacaoIndicativa();
+//            RecebeValorLocacao();
+//            RecebePeriodoDiasLocacao();
+//            RecebeQuantidadeDisponivel();
+//            FinalizaCadastro();
+//        }
 
-        internal static Tuple<bool, int> RecebeStatus()
-        {
-            Console.WriteLine("\n ================================================== Status");
+//        internal static Tuple<bool, int> RecebeStatus()
+//        {
+//            Console.WriteLine("\n ================================================== Status");
 
-            Console.WriteLine(" 1 - Disponível");
-            Console.WriteLine(" 2 - Indisponível");
+//            Console.WriteLine(" 1 - Disponível");
+//            Console.WriteLine(" 2 - Indisponível");
 
-            int opcaoStatusInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção: ");
+//            int opcaoStatusInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção: ");
 
-            bool resultadoValidacaoStatus = ControllerFilme.ValidaStatus(opcaoStatusInformada);
+//            bool resultadoValidacaoStatus = ControllerFilme.ValidaStatus(opcaoStatusInformada);
 
-            if (resultadoValidacaoStatus == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
+//            if (resultadoValidacaoStatus == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Opção inválida!");
 
-                RecebeStatus();
-            }
+//                RecebeStatus();
+//            }
 
-            return new Tuple<bool, int>(resultadoValidacaoStatus, opcaoStatusInformada);
-        }
+//            return new Tuple<bool, int>(resultadoValidacaoStatus, opcaoStatusInformada);
+//        }
 
-        internal static Tuple<bool, string> RecebeTitulo()
-        {
-            string tituloInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Título");
+//        internal static Tuple<bool, string> RecebeTitulo()
+//        {
+//            string tituloInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Título");
 
-            bool resultadoValidacaoTitulo = ControllerFilme.ValidaTitulo(tituloInformado);
+//            bool resultadoValidacaoTitulo = ControllerFilme.ValidaTitulo(tituloInformado);
 
-            if (resultadoValidacaoTitulo == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Título inválido!");
+//            if (resultadoValidacaoTitulo == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Título inválido!");
 
-                RecebeTitulo();
-            }
+//                RecebeTitulo();
+//            }
 
-            return new Tuple<bool, string>(resultadoValidacaoTitulo, tituloInformado);
-        }
+//            return new Tuple<bool, string>(resultadoValidacaoTitulo, tituloInformado);
+//        }
 
-        internal static Tuple<bool, string> RecebeDiretor()
-        {
-            string diretorInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Diretor");
+//        internal static Tuple<bool, string> RecebeDiretor()
+//        {
+//            string diretorInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Diretor");
 
-            bool resultadoValidacaoDiretor = ControllerFilme.ValidaDiretor(diretorInformado);
+//            bool resultadoValidacaoDiretor = ControllerFilme.ValidaDiretor(diretorInformado);
 
-            if (resultadoValidacaoDiretor == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Diretor inválido!");
+//            if (resultadoValidacaoDiretor == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Diretor inválido!");
 
-                RecebeDiretor();
-            }
+//                RecebeDiretor();
+//            }
 
-            return new Tuple<bool, string>(resultadoValidacaoDiretor, diretorInformado);
-        }
+//            return new Tuple<bool, string>(resultadoValidacaoDiretor, diretorInformado);
+//        }
 
-        internal static Tuple<bool, int> RecebeCategoria()
-        {
-            Console.WriteLine(" ================================================== Categoria");
+//        internal static Tuple<bool, int> RecebeCategoria()
+//        {
+//            Console.WriteLine(" ================================================== Categoria");
 
-            int contadorCategoriaFilme = 1;
+//            int contadorCategoriaFilme = 1;
 
-            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumCategoriaFilme)))
-            {
-                Console.WriteLine($" {contadorCategoriaFilme} - {opcaoEnum}");
+//            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumCategoriaFilme)))
+//            {
+//                Console.WriteLine($" {contadorCategoriaFilme} - {opcaoEnum}");
 
-                contadorCategoriaFilme++;
-            }
+//                contadorCategoriaFilme++;
+//            }
 
-            int opcaoCategoriaInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção: ");
+//            int opcaoCategoriaInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção: ");
 
-            bool resultadoValidacaoCategoria = ControllerFilme.ValidaCategoria(opcaoCategoriaInformada);
+//            bool resultadoValidacaoCategoria = ControllerFilme.ValidaCategoria(opcaoCategoriaInformada);
 
-            if (resultadoValidacaoCategoria == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
+//            if (resultadoValidacaoCategoria == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Opção inválida!");
 
-                RecebeCategoria();
-            }
+//                RecebeCategoria();
+//            }
 
-            return new Tuple<bool, int>(resultadoValidacaoCategoria, opcaoCategoriaInformada);
-        }
+//            return new Tuple<bool, int>(resultadoValidacaoCategoria, opcaoCategoriaInformada);
+//        }
 
-        internal static Tuple<bool, int> RecebeClassificacaoIndicativa()
-        {
-            Console.WriteLine(" ================================================== Classificação Indicativa");
+//        internal static Tuple<bool, int> RecebeClassificacaoIndicativa()
+//        {
+//            Console.WriteLine(" ================================================== Classificação Indicativa");
 
-            int contadorClassificacaoIndicativaFilme = 1;
+//            int contadorClassificacaoIndicativaFilme = 1;
 
-            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumClassificacaoIndicativaFilme)))
-            {
-                Console.WriteLine($" {contadorClassificacaoIndicativaFilme} - {opcaoEnum}");
-                contadorClassificacaoIndicativaFilme++;
-            }
+//            foreach (var opcaoEnum in Enum.GetValues(typeof(EnumClassificacaoIndicativaFilme)))
+//            {
+//                Console.WriteLine($" {contadorClassificacaoIndicativaFilme} - {opcaoEnum}");
+//                contadorClassificacaoIndicativaFilme++;
+//            }
 
-            int opcaoClassificacaoIndicativaInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção:");
+//            int opcaoClassificacaoIndicativaInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção:");
 
-            bool resultadoValidacaoClassificacaoIndicativa = ControllerFilme.ValidaClassificacaoIndicativa(opcaoClassificacaoIndicativaInformada);
+//            bool resultadoValidacaoClassificacaoIndicativa = ControllerFilme.ValidaClassificacaoIndicativa(opcaoClassificacaoIndicativaInformada);
 
-            if (resultadoValidacaoClassificacaoIndicativa == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Opção inválida!");
+//            if (resultadoValidacaoClassificacaoIndicativa == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Opção inválida!");
 
-                RecebeClassificacaoIndicativa();
-            }
+//                RecebeClassificacaoIndicativa();
+//            }
 
-            return new Tuple<bool, int>(resultadoValidacaoClassificacaoIndicativa, opcaoClassificacaoIndicativaInformada);
-        }
+//            return new Tuple<bool, int>(resultadoValidacaoClassificacaoIndicativa, opcaoClassificacaoIndicativaInformada);
+//        }
 
-        internal static Tuple<bool, double> RecebeValorLocacao()
-        {
-            Console.WriteLine(" ================================================== Valor de locação: ");
+//        internal static Tuple<bool, double> RecebeValorLocacao()
+//        {
+//            Console.WriteLine(" ================================================== Valor de locação: ");
 
-            double valorInformadoLocacao;
+//            double valorInformadoLocacao;
 
-            Console.Write(" ");
-            double.TryParse(Console.ReadLine(), out valorInformadoLocacao);
+//            Console.Write(" ");
+//            double.TryParse(Console.ReadLine(), out valorInformadoLocacao);
 
-            bool resultadoValidacaoValorLocacao = ControllerFilme.ValidaValorLocacao(valorInformadoLocacao);
+//            bool resultadoValidacaoValorLocacao = ControllerFilme.ValidaValorLocacao(valorInformadoLocacao);
 
-            if (resultadoValidacaoValorLocacao == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Valor inválido!");
+//            if (resultadoValidacaoValorLocacao == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Valor inválido!");
 
-                RecebeValorLocacao();
-            }
+//                RecebeValorLocacao();
+//            }
 
-            return new Tuple<bool, double>(resultadoValidacaoValorLocacao, valorInformadoLocacao);
-        }
+//            return new Tuple<bool, double>(resultadoValidacaoValorLocacao, valorInformadoLocacao);
+//        }
 
-        internal static Tuple<bool, int> RecebePeriodoDiasLocacao()
-        {
-            Console.WriteLine(" ================================================== Período de dias permitido para locação: ");
+//        internal static Tuple<bool, int> RecebePeriodoDiasLocacao()
+//        {
+//            Console.WriteLine(" ================================================== Período de dias permitido para locação: ");
 
-            int periodoDiasLocacaoInformado = UtilitariosGlobais.RecebeDadoCadastroIntEnum(" ");
+//            int periodoDiasLocacaoInformado = UtilitariosGlobais.RecebeDadoCadastroIntEnum(" ");
 
-            bool resultadoValidacaoPeriodoDiasLocacao = ControllerFilme.ValidaPeriodoDiasLocacao(periodoDiasLocacaoInformado);
+//            bool resultadoValidacaoPeriodoDiasLocacao = ControllerFilme.ValidaPeriodoDiasLocacao(periodoDiasLocacaoInformado);
 
-            if (resultadoValidacaoPeriodoDiasLocacao == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Período inválido!");
+//            if (resultadoValidacaoPeriodoDiasLocacao == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Período inválido!");
 
-                RecebePeriodoDiasLocacao();
-            }
+//                RecebePeriodoDiasLocacao();
+//            }
 
-            return new Tuple<bool, int>(resultadoValidacaoPeriodoDiasLocacao, periodoDiasLocacaoInformado);
-        }
+//            return new Tuple<bool, int>(resultadoValidacaoPeriodoDiasLocacao, periodoDiasLocacaoInformado);
+//        }
 
-        internal static Tuple<bool, int> RecebeQuantidadeDisponivel()
-        {
-            Console.WriteLine(" ================================================== Quantidade disponível: ");
+//        internal static Tuple<bool, int> RecebeQuantidadeDisponivel()
+//        {
+//            Console.WriteLine(" ================================================== Quantidade disponível: ");
 
-            int quantidadeDisponivelInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum(" ");
+//            int quantidadeDisponivelInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum(" ");
 
-            bool resultadoValidacaoQuantidadeDisponivel = ControllerFilme.ValidaQuantidadeDisponivel(quantidadeDisponivelInformada);
+//            bool resultadoValidacaoQuantidadeDisponivel = ControllerFilme.ValidaQuantidadeDisponivel(quantidadeDisponivelInformada);
 
-            if (resultadoValidacaoQuantidadeDisponivel == false)
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Quantidade inválida!");
+//            if (resultadoValidacaoQuantidadeDisponivel == false)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Quantidade inválida!");
 
-                RecebeQuantidadeDisponivel();
-            }
+//                RecebeQuantidadeDisponivel();
+//            }
 
-            return new Tuple<bool, int>(resultadoValidacaoQuantidadeDisponivel, quantidadeDisponivelInformada);
-        }
+//            return new Tuple<bool, int>(resultadoValidacaoQuantidadeDisponivel, quantidadeDisponivelInformada);
+//        }
 
-        private static void FinalizaCadastro()
-        {
-            Console.Clear();
+//        private static void FinalizaCadastro()
+//        {
+//            Console.Clear();
 
-            bool resultadoFinalizacaoCadastro = ControllerFilme.FinalizaCadastro();
+//            bool resultadoFinalizacaoCadastro = ControllerFilme.FinalizaCadastro();
 
-            if (resultadoFinalizacaoCadastro == true)
-            {
-                UtilitariosGlobais.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
+//            if (resultadoFinalizacaoCadastro == true)
+//            {
+//                UtilitariosGlobais.ApresentaMensagemSucesso("Cadastro realizado com sucesso!");
 
-                TelaMenuFilme.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Cadastro cancelado! Filme já cadastrado.");
+//                TelaMenuFilmeNew.ApresentaTela();
+//            }
+//            else
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Cadastro cancelado! Filme já cadastrado.");
 
-                TelaMenuFilme.ApresentaTela();
-            }
-        }
-    }
-}
+//                TelaMenuFilmeNew.ApresentaTela();
+//            }
+//        }
+//    }
+//}

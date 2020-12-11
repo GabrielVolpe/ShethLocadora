@@ -1,5 +1,5 @@
 ﻿using ShethLocadora.Utilities;
-using ShethLocadora.Viewes;
+using ShethLocadora.ViewsNew;
 using System;
 
 namespace ShethLocadora.Controllers
@@ -17,98 +17,99 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeNome();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeNome();
                     }
                     break;
                 case 2:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeDataNascimento();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeDataNascimento();
                     }
                     break;
                 case 3:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeSexo();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeSexo();
                     }
                     break;
                 case 4:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeCpf();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeCpf();
                     }
                     break;
                 case 5:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeEmail();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeEmail();
                     }
                     break;
                 case 6:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeNumeroCelular();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeNumeroCelular();
                     }
                     break;
                 case 7:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeUnidadeFederativa();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeUnidadeFederativa();
                     }
                     break;
                 case 8:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeCidade();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeCidade();
                     }
                     break;
                 case 9:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeBairro();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeBairro();
                     }
                     break;
                 case 10:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeLogradouro();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeLogradouro();
                     }
                     break;
                 case 11:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeComplemento();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeComplemento();
                     }
                     break;
                 case 12:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeCep();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeCep();
                     }
                     break;
                 case 13:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeStatus();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeStatus();
                     }
                     break;
                 case 14:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebePermissao();
+                        TelaFormularioAlteracaoUsuarioNew.RecebePermissao();
                     }
                     break;
                 case 15:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeUsuarioAutenticacao();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeUsuarioAutenticacao();
                     }
                     break;
                 case 16:
                     {
-                        TelaFormularioAlteracaoUsuario.RecebeSenhaAutenticacao();
+                        TelaFormularioAlteracaoUsuarioNew.RecebeSenhaAutenticacao();
                     }
                     break;
                 case 19:
                     {
                         Console.Clear();
 
-                        TelaMenuUsuario.ApresentaTela();
+                        TelaMenuUsuarioNew.ApresentaTela();
                     }
                     break;
                 default:
                     {
                         Console.WriteLine();
 
-                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
+                        Console.SetCursorPosition(0, 0);
+                        UtilitariosGlobais.ApresentaMensagemErro(" Opcão inválida!");
 
-                        TelaOpcoesAlteracaoUsuario.ApresentaMenu();
+                        TelaOpcoesAlteracaoUsuarioNew.ApresentaMenu();
                     }
                     break;
             }

@@ -1,5 +1,5 @@
 ﻿using ShethLocadora.Utilities;
-using ShethLocadora.Viewes;
+using ShethLocadora.ViewsNew;
 using System;
 
 namespace ShethLocadora.Controllers
@@ -17,83 +17,84 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeNome();
+                        TelaFormularioAlteracaoClienteNew.RecebeNome();
                     }
                     break;
                 case 2:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeDataNascimento();
+                        TelaFormularioAlteracaoClienteNew.RecebeDataNascimento();
                     }
                     break;
                 case 3:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeSexo();
+                        TelaFormularioAlteracaoClienteNew.RecebeSexo();
                     }
                     break;
                 case 4:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeCpf();
+                        TelaFormularioAlteracaoClienteNew.RecebeCpf();
                     }
                     break;
                 case 5:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeEmail();
+                        TelaFormularioAlteracaoClienteNew.RecebeEmail();
                     }
                     break;
                 case 6:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeNumeroCelular();
+                        TelaFormularioAlteracaoClienteNew.RecebeNumeroCelular();
                     }
                     break;
                 case 7:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeUnidadeFederativa();
+                        TelaFormularioAlteracaoClienteNew.RecebeUnidadeFederativa();
                     }
                     break;
                 case 8:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeCidade();
+                        TelaFormularioAlteracaoClienteNew.RecebeCidade();
                     }
                     break;
                 case 9:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeBairro();
+                        TelaFormularioAlteracaoClienteNew.RecebeBairro();
                     }
                     break;
                 case 10:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeLogradouro();
+                        TelaFormularioAlteracaoClienteNew.RecebeLogradouro();
                     }
                     break;
                 case 11:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeComplemento();
+                        TelaFormularioAlteracaoClienteNew.RecebeComplemento();
                     }
                     break;
                 case 12:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeCep();
+                        TelaFormularioAlteracaoClienteNew.RecebeCep();
                     }
                     break;
                 case 13:
                     {
-                        TelaFormularioAlteracaoCliente.RecebeStatus();
+                        TelaFormularioAlteracaoClienteNew.RecebeStatus();
                     }
                     break;
                 case 19:
                     {
                         Console.Clear();
 
-                        TelaMenuCliente.ApresentaTela();
+                        TelaMenuClienteNew.ApresentaTela();
                     }
                     break;
                 default:
                     {
                         Console.WriteLine();
 
-                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
+                        Console.SetCursorPosition(0, 0);
+                        UtilitariosGlobais.ApresentaMensagemErro(" Opcão inválida!");
 
-                        TelaOpcoesAlteracaoCliente.ApresentaMenu();
+                        TelaOpcoesAlteracaoClienteNew.ApresentaMenu();
                     }
                     break;
             }

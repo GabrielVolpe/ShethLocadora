@@ -1,128 +1,129 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Utilities;
+//using ShethLocadora.ViewsNew;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaFormularioAlteracaoFilme
-    {
-        internal static void RecebeStatus()
-        {
-            Tuple<bool, int> retornoStatus = TelaFormularioCadastroFilme.RecebeStatus();
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaFormularioAlteracaoFilme
+//    {
+//        internal static void RecebeStatus()
+//        {
+//            Tuple<bool, int> retornoStatus = TelaFormularioCadastroFilmeNew.RecebeStatus();
 
-            if (retornoStatus.Item1 == true)
-            {
-                Console.Clear();
+//            if (retornoStatus.Item1 == true)
+//            {
+//                Console.Clear();
 
-                ControllerFilme.AlteraStatus(TelaOpcoesAlteracaoFilme.IdInformado);
+//                ControllerFilme.AlteraStatus(TelaOpcoesAlteracaoFilmeNew.IdInformado);
 
-                FinalizaAlteracao();
-            }
-        }
+//                FinalizaAlteracao();
+//            }
+//        }
 
-        internal static void RecebeTitulo()
-        {
-            Tuple<bool, string> retornoTitulo = TelaFormularioCadastroFilme.RecebeTitulo();
+//        internal static void RecebeTitulo()
+//        {
+//            Tuple<bool, string> retornoTitulo = TelaFormularioCadastroFilmeNew.RecebeTitulo();
 
-            if (retornoTitulo.Item1 == true)
-            {
-                Console.Clear();
+//            if (retornoTitulo.Item1 == true)
+//            {
+//                Console.Clear();
 
-                ControllerFilme.AlteraTitutlo(TelaOpcoesAlteracaoFilme.IdInformado);
+//                ControllerFilme.AlteraTitutlo(TelaOpcoesAlteracaoFilmeNew.IdInformado);
 
-                FinalizaAlteracao();
-            }
-        }
+//                FinalizaAlteracao();
+//            }
+//        }
 
-        internal static void RecebeDiretor()
-        {
-            Tuple<bool, string> retornoDiretor = TelaFormularioCadastroFilme.RecebeDiretor();
+//        internal static void RecebeDiretor()
+//        {
+//            Tuple<bool, string> retornoDiretor = TelaFormularioCadastroFilmeNew.RecebeDiretor();
 
-            if (retornoDiretor.Item1 == true)
-            {
-                Console.Clear();
+//            if (retornoDiretor.Item1 == true)
+//            {
+//                Console.Clear();
 
-                ControllerFilme.AlteraDiretor(TelaOpcoesAlteracaoFilme.IdInformado);
+//                ControllerFilme.AlteraDiretor(TelaOpcoesAlteracaoFilmeNew.IdInformado);
 
-                FinalizaAlteracao();
-            }
-        }
+//                FinalizaAlteracao();
+//            }
+//        }
 
-        internal static void RecebeCategoria()
-        {
-            Tuple<bool, int> retornoCategoria = TelaFormularioCadastroFilme.RecebeCategoria();
+//        internal static void RecebeCategoria()
+//        {
+//            Tuple<bool, int> retornoCategoria = TelaFormularioCadastroFilmeNew.RecebeCategoria();
 
-            if (retornoCategoria.Item1 == true)
-            {
-                Console.Clear();
+//            if (retornoCategoria.Item1 == true)
+//            {
+//                Console.Clear();
 
-                ControllerFilme.AlteraCategoria(TelaOpcoesAlteracaoFilme.IdInformado);
+//                ControllerFilme.AlteraCategoria(TelaOpcoesAlteracaoFilmeNew.IdInformado);
 
-                FinalizaAlteracao();
-            }
-        }
+//                FinalizaAlteracao();
+//            }
+//        }
 
-        internal static void RecebeClassificacaoIndicativa()
-        {
-            Tuple<bool, int> retornoClassificacaoIndicativa = TelaFormularioCadastroFilme.RecebeClassificacaoIndicativa();
+//        internal static void RecebeClassificacaoIndicativa()
+//        {
+//            Tuple<bool, int> retornoClassificacaoIndicativa = TelaFormularioCadastroFilmeNew.RecebeClassificacaoIndicativa();
 
-            if (retornoClassificacaoIndicativa.Item1 == true)
-            {
-                Console.Clear();
+//            if (retornoClassificacaoIndicativa.Item1 == true)
+//            {
+//                Console.Clear();
 
-                ControllerFilme.AlteraClassificacaoIndicativa(TelaOpcoesAlteracaoFilme.IdInformado);
+//                ControllerFilme.AlteraClassificacaoIndicativa(TelaOpcoesAlteracaoFilmeNew.IdInformado);
 
-                FinalizaAlteracao();
-            }
-        }
+//                FinalizaAlteracao();
+//            }
+//        }
 
-        internal static void RecebeValorLocacao()
-        {
-            Tuple<bool, double> retornoValorLocacao = TelaFormularioCadastroFilme.RecebeValorLocacao();
+//        internal static void RecebeValorLocacao()
+//        {
+//            Tuple<bool, double> retornoValorLocacao = TelaFormularioCadastroFilmeNew.RecebeValorLocacao();
 
-            if (retornoValorLocacao.Item1 == true)
-            {
-                Console.Clear();
+//            if (retornoValorLocacao.Item1 == true)
+//            {
+//                Console.Clear();
 
-                ControllerFilme.AlteraValorLocacao(TelaOpcoesAlteracaoFilme.IdInformado);
+//                ControllerFilme.AlteraValorLocacao(TelaOpcoesAlteracaoFilmeNew.IdInformado);
 
-                FinalizaAlteracao();
-            }
-        }
+//                FinalizaAlteracao();
+//            }
+//        }
 
-        internal static void RecebePeriodoDiasLocacao()
-        {
-            Tuple<bool, int> retornoPeriodoDiasLocacao = TelaFormularioCadastroFilme.RecebePeriodoDiasLocacao();
+//        internal static void RecebePeriodoDiasLocacao()
+//        {
+//            Tuple<bool, int> retornoPeriodoDiasLocacao = TelaFormularioCadastroFilmeNew.RecebePeriodoDiasLocacao();
 
-            if (retornoPeriodoDiasLocacao.Item1 == true)
-            {
-                Console.Clear();
+//            if (retornoPeriodoDiasLocacao.Item1 == true)
+//            {
+//                Console.Clear();
 
-                ControllerFilme.AlteraPeriodoDiasLocacao(TelaOpcoesAlteracaoFilme.IdInformado);
+//                ControllerFilme.AlteraPeriodoDiasLocacao(TelaOpcoesAlteracaoFilmeNew.IdInformado);
 
-                FinalizaAlteracao();
-            }
-        }
+//                FinalizaAlteracao();
+//            }
+//        }
 
-        internal static void RecebeQuantidadeDisponivel()
-        {
-            Tuple<bool, int> retornoQuantidadeDisponivel = TelaFormularioCadastroFilme.RecebeQuantidadeDisponivel();
+//        internal static void RecebeQuantidadeDisponivel()
+//        {
+//            Tuple<bool, int> retornoQuantidadeDisponivel = TelaFormularioCadastroFilmeNew.RecebeQuantidadeDisponivel();
 
-            if (retornoQuantidadeDisponivel.Item1 == true)
-            {
-                Console.Clear();
+//            if (retornoQuantidadeDisponivel.Item1 == true)
+//            {
+//                Console.Clear();
 
-                ControllerFilme.AlteraQuantidadeDisponivel(TelaOpcoesAlteracaoFilme.IdInformado);
+//                ControllerFilme.AlteraQuantidadeDisponivel(TelaOpcoesAlteracaoFilmeNew.IdInformado);
 
-                FinalizaAlteracao();
-            }
-        }
+//                FinalizaAlteracao();
+//            }
+//        }
 
-        private static void FinalizaAlteracao()
-        {
-            UtilitariosGlobais.ApresentaMensagemSucesso("Alteração realizada com sucesso!");
+//        private static void FinalizaAlteracao()
+//        {
+//            UtilitariosGlobais.ApresentaMensagemSucesso(" Alteração realizada com sucesso!");
 
-            TelaMenuFilme.ApresentaTela();
-        }
-    }
-}
+//            TelaMenuFilmeNew.ApresentaTela();
+//        }
+//    }
+//}

@@ -109,7 +109,6 @@ namespace ShethLocadora.Services
                 situacaoNominal = "IRREGULAR";
             }
 
-            stringLocacao.AppendLine(" ================================================== D A D O S   D A   L O C A Ç Ã O");
             stringLocacao.AppendLine(" ID............................: " + Id);
             stringLocacao.AppendLine(" Status........................: " + statusNominal);
             stringLocacao.AppendLine(" Situação......................: " + situacaoNominal);
@@ -127,7 +126,6 @@ namespace ShethLocadora.Services
             stringLocacao.AppendLine(" CPF do cliente................: " + Cliente.Cpf);
             stringLocacao.AppendLine(" E-mail do cliente.............: " + Cliente.Email);
             stringLocacao.AppendLine(" Número de celular do cliente..: " + Cliente.NumeroCelular);
-
 
             return stringLocacao.ToString();
         }

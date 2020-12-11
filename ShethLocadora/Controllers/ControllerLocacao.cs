@@ -3,7 +3,7 @@ using ShethLocadora.Models.Enums;
 using ShethLocadora.Repositories;
 using ShethLocadora.Services;
 using ShethLocadora.Utilities;
-using ShethLocadora.Viewes;
+using ShethLocadora.ViewsNew;
 using System;
 using System.Linq;
 
@@ -142,7 +142,7 @@ namespace ShethLocadora.Controllers
 
             BancoDados.Locacoes.Add(locacao);
 
-            foreach (var item in BancoDados.Clientes.Where(x => x.Cpf == cpfInformado))
+            foreach (var item in BancoDados.Clientes.Where(x => x.Cpf == cpfInformado).ToArray())
             {
                 item.Locacoes.Add(locacao);
             }
@@ -172,7 +172,7 @@ namespace ShethLocadora.Controllers
 
             Locacao.AtualizaLocacoes();
 
-            TelaFormularioDevolveLocacao.ExibeValoresAhPagar();
+            TelaFormularioDevolveLocacaoNew.ExibeValoresAhPagar();
         }
 
         internal static void RetiraMulta(int idInformado)
@@ -200,37 +200,89 @@ namespace ShethLocadora.Controllers
                 idFilme = item.Filme.Id;
             }
 
-            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado).ToArray())
+            foreach (var item in BancoDados.Filmes.Where(x => x.Id == idFilme).ToArray())
             {
                 item.QuantidadeDisponivel += 1;
+
+                if (item.QuantidadeDisponivel > 0 && item.Status == false)
+                {
+                    item.Status = true;
+                }
             }
         }
 
         // ================================================== CONSULTAR
 
+        private static int _contador;
+
         internal static void ListaTodos()
         {
+            _contador = 4;
+
             foreach (var item in BancoDados.Locacoes)
             {
-                ExibeModeloListagem(item);
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
             }
+        }
+
+        internal static void ListaAtivas()
+        {
+            _contador = 4;
+
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Status == true))
+            {
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
+            }
+        }
+
+        internal static void ListaInativas()
+        {
+            _contador = 4;
+
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Status == false))
+            {
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
+            }
+        }
+
+        internal static void ListaRegulares()
+        {
+            _contador = 4;
+
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Situacao == true))
+            {
+                ExibeModeloListagem(item, _contador);
+
+                _contador++;
+            }
+        }
+
+        internal static void ListaIrregulares()
+        {
+            _contador = 4;
+
+            foreach (var item in BancoDados.Locacoes.Where(x => x.Situacao == false))
+            {
+                ExibeModeloListagem(item, _contador);
+            }
+
+            _contador++;
         }
 
         internal static void ConsultaId(int idInformado)
         {
             ConsultaGeral(id: idInformado);
-
-            UtilitariosGlobais.ApresentaResumoValores(idInformado);
         }
 
         internal static void ConsultaCpf(string cpfInformado)
         {
             ConsultaGeral(cpf: cpfInformado);
-
-            foreach (var item in BancoDados.Locacoes.Where(x => x.Cliente.Cpf == cpfInformado))
-            {
-                UtilitariosGlobais.ApresentaResumoValores(item.Id);
-            }
         }
 
         private static void ConsultaGeral(int id = 0, string cpf = null)
@@ -239,80 +291,96 @@ namespace ShethLocadora.Controllers
             {
                 foreach (var item in BancoDados.Locacoes.Where(x => x.Id == id))
                 {
+                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                    UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DA LOCAÇÃO]: \n");
+
                     Console.WriteLine(item);
+
+                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
+                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
                 }
             }
 
             if (cpf != null)
             {
-                foreach (var item in BancoDados.Locacoes.Where(x => x.Cliente.Cpf == cpf.ToUpper()))
+                foreach (var item in BancoDados.Locacoes.Where(x => x.Cliente.Cpf == cpf))
                 {
+                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                    UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DA LOCAÇÃO]: \n");
+
                     Console.WriteLine(item);
+
+                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
+                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
                 }
             }
         }
 
-        internal static void ListaAtivas()
+        private static void ExibeModeloListagem(Locacao item, int linha)
         {
-            foreach (var item in BancoDados.Locacoes.Where(x => x.Status == true))
+            for (int i = 0; i <= 79; i++)
             {
-                ExibeModeloListagem(item);
-            }
-        }
+                for (int j = 0; j <= linha; j++)
+                {
+                    Console.SetCursorPosition(0 + i, 1 + j);
 
-        internal static void ListaInativas()
-        {
-            foreach (var item in BancoDados.Locacoes.Where(x => x.Status == false))
-            {
-                ExibeModeloListagem(item);
-            }
-        }
+                    // Linha superior
+                    if (Console.CursorTop == 1)
+                    {
+                        Console.Write("=");
+                    }
 
-        internal static void ListaRegulares()
-        {
-            foreach (var item in BancoDados.Locacoes.Where(x => x.Situacao == true))
-            {
-                ExibeModeloListagem(item);
-            }
-        }
+                    // Coluna esquerda
+                    if (Console.CursorLeft == 0)
+                    {
+                        Console.Write("|");
+                    }
 
-        internal static void ListaIrregulares()
-        {
-            foreach (var item in BancoDados.Locacoes.Where(x => x.Situacao == false))
-            {
-                ExibeModeloListagem(item);
-            }
-        }
+                    // Separador ID
+                    if (Console.CursorLeft == 8)
+                    {
+                        Console.Write("|");
+                    }
 
-        private static void ExibeModeloListagem(Locacao item)
-        {
-            string statusNominal;
+                    // Separador título
+                    if (Console.CursorLeft == 64)
+                    {
+                        Console.Write("|");
+                    }
 
-            if (item.Status == true)
-            {
-                statusNominal = "ATIVA";
-            }
-            else
-            {
-                statusNominal = "INATIVA";
+                    // Coluna direita
+                    if (Console.CursorLeft == 79)
+                    {
+                        Console.Write("|");
+                    }
+                }
             }
 
-            string situacaoNominal;
-
+            Console.SetCursorPosition(1, 2);
+            UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro("[ID]   ");
+            Console.SetCursorPosition(1, linha);
             if (item.Situacao == true)
             {
-                situacaoNominal = "REGULAR";
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine(item.Id);
+                Console.ResetColor();
             }
             else
             {
-                situacaoNominal = "IRREGULAR";
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(item.Id);
+                Console.ResetColor();
             }
 
-            Console.WriteLine(" ID.........: " + item.Id);
-            Console.WriteLine(" Status.....: " + statusNominal);
-            Console.WriteLine(" Situacao...: " + situacaoNominal);
-            Console.WriteLine(" ID Filme...: " + item.Filme.Id);
-            Console.WriteLine(" CPF cliente: " + item.Cliente.Cpf + "\n");
+            Console.SetCursorPosition(9, 2);
+            UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro("[TÍTULO]                                               ");
+            Console.SetCursorPosition(9, linha);
+            Console.WriteLine(item.Filme.Titulo);
+
+            Console.SetCursorPosition(65, 2);
+            UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro("[CPF]         ");
+            Console.SetCursorPosition(65, linha);
+            Console.WriteLine(item.Cliente.Cpf);
         }
     }
 }

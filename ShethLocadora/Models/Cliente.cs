@@ -41,7 +41,6 @@ namespace ShethLocadora.Models
                 statusNominal = "INATIVO";
             }
 
-            stringCliente.AppendLine(" ================================================== D A D O S   P E S S O A I S");
             stringCliente.AppendLine(" ID: " + Id);
             stringCliente.AppendLine(" Nome.........................: " + Nome);
             stringCliente.AppendLine(" Data de nascimento...........: " + DataNascimento.ToString("dd/MM/yyyy"));
@@ -51,7 +50,7 @@ namespace ShethLocadora.Models
             stringCliente.AppendLine(" Celular......................: " + NumeroCelular);
             stringCliente.AppendLine(" Status.......................: " + statusNominal);
             stringCliente.AppendLine(" Número de locãções realizadas: " + Locacoes.Count + "\n");
-            stringCliente.AppendLine(Endereco.ToString());
+            stringCliente.Append(Endereco.ToString());
 
             return stringCliente.ToString();
         }

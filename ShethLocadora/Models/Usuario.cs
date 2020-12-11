@@ -67,7 +67,7 @@ namespace ShethLocadora.Models
             stringUsuario.AppendLine(" Permissão..............: " + permissaoNominal);
             stringUsuario.AppendLine(" Usuário de autenticação: " + UsuarioAutenticacao);
             stringUsuario.AppendLine(" Senha de autenticação..: " + SenhaAutenticacao + "\n");
-            stringUsuario.AppendLine(Endereco.ToString());
+            stringUsuario.Append(Endereco.ToString());
 
             return stringUsuario.ToString();
         }

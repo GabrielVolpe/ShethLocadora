@@ -1,5 +1,5 @@
 ﻿using ShethLocadora.Utilities;
-using ShethLocadora.Viewes;
+using ShethLocadora.ViewsNew;
 using System;
 
 namespace ShethLocadora.Controllers
@@ -17,53 +17,53 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaFormularioConsultaLocacao.ListaTodas();
+                        TelaFormularioConsultaLocacaoNew.ListaTodas();
                     }
                     break;
                 case 2:
                     {
-                        TelaFormularioConsultaLocacao.ListaAtivas();
+                        TelaFormularioConsultaLocacaoNew.ListaAtivas();
                     }
                     break;
                 case 3:
                     {
-                        TelaFormularioConsultaLocacao.ListaInativas();
+                        TelaFormularioConsultaLocacaoNew.ListaInativas();
                     }
                     break;
                 case 4:
                     {
-                        TelaFormularioConsultaLocacao.ListaRegulares();
+                        TelaFormularioConsultaLocacaoNew.ListaRegulares();
                     }
                     break;
                 case 5:
                     {
-                        TelaFormularioConsultaLocacao.ListaIrregulares();
+                        TelaFormularioConsultaLocacaoNew.ListaIrregulares();
                     }
                     break;
                 case 6:
                     {
-                        TelaFormularioConsultaLocacao.ConsultaId();
+                        TelaFormularioConsultaLocacaoNew.ConsultaId();
                     }
                     break;
                 case 7:
                     {
-                        TelaFormularioConsultaLocacao.ConsultaCpf();
+                        TelaFormularioConsultaLocacaoNew.ConsultaCpf();
                     }
                     break;
                 case 9:
                     {
                         Console.Clear();
 
-                        TelaMenuLocacao.ApresentaTela();
+                        TelaMenuLocacaoNew.ApresentaTela();
                     }
                     break;
                 default:
                     {
                         Console.Clear();
 
-                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
+                        UtilitariosGlobais.ApresentaMensagemErro(" Opcão inválida!");
 
-                        TelaOpcoesConsultaLocacao.ApresentaTela();
+                        TelaOpcoesConsultaLocacaoNew.ApresentaTela();
                     }
                     break;
             }

@@ -9,7 +9,9 @@ namespace ShethLocadora.Viewes
     {
         internal static Tuple<bool, string> RecebeNome()
         {
-            string nomeInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Nome completo");
+            Console.WriteLine();
+
+            string nomeInformado = UtilitariosGlobais.RecebeDadoCadastroString(" [Nome completo]:");
 
             bool resultadoValidacaoNome = ControllerPessoa.ValidaNome(nomeInformado);
 
@@ -18,7 +20,9 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, string> RecebeDataNascimento()
         {
-            string dataNascimentoInformada = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Data de Nascimento (Dia/Mês/Ano)");
+            Console.WriteLine();
+
+            string dataNascimentoInformada = UtilitariosGlobais.RecebeDadoCadastroString(" [Data de Nascimento (Dia/Mês/Ano)]:");
 
             bool resultadoValidacaoDataNascimento = ControllerPessoa.ValidaDataNascimento(dataNascimentoInformada);
 
@@ -27,18 +31,22 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, int> RecebeSexo()
         {
-            Console.WriteLine(" ================================================== Sexo");
+            Console.WriteLine();
+
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" [Sexo]:");
+            Console.ResetColor();
 
             int contadorSexoPessoa = 1;
 
             foreach (var opcaoEnum in Enum.GetValues(typeof(EnumSexoPessoa)))
             {
-                Console.WriteLine($" {contadorSexoPessoa} - {opcaoEnum}");
+                Console.WriteLine($" [{contadorSexoPessoa}] - {opcaoEnum}");
 
                 contadorSexoPessoa++;
             }
 
-            int opcaoSexoInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção: ");
+            int opcaoSexoInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n [Opção]: ");
 
             bool resultadoValidacaoSexo = ControllerPessoa.ValidaSexo(opcaoSexoInformada);
 
@@ -47,7 +55,9 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, string> RecebeCpf()
         {
-            string cpfInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== CPF (Somente números)");
+            Console.WriteLine();
+
+            string cpfInformado = UtilitariosGlobais.RecebeDadoCadastroString(" [CPF (Somente números)]:");
 
             bool resultadoValidacaoCpf = ControllerPessoa.ValidaCpf(cpfInformado);
 
@@ -56,7 +66,9 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, string> RecebeEmail()
         {
-            string emailInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== E-mail");
+            Console.WriteLine();
+
+            string emailInformado = UtilitariosGlobais.RecebeDadoCadastroString(" [E-mail]:");
 
             bool resultadoValidacaoEmail = ControllerPessoa.ValidaEmail(emailInformado);
 
@@ -65,7 +77,9 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, string> RecebeNumeroCelular()
         {
-            string numeroCelularInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Celular (DDD+Numero - Somente Numeros)");
+            Console.WriteLine();
+
+            string numeroCelularInformado = UtilitariosGlobais.RecebeDadoCadastroString(" [Celular (DDD+Numero - Somente Numeros)]:");
 
             bool resultadoValidacaoNumeroCelular = ControllerPessoa.ValidaNumeroCelular(numeroCelularInformado);
 

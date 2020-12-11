@@ -1,34 +1,35 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Utilities;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaMenuInicio
-    {
-        internal static void ApresentaTela()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("S H E T H   L O C A D O R A");
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaMenuInicio
+//    {
+//        internal static void ApresentaTela()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalho("S H E T H   L O C A D O R A");
 
-            ApresentaMenu();
-        }
+//            ApresentaMenu();
+//        }
 
-        private static void ApresentaMenu()
-        {
-            OpcoesMenu();
+//        private static void ApresentaMenu()
+//        {
+//            OpcoesMenu();
 
-            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenuClear();
+//            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenu();
 
-            ControllerTelaMenuInicio.RecebeOpcaoMenu(opcaoInformada);
-        }
+//            ControllerTelaMenuInicio.RecebeOpcaoMenu(opcaoInformada);
+//        }
 
-        private static void OpcoesMenu()
-        {
-            Console.WriteLine("\n 1 - Locações");
-            Console.WriteLine(" 2 - Clientes");
-            Console.WriteLine(" 3 - Filmes");
-            Console.WriteLine(" 4 - Usuários");
-            Console.WriteLine(" 9 - Sair");
-        }
-    }
-}
+//        private static void OpcoesMenu()
+//        {
+
+//            Console.WriteLine("\n 1 - Locações");
+//            Console.WriteLine(" 2 - Clientes");
+//            Console.WriteLine(" 3 - Filmes");
+//            Console.WriteLine(" 4 - Usuários");
+//            Console.WriteLine(" 9 - Sair");
+//        }
+//    }
+//}

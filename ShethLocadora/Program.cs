@@ -1,6 +1,6 @@
 ﻿using ShethLocadora.Repositories;
 using ShethLocadora.Services;
-using ShethLocadora.Viewes;
+using ShethLocadora.ViewsNew;
 using System;
 
 
@@ -10,13 +10,17 @@ namespace ShethLocadora
     {
         static void Main(string[] args)
         {
-            Console.Title = "S H E T H   L O C A D O R A";
+            DateTime dataAtual = DateTime.Now;
+
+            Console.Title = $"...::: S H E T H   L O C A D O R A :::... ({dataAtual.ToString("dd/MM/yyyy")})";
+
+            Console.SetWindowSize(120, 40);
 
             BancoDados.GeraDadosTestes();
 
             Locacao.AtualizaLocacoes();
 
-            TelaLogin.ApresentaTela();
+            TelaLoginNew.ApresentaTela();
         }
     }
 }

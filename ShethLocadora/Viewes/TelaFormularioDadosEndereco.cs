@@ -9,18 +9,22 @@ namespace ShethLocadora.Viewes
     {
         internal static Tuple<bool, int> RecebeUnidadeFederativa()
         {
-            Console.WriteLine("\n ================================================== Unidade federativa");
+            Console.WriteLine();
+
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" [Unidade federativa]:");
+            Console.ResetColor();
 
             int contadorUnidadeFederativa = 1;
 
             foreach (var opcaoEnum in Enum.GetValues(typeof(EnumUnidadeFederativaEndereco)))
             {
-                Console.WriteLine($" {contadorUnidadeFederativa} - {opcaoEnum}");
+                Console.WriteLine($" [{contadorUnidadeFederativa}] - {opcaoEnum}");
 
                 contadorUnidadeFederativa++;
             }
 
-            int opcaoUnidadeFederativaInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n Opção: ");
+            int opcaoUnidadeFederativaInformada = UtilitariosGlobais.RecebeDadoCadastroIntEnum("\n [Opção]: ");
 
             bool resultadoValidacaoUnidadeFederativa = ControllerEndereco.ValidaUnidadeFederativa(opcaoUnidadeFederativaInformada);
 
@@ -29,7 +33,9 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, string> RecebeCidade()
         {
-            string cidadeInformada = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Cidade");
+            Console.WriteLine();
+
+            string cidadeInformada = UtilitariosGlobais.RecebeDadoCadastroString(" [Cidade]:");
 
             bool resultadoValidacaoCidade = ControllerEndereco.ValidaCidadeInformada(cidadeInformada);
 
@@ -38,7 +44,9 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, string> RecebeBairro()
         {
-            string bairroInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Bairro");
+            Console.WriteLine();
+
+            string bairroInformado = UtilitariosGlobais.RecebeDadoCadastroString(" [Bairro]:");
 
             bool resultadoValidacaoBairro = ControllerEndereco.ValidaBairroInformado(bairroInformado);
 
@@ -47,7 +55,9 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, string> RecebeLogradouro()
         {
-            string logradouroInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Logradouro");
+            Console.WriteLine();
+
+            string logradouroInformado = UtilitariosGlobais.RecebeDadoCadastroString(" [Logradouro]:");
 
             bool resultadoValidacaoLogradouro = ControllerEndereco.ValidaLogradouroInformado(logradouroInformado);
 
@@ -56,7 +66,9 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, string> RecebeComplemento()
         {
-            string complementoInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== Complemento");
+            Console.WriteLine();
+
+            string complementoInformado = UtilitariosGlobais.RecebeDadoCadastroString(" [Complemento]:");
 
             bool resultadoValidacaoComplemento = ControllerEndereco.ValidaComplementoInformado(complementoInformado);
 
@@ -65,7 +77,9 @@ namespace ShethLocadora.Viewes
 
         internal static Tuple<bool, string> RecebeCep()
         {
-            string cepInformado = UtilitariosGlobais.RecebeDadoCadastroString(" ================================================== CEP (Somente números)");
+            Console.WriteLine();
+
+            string cepInformado = UtilitariosGlobais.RecebeDadoCadastroString(" [CEP (Somente números)]:");
 
             bool resultadoValidacaoCep = ControllerEndereco.ValidaCepInformado(cepInformado);
 

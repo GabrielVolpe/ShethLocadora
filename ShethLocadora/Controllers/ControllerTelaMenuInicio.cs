@@ -1,5 +1,5 @@
 ﻿using ShethLocadora.Utilities;
-using ShethLocadora.Viewes;
+using ShethLocadora.ViewsNew;
 using System;
 
 namespace ShethLocadora.Controllers
@@ -17,32 +17,32 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaMenuLocacao.ApresentaTela();
+                        TelaMenuLocacaoNew.ApresentaTela();
                     }
                     break;
                 case 2:
                     {
-                        TelaMenuCliente.ApresentaTela();
+                        TelaMenuClienteNew.ApresentaTela();
                     }
                     break;
                 case 3:
                     {
-                        TelaMenuFilme.ApresentaTela();
+                        TelaMenuFilmeNew.ApresentaTela();
                     }
                     break;
                 case 4:
                     {
                         if (ControllerLogin.PermissaoUsuarioLogado == 1)
                         {
-                            TelaMenuUsuario.ApresentaTela();
+                            TelaMenuUsuarioNew.ApresentaTela();
                         }
                         else
                         {
                             Console.Clear();
 
-                            UtilitariosGlobais.ApresentaMensagemErro("Usuário sem permissão!");
+                            UtilitariosGlobais.ApresentaMensagemErro(" Usuário sem permissão!");
 
-                            TelaMenuInicio.ApresentaTela();
+                            TelaMenuInicioNew.ApresentaTela();
                         }
                     }
                     break;
@@ -50,14 +50,14 @@ namespace ShethLocadora.Controllers
                     {
                         UtilitariosGlobais.ApresentaMensagemSucesso("Usuário desconectado!");
 
-                        TelaLogin.ApresentaTela();
+                        TelaLoginNew.ApresentaTela();
                     }
                     break;
                 default:
                     {
-                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
+                        UtilitariosGlobais.ApresentaMensagemErro(" Opcão inválida! ");
 
-                        TelaMenuInicio.ApresentaTela();
+                        TelaMenuInicioNew.ApresentaTela();
                     }
                     break;
             }

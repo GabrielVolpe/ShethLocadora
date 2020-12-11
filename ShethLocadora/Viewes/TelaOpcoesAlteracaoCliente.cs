@@ -1,91 +1,92 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Repositories;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Repositories;
+//using ShethLocadora.Utilities;
+//using ShethLocadora.ViewsNew;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaOpcoesAlteracaoCliente
-    {
-        internal static string CpfInformado = null;
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaOpcoesAlteracaoCliente
+//    {
+//        internal static string CpfInformado = null;
 
-        internal static void ApresentaTela()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - CLIENTES");
+//        internal static void ApresentaTela()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE ALTERAÇÕES - CLIENTES");
 
-            RecebeCpf();
-        }
+//            RecebeCpf();
+//        }
 
-        private static void RecebeCpf()
-        {
-            Console.Write("\n Informe o CPF do cliente que deseja alterar: ");
-            CpfInformado = Console.ReadLine();
+//        private static void RecebeCpf()
+//        {
+//            Console.Write("\n Informe o CPF do cliente que deseja alterar: ");
+//            CpfInformado = Console.ReadLine();
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            LocalizaCpf(CpfInformado);
-        }
+//            LocalizaCpf(CpfInformado);
+//        }
 
-        private static void LocalizaCpf(string CpfInformado)
-        {
-            bool cpfLocalizado = false;
+//        private static void LocalizaCpf(string CpfInformado)
+//        {
+//            bool cpfLocalizado = false;
 
-            foreach (var item in BancoDados.Clientes)
-            {
-                if (item.Cpf == CpfInformado)
-                {
-                    cpfLocalizado = true;
+//            foreach (var item in BancoDados.Clientes)
+//            {
+//                if (item.Cpf == CpfInformado)
+//                {
+//                    cpfLocalizado = true;
 
-                    Console.WriteLine(item);
+//                    Console.WriteLine(item);
 
-                    break;
-                }
-            }
+//                    break;
+//                }
+//            }
 
-            VerificaResultadoLocalizacaoCpf(cpfLocalizado);
-        }
+//            VerificaResultadoLocalizacaoCpf(cpfLocalizado);
+//        }
 
-        private static void VerificaResultadoLocalizacaoCpf(bool cpfLocalizado)
-        {
-            if (cpfLocalizado == true)
-            {
-                ApresentaMenu();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Nenhum cliente localizado!");
+//        private static void VerificaResultadoLocalizacaoCpf(bool cpfLocalizado)
+//        {
+//            if (cpfLocalizado == true)
+//            {
+//                ApresentaMenu();
+//            }
+//            else
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("Nenhum cliente localizado!");
 
-                TelaMenuCliente.ApresentaTela();
-            }
-        }
+//                TelaMenuCliente.ApresentaTela();
+//            }
+//        }
 
-        internal static void ApresentaMenu()
-        {
-            Console.WriteLine(" Opções de alteração:");
+//        internal static void ApresentaMenu()
+//        {
+//            Console.WriteLine(" Opções de alteração:");
 
-            OpcoesMenu();
+//            OpcoesMenu();
 
-            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenu();
+//            int opcaoInformada = UtilitariosGlobais.RecebeOpcaoMenu();
 
-            ControllerTelaOpcoesAlteracaoCliente.RecebeOpcaoMenu(opcaoInformada);
-        }
+//            ControllerTelaOpcoesAlteracaoCliente.RecebeOpcaoMenu(opcaoInformada);
+//        }
 
-        private static void OpcoesMenu()
-        {
-            Console.WriteLine("\n 1 - Nome");
-            Console.WriteLine(" 2 - Data de nascimento");
-            Console.WriteLine(" 3 - Sexo");
-            Console.WriteLine(" 4 - CPF");
-            Console.WriteLine(" 5 - E-mail");
-            Console.WriteLine(" 6 - Número de celular");
-            Console.WriteLine(" 7 - Unidade Federativa");
-            Console.WriteLine(" 8 - Cidade");
-            Console.WriteLine(" 9 - Bairro");
-            Console.WriteLine(" 10 - Logradouro");
-            Console.WriteLine(" 11 - Complemento");
-            Console.WriteLine(" 12 - Cep");
-            Console.WriteLine(" 13 - Status");
-            Console.WriteLine(" 19 - Menu Filmes");
-        }
-    }
-}
+//        private static void OpcoesMenu()
+//        {
+//            Console.WriteLine("\n 1 - Nome");
+//            Console.WriteLine(" 2 - Data de nascimento");
+//            Console.WriteLine(" 3 - Sexo");
+//            Console.WriteLine(" 4 - CPF");
+//            Console.WriteLine(" 5 - E-mail");
+//            Console.WriteLine(" 6 - Número de celular");
+//            Console.WriteLine(" 7 - Unidade Federativa");
+//            Console.WriteLine(" 8 - Cidade");
+//            Console.WriteLine(" 9 - Bairro");
+//            Console.WriteLine(" 10 - Logradouro");
+//            Console.WriteLine(" 11 - Complemento");
+//            Console.WriteLine(" 12 - Cep");
+//            Console.WriteLine(" 13 - Status");
+//            Console.WriteLine(" 19 - Menu Filmes");
+//        }
+//    }
+//}

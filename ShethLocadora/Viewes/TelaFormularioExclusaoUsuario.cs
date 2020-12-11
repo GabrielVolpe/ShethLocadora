@@ -1,95 +1,96 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Repositories;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Repositories;
+//using ShethLocadora.Utilities;
+//using ShethLocadora.ViewsNew;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaFormularioExclusaoUsuario
-    {
-        internal static string CpfInformado = null;
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaFormularioExclusaoUsuario
+//    {
+//        internal static string CpfInformado = null;
 
-        internal static void ApresentaTela()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("FORMULÁRIO DE EXCLUSÃO - USUÁRIOS");
+//        internal static void ApresentaTela()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("FORMULÁRIO DE EXCLUSÃO - USUÁRIOS");
 
-            RecebeCpf();
-        }
+//            RecebeCpf();
+//        }
 
-        private static void RecebeCpf()
-        {
-            Console.Write("\n Informe o CPF do usuário que deseja excluir: ");
-            CpfInformado = Console.ReadLine();
+//        private static void RecebeCpf()
+//        {
+//            Console.Write("\n Informe o CPF do usuário que deseja excluir: ");
+//            CpfInformado = Console.ReadLine();
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            LocalizaCpf(CpfInformado);
-        }
+//            LocalizaCpf(CpfInformado);
+//        }
 
-        private static void LocalizaCpf(string cpfInformado)
-        {
-            bool cpfLocalizado = false;
+//        private static void LocalizaCpf(string cpfInformado)
+//        {
+//            bool cpfLocalizado = false;
 
-            foreach (var item in BancoDados.Usuarios)
-            {
-                if (item.Cpf == CpfInformado)
-                {
-                    cpfLocalizado = true;
+//            foreach (var item in BancoDados.Usuarios)
+//            {
+//                if (item.Cpf == CpfInformado)
+//                {
+//                    cpfLocalizado = true;
 
-                    Console.WriteLine(item);
+//                    Console.WriteLine(item);
 
-                    break;
-                }
-            }
+//                    break;
+//                }
+//            }
 
-            VerificaResultadoLocalizacaoCpf(cpfLocalizado);
-        }
+//            VerificaResultadoLocalizacaoCpf(cpfLocalizado);
+//        }
 
-        private static void VerificaResultadoLocalizacaoCpf(bool cpfLocalizado)
-        {
-            if (cpfLocalizado == true)
-            {
-                ApresentaConfirmacao();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("Nenhum usuário localizado!");
+//        private static void VerificaResultadoLocalizacaoCpf(bool cpfLocalizado)
+//        {
+//            if (cpfLocalizado == true)
+//            {
+//                ApresentaConfirmacao();
+//            }
+//            else
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro(" Nenhum usuário localizado!");
 
-                TelaMenuUsuario.ApresentaTela();
-            }
-        }
+//                TelaMenuUsuarioNew.ApresentaTela();
+//            }
+//        }
 
-        private static void ApresentaConfirmacao()
-        {
-            int opcaoConfirmacaoExclusao = 0;
+//        private static void ApresentaConfirmacao()
+//        {
+//            int opcaoConfirmacaoExclusao = 0;
 
-            Console.Write(" Deseja realmente prosseguir com a exclusão? (1 = SIM / 2 = NÃO): ");
-            int.TryParse(Console.ReadLine(), out opcaoConfirmacaoExclusao);
+//            Console.Write(" Deseja realmente prosseguir com a exclusão? (1 = SIM / 2 = NÃO): ");
+//            int.TryParse(Console.ReadLine(), out opcaoConfirmacaoExclusao);
 
-            if (opcaoConfirmacaoExclusao == 1)
-            {
-                Console.Clear();
+//            if (opcaoConfirmacaoExclusao == 1)
+//            {
+//                Console.Clear();
 
-                ControllerUsuario.ExcluiUsuario(CpfInformado);
+//                ControllerUsuario.ExcluiUsuario(CpfInformado);
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão realizada com sucesso!");
+//                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão realizada com sucesso!");
 
-                TelaMenuUsuario.ApresentaTela();
-            }
-            else if (opcaoConfirmacaoExclusao == 2)
-            {
-                Console.Clear();
+//                TelaMenuUsuarioNew.ApresentaTela();
+//            }
+//            else if (opcaoConfirmacaoExclusao == 2)
+//            {
+//                Console.Clear();
 
-                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão cancelada!");
+//                UtilitariosGlobais.ApresentaMensagemSucesso("Exclusão cancelada!");
 
-                TelaMenuUsuario.ApresentaTela();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro("\nOpção inválida!");
+//                TelaMenuUsuarioNew.ApresentaTela();
+//            }
+//            else
+//            {
+//                UtilitariosGlobais.ApresentaMensagemErro("\n Opção inválida!");
 
-                ApresentaConfirmacao();
-            }
-        }
-    }
-}
+//                ApresentaConfirmacao();
+//            }
+//        }
+//    }
+//}

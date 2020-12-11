@@ -1,60 +1,61 @@
-﻿using ShethLocadora.Controllers;
-using ShethLocadora.Utilities;
-using System;
+﻿//using ShethLocadora.Controllers;
+//using ShethLocadora.Utilities;
+//using ShethLocadora.ViewsNew;
+//using System;
 
-namespace ShethLocadora.Viewes
-{
-    static class TelaFormularioConsultaUsuario
-    {
-        internal static void ListaTodos()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR TODOS OS USUÁRIOS");
+//namespace ShethLocadora.Viewes
+//{
+//    static class TelaFormularioConsultaUsuario
+//    {
+//        internal static void ListaTodos()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR TODOS OS USUÁRIOS");
 
-            Console.WriteLine();
+//            Console.WriteLine();
 
-            ControllerUsuario.ListaTodos();
+//            ControllerUsuario.ListaTodos();
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ConsultaId()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("CONTULAR USUÁRIOS POR ID");
+//        internal static void ListaNome()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("LISTAR USUÁRIOS POR NOME");
 
-            int idInformado = UtilitariosGlobais.ConsultasInt("\n ID: ");
+//            string nomeInformado = UtilitariosGlobais.ConsultasString("\n Nome: ");
 
-            ControllerUsuario.ConsultaId(idInformado);
+//            ControllerUsuario.ListaNome(nomeInformado);
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ConsultaCpf()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("CONSULTAR USUÁRIOS POR CPF");
+//        internal static void ConsultaId()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("CONTULAR USUÁRIOS POR ID");
 
-            string cpfInformado = UtilitariosGlobais.ConsultasString("\n CPF: ");
+//            int idInformado = UtilitariosGlobais.ConsultasInt("\n ID: ");
 
-            ControllerUsuario.ConsultaCpf(cpfInformado);
+//            ControllerUsuario.ConsultaId(idInformado);
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        internal static void ListaNome()
-        {
-            UtilitariosGlobais.ApresentaCabecalho("LISTAR USUÁRIOS POR NOME");
+//        internal static void ConsultaCpf()
+//        {
+//            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro("CONSULTAR USUÁRIOS POR CPF");
 
-            string nomeInformado = UtilitariosGlobais.ConsultasString("\n Nome: ");
+//            string cpfInformado = UtilitariosGlobais.ConsultasString("\n CPF: ");
 
-            ControllerUsuario.ListaNome(nomeInformado);
+//            ControllerUsuario.ConsultaCpf(cpfInformado);
 
-            FinalizaConsulta();
-        }
+//            FinalizaConsulta();
+//        }
 
-        private static void FinalizaConsulta()
-        {
-            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
+//        private static void FinalizaConsulta()
+//        {
+//            UtilitariosGlobais.ApresentaMensagemSucesso("Consulta finalizada!");
 
-            TelaOpcoesConsultaUsuarios.ApresentaTela();
-        }
-    }
-}
+//            TelaOpcoesConsultaUsuarioNew.ApresentaTela();
+//        }
+//    }
+//}

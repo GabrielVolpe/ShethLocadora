@@ -1,5 +1,5 @@
 ﻿using ShethLocadora.Utilities;
-using ShethLocadora.Viewes;
+using ShethLocadora.ViewsNew;
 using System;
 
 namespace ShethLocadora.Controllers
@@ -17,58 +17,58 @@ namespace ShethLocadora.Controllers
             {
                 case 1:
                     {
-                        TelaFormularioAlteracaoFilme.RecebeStatus();
+                        TelaFormularioAlteracaoFilmeNew.RecebeStatus();
                     }
                     break;
                 case 2:
                     {
-                        TelaFormularioAlteracaoFilme.RecebeTitulo();
+                        TelaFormularioAlteracaoFilmeNew.RecebeTitulo();
                     }
                     break;
                 case 3:
                     {
-                        TelaFormularioAlteracaoFilme.RecebeDiretor();
+                        TelaFormularioAlteracaoFilmeNew.RecebeDiretor();
                     }
                     break;
                 case 4:
                     {
-                        TelaFormularioAlteracaoFilme.RecebeCategoria();
+                        TelaFormularioAlteracaoFilmeNew.RecebeCategoria();
                     }
                     break;
                 case 5:
                     {
-                        TelaFormularioAlteracaoFilme.RecebeClassificacaoIndicativa();
+                        TelaFormularioAlteracaoFilmeNew.RecebeClassificacaoIndicativa();
                     }
                     break;
                 case 6:
                     {
-                        TelaFormularioAlteracaoFilme.RecebeValorLocacao();
+                        TelaFormularioAlteracaoFilmeNew.RecebeValorLocacao();
                     }
                     break;
                 case 7:
                     {
-                        TelaFormularioAlteracaoFilme.RecebePeriodoDiasLocacao();
+                        TelaFormularioAlteracaoFilmeNew.RecebePeriodoDiasLocacao();
                     }
                     break;
                 case 8:
                     {
-                        TelaFormularioAlteracaoFilme.RecebeQuantidadeDisponivel();
+                        TelaFormularioAlteracaoFilmeNew.RecebeQuantidadeDisponivel();
                     }
                     break;
                 case 9:
                     {
                         Console.Clear();
 
-                        TelaMenuFilme.ApresentaTela();
+                        TelaMenuFilmeNew.ApresentaTela();
                     }
                     break;
                 default:
                     {
                         Console.WriteLine();
 
-                        UtilitariosGlobais.ApresentaMensagemErro("Opcão inválida! ");
+                        UtilitariosGlobais.ApresentaMensagemErro(" Opcão inválida!");
 
-                        TelaOpcoesAlteracaoFilme.ApresentaMenu();
+                        TelaOpcoesAlteracaoFilmeNew.ApresentaMenu();
                     }
                     break;
             }
