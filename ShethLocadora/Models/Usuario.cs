@@ -55,7 +55,6 @@ namespace ShethLocadora.Models
                 permissaoNominal = "OPERADOR";
             }
 
-            stringUsuario.AppendLine(" ================================================== D A D O S   P E S S O A I S");
             stringUsuario.AppendLine(" ID.....................: " + Id);
             stringUsuario.AppendLine(" Nome...................: " + Nome);
             stringUsuario.AppendLine(" Data de nascimento.....: " + DataNascimento.ToString("dd/MM/yyyy"));

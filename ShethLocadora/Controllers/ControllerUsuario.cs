@@ -183,7 +183,7 @@ namespace ShethLocadora.Controllers
         private static void ExibeModeloConsulta(Usuario item)
         {
             UtilitariosGlobais.ApresentaCabecalhoAzulEscuro(" [DADOS DO USUÁRIO]");
-            TelaSemTitulo.GeraTela(80, 16, 0, 6);
+            TelaSemTitulo.GeraTela(80, 18, 0, 6);
 
             Console.SetCursorPosition(0, 6);
             Console.BackgroundColor = ConsoleColor.DarkBlue;

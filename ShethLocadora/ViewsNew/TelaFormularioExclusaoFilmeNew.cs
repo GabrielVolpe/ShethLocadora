@@ -11,7 +11,7 @@ namespace ShethLocadora.ViewsNew
 
         internal static void ApresentaTela()
         {
-            TelaComTitulo.GeraTela(" FORMULÁRTIO DE EXCLUSÃO - FILMES", 80, 4, 0, 1);
+            TelaComTitulo.GeraTela(" FORMULÁRIO DE EXCLUSÃO - FILMES", 80, 4, 0, 1);
 
             RecebeId();
         }
