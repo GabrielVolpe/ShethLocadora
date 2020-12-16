@@ -251,80 +251,44 @@ namespace ShethLocadora.ViewsNew
         {
             Tuple<bool, int> retornoStatus = TelaFormularioCadastroUsuarioNew.RecebeStatus();
 
-            if (retornoStatus.Item1 == true)
-            {
-                Console.Clear();
+            Console.Clear();
 
-                ControllerUsuario.AlteraStatus(TelaOpcoesAlteracaoUsuarioNew.CpfInformado, retornoStatus.Item2);
+            ControllerUsuario.AlteraStatus(TelaOpcoesAlteracaoUsuarioNew.CpfInformado, retornoStatus.Item2);
 
-                FinalizaAlteracao();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro(" Opção inválida!");
-
-                RecebeStatus();
-            }
+            FinalizaAlteracao();
         }
 
         internal static void RecebePermissao()
         {
             Tuple<bool, int> retornoPermissao = TelaFormularioCadastroUsuarioNew.RecebePermissao();
 
-            if (retornoPermissao.Item1 == true)
-            {
-                Console.Clear();
+            Console.Clear();
 
-                ControllerUsuario.AlteraPermissao(TelaOpcoesAlteracaoUsuarioNew.CpfInformado, retornoPermissao.Item2);
+            ControllerUsuario.AlteraPermissao(TelaOpcoesAlteracaoUsuarioNew.CpfInformado, retornoPermissao.Item2);
 
-                FinalizaAlteracao();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro(" Opção inválida!");
-
-                RecebePermissao();
-            }
+            FinalizaAlteracao();
         }
 
         internal static void RecebeUsuarioAutenticacao()
         {
             Tuple<bool, string> retornoUsuarioAutenticacao = TelaFormularioCadastroUsuarioNew.RecebeUsuarioAutenticacao();
 
-            if (retornoUsuarioAutenticacao.Item1 == true)
-            {
-                Console.Clear();
+            Console.Clear();
 
-                ControllerUsuario.AlteraUsuarioAutenticacao(TelaOpcoesAlteracaoUsuarioNew.CpfInformado, retornoUsuarioAutenticacao.Item2);
+            ControllerUsuario.AlteraUsuarioAutenticacao(TelaOpcoesAlteracaoUsuarioNew.CpfInformado, retornoUsuarioAutenticacao.Item2);
 
-                FinalizaAlteracao();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro(" Usuário inválido!");
-
-                RecebeUsuarioAutenticacao();
-            }
+            FinalizaAlteracao();
         }
 
         internal static void RecebeSenhaAutenticacao()
         {
             Tuple<bool, string> retornoSenhaAutenticacao = TelaFormularioCadastroUsuarioNew.RecebeSenhaAutenticacao();
 
-            if (retornoSenhaAutenticacao.Item1 == true)
-            {
-                Console.Clear();
+            Console.Clear();
 
-                ControllerUsuario.AlteraSenhaAutenticacao(TelaOpcoesAlteracaoUsuarioNew.CpfInformado, retornoSenhaAutenticacao.Item2);
+            ControllerUsuario.AlteraSenhaAutenticacao(TelaOpcoesAlteracaoUsuarioNew.CpfInformado, retornoSenhaAutenticacao.Item2);
 
-                FinalizaAlteracao();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro(" Senha inválido!");
-
-                RecebeSenhaAutenticacao();
-            }
+            FinalizaAlteracao();
         }
 
         private static void FinalizaAlteracao()

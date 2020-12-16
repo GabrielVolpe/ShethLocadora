@@ -251,20 +251,11 @@ namespace ShethLocadora.ViewsNew
         {
             Tuple<bool, int> retornoStatus = TelaFormularioCadastroClienteNew.RecebeStatus();
 
-            if (retornoStatus.Item1 == true)
-            {
-                Console.Clear();
+            Console.Clear();
 
-                ControllerCliente.AlteraStatus(TelaOpcoesAlteracaoClienteNew.CpfInformado, retornoStatus.Item2);
+            ControllerCliente.AlteraStatus(TelaOpcoesAlteracaoClienteNew.CpfInformado, retornoStatus.Item2);
 
-                FinalizaAlteracao();
-            }
-            else
-            {
-                UtilitariosGlobais.ApresentaMensagemErro(" Opção inválida!");
-
-                RecebeStatus();
-            }
+            FinalizaAlteracao();
         }
 
         private static void FinalizaAlteracao()

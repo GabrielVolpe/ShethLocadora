@@ -159,7 +159,6 @@ namespace ShethLocadora.Utilities
             {
                 if (item.Id == idInformado)
                 {
-                    Console.WriteLine($" Valor de locação no prazo: R$ {item.ValorPrazo.ToString("F2")}");
                     Console.WriteLine($" Dias em atraso...........: {DateTime.Now.Day - item.DataPrevistaDevolucao.Day}");
                     Console.WriteLine($" Taxa de juros......... ..: {item.TaxaJurosAtraso}%" + " a.d");
                     Console.WriteLine($" Valor da multa...........: R$ {item.ValorMulta.ToString("F2")}");

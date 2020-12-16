@@ -291,29 +291,52 @@ namespace ShethLocadora.Controllers
             {
                 foreach (var item in BancoDados.Locacoes.Where(x => x.Id == id))
                 {
-                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
-                    UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DA LOCAÇÃO]: \n");
-
-                    Console.WriteLine(item);
-
-                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
-                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                    ExibeModeloConsulta(item);
                 }
             }
 
             if (cpf != null)
             {
-                foreach (var item in BancoDados.Locacoes.Where(x => x.Cliente.Cpf == cpf))
+                var resultadoConsultaCpf =
+                    from x in BancoDados.Locacoes
+                    where x.Cliente.Cpf == cpf
+                    select x;
+
+                Locacao[] resultadoEmArray = resultadoConsultaCpf.ToArray();
+
+                int quantidadeRegistrosArray = resultadoEmArray.Length;
+
+                for (int i = 0; i < quantidadeRegistrosArray; i++)
                 {
-                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
-                    UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DA LOCAÇÃO]: \n");
+                    ExibeModeloConsulta(resultadoEmArray[i]);
 
-                    Console.WriteLine(item);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(" === Pressione [ENTER] para verificar o próximo registro ===");
+                    Console.ResetColor();
 
-                    UtilitariosGlobais.ApresentaResumoValores(item.Id);
-                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                    Console.ReadKey();
                 }
             }
+        }
+
+        private static void ExibeModeloConsulta(Locacao item)
+        {
+            TelaSemTitulo.GeraTela(80, 24, 0, 6);
+
+            Console.SetCursorPosition(0, 6);
+            ConteudoAdicionalModeloConsulta(item);
+        }
+
+        private static void ConteudoAdicionalModeloConsulta(Locacao item)
+        {
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine(item);
+            Console.WriteLine($" Dias em atraso...........: {DateTime.Now.Day - item.DataPrevistaDevolucao.Day}");
+            Console.WriteLine($" Taxa de juros......... ..: {item.TaxaJurosAtraso}%" + " a.d");
+            Console.WriteLine($" Valor da multa...........: R$ {item.ValorMulta.ToString("F2")}");
+            Console.WriteLine($" Valor dos juros..........: R$ {item.ValorJuros.ToString("F2")}");
+            Console.WriteLine($"\n TOTAL..................: R$ {item.ValorFinal.ToString("F2")}");
+            Console.ResetColor();
         }
 
         private static void ExibeModeloListagem(Locacao item, int linha)

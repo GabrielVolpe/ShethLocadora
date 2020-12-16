@@ -2,6 +2,7 @@
 using ShethLocadora.Models.Enums;
 using ShethLocadora.Repositories;
 using ShethLocadora.Utilities;
+using ShethLocadora.ViewsNew;
 using System;
 using System.Linq;
 
@@ -166,12 +167,7 @@ namespace ShethLocadora.Controllers
             {
                 foreach (var item in BancoDados.Usuarios.Where(x => x.Id == id))
                 {
-                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
-                    UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DO USUÁRIO]: \n");
-
-                    Console.WriteLine(item);
-
-                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                    ExibeModeloConsulta(item);
                 }
             }
 
@@ -179,14 +175,20 @@ namespace ShethLocadora.Controllers
             {
                 foreach (var item in BancoDados.Usuarios.Where(x => x.Cpf == cpf.ToUpper()))
                 {
-                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
-                    UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DO USUÁRIO]: \n");
-
-                    Console.WriteLine(item);
-
-                    Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                    ExibeModeloConsulta(item);
                 }
             }
+        }
+
+        private static void ExibeModeloConsulta(Usuario item)
+        {
+            UtilitariosGlobais.ApresentaCabecalhoAzulEscuro(" [DADOS DO USUÁRIO]");
+            TelaSemTitulo.GeraTela(80, 16, 0, 6);
+
+            Console.SetCursorPosition(0, 6);
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.Write(item);
+            Console.ResetColor();
         }
 
         private static void ExibeModeloListagem(Usuario item, int linha)

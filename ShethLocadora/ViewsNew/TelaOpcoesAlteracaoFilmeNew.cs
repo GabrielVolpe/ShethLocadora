@@ -99,7 +99,7 @@ namespace ShethLocadora.ViewsNew
 
         internal static void ApresentaMenu()
         {
-            TelaComTitulo.GeraTela(" Opções de alteração", 80, 15, 0, 1);
+            TelaComTitulo.GeraTela(" Opções de alteração", 80, 14, 0, 1);
 
             OpcoesMenu();
 
@@ -113,7 +113,7 @@ namespace ShethLocadora.ViewsNew
             Console.SetCursorPosition(0, 3);
 
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("\n 1 - Status");
+            Console.WriteLine(" 1 - Status");
             Console.WriteLine(" 2 - Título");
             Console.WriteLine(" 3 - Diretor");
             Console.WriteLine(" 4 - Categoria");

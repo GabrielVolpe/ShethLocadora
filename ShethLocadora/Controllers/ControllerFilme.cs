@@ -2,6 +2,7 @@
 using ShethLocadora.Models.Enums;
 using ShethLocadora.Repositories;
 using ShethLocadora.Utilities;
+using ShethLocadora.ViewsNew;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -224,12 +225,13 @@ namespace ShethLocadora.Controllers
         {
             foreach (var item in BancoDados.Filmes.Where(x => x.Id == idInformado))
             {
-                Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
-                UtilitariosGlobais.ApresentaCabecalhoCinzaEscuro(" [DADOS DO FILME]: \n");
+                UtilitariosGlobais.ApresentaCabecalhoAzulEscuro(" [DADOS DO FILME]");
+                TelaSemTitulo.GeraTela(80, 9, 0, 6);
 
-                Console.WriteLine(item);
-
-                Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                Console.SetCursorPosition(0, 6);
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.Write(item);
+                Console.ResetColor();
             }
         }
 

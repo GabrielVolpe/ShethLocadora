@@ -14,7 +14,7 @@ namespace ShethLocadora.ViewsNew
         {
             Locacao.AtualizaLocacoes();
 
-            TelaComTitulo.GeraTela(" FORMULÁRIO DE DEVOLUÇÃO", 80, 32, 0, 1);
+            TelaComTitulo.GeraTela(" FORMULÁRIO DE DEVOLUÇÃO", 80, 31, 0, 1);
 
             RecebeIdLocacao();
         }
