@@ -17,7 +17,7 @@ namespace ShethLocadora.Controllers
 
         internal static bool ValidaNome(string nomeInformado)
         {
-            Regex regexNome = new Regex(@"^(?<PrimeiroNome>[a-zA-Z]){1,}(?<EspacoEntreNomes>\s)(?<OutrosNomes>[a-zA-Z]\s?){1,}$");
+            Regex regexNome = new Regex(@"^(?<PrimeiroNome>[a-zA-Zá?é?í?ó?ã?\`?\´?]){1,}(?<EspacoEntreNomes>\s)(?<OutrosNomes>[a-zA-Zá?é?í?ó?ã?\`?\´?]\s?){1,}$");
 
             if (nomeInformado.Length >= 5 && regexNome.IsMatch(nomeInformado))
             {

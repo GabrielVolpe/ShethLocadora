@@ -66,6 +66,7 @@ namespace ShethLocadora.Controllers
                     {
                         Console.WriteLine();
 
+                        Console.SetCursorPosition(0, 0);
                         UtilitariosGlobais.ApresentaMensagemErro(" Opcão inválida!");
 
                         TelaOpcoesAlteracaoFilmeNew.ApresentaMenu();
